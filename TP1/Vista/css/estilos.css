@@ -21,9 +21,8 @@ h1, h2, h3 {
 }
 
 .container {
-    outline: 1px solid red;
     padding: 20px;
-    max-width: 800px; 
+    max-width: 850px; 
     margin: 0;
 }
 
@@ -46,7 +45,7 @@ form {
     display: flex;
     flex-direction: column;
     align-items: center;
-    max-width: 500px;
+    width: 400px;
     margin: 0 auto;
 }
 
@@ -77,8 +76,8 @@ input[type="number"], input[type="text"], select {
 }
 
 .btn {
-    width: 150px;
-    padding: 10px;
+    width: 130px;
+    padding: 5px;
     margin-top: 10px;
     background-color: #699676;
     border-radius: 2em;
@@ -96,6 +95,10 @@ input[type="number"], input[type="text"], select {
 
 .btn:not(:hover) {
     transition: 0.2s;
+}
+
+.btn-alt {
+
 }
 
 .texto-normal {
