@@ -67,8 +67,8 @@ label {
     max-width: 300px;
 }
 
-.form-input {
-    height: 0.5em;
+.form-input, select {
+    height: 1em;
     width: 100%;
     max-width: 300px;
     padding: 6px;
@@ -76,13 +76,6 @@ label {
     border: 0;
     border-bottom: 1px solid #5C5B63;
     border-radius: 2px;
-}
-form .error{
-    color: red;
-}
-        
-input .error{
-    border-color: red;
 }
 
 .btn {

@@ -7,9 +7,9 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Ejercicio 5 - TP 1</title>
-    <link rel="stylesheet" href="css/estilos.css">
+    <link rel="stylesheet" href="assets/css/estilos.css">
     <link href="https://fonts.googleapis.com/css2?family=Jost:ital,wght@0,100..900;1,100..900&display=swap" rel="stylesheet">
-    <script src="TP1/Utils/JQuery/jquery-3.7.1.min.js"></script>
+    <script src="https://code.jquery.com/jquery-3.7.1.min.js"></script>
 </head>
 <body>
     <div class="header"></div>
@@ -19,15 +19,15 @@
         <p class="texto-normal">
         Modificar el formulario del ejercicio anterior solicitando, tal que usando componentes “radios buttons” se ingrese el nivel de estudio de la persona: 1-no tiene estudios, 2-estudios primarios, 3-estudios secundarios. Agregar el componente que crea más apropiado para solicitar el sexo. En la página que procesa el formulario mostrar además un mensaje que indique el tipo de estudios que posee y su sexo.
         </p>
-        <form action="./Action/action_persona.php" method="post" id="miFormulario">
+        <form action="./Action/action_persona.php" method="post" id="miFormulario" onSubmit="return validar()">
             <label for="nombre">Nombre:</label>
-            <input type="text" id="nombre" name="nombre" required><br>
+            <input type="text" id="nombre" name="nombre" class="form-input" required><br>
             <label for="apellido">Apellido:</label>
-            <input type="text" id="apellido" name="apellido" required><br>
+            <input type="text" id="apellido" name="apellido" class="form-input" required><br>
             <label for="edad">Edad:</label>
-            <input type="number" id="edad" name="edad" required><br>
+            <input type="number" id="edad" name="edad" class="form-input" required><br>
             <label for="dire">Direcci&oacute;n</label>
-            <input type="text" id="dire" name="dire" required><br>
+            <input type="text" id="dire" name="dire" class="form-input" required><br>
             <label for="radio">¿Cuál es su nivel de estudios?</label><br>
             <div class="selecciones">
             <label for="ninguno"><input type="radio" name="estudios" id="ninguno" value="ninguno">No tiene estudios</label><br>
@@ -46,6 +46,38 @@
         </div>
     </div>
     <script>
+        function validar() {
+            let validacion = true;
+            const nameRegex = /^[a-zA-ZáéíóúÁÉÍÓÚñÑ\s]+$/;
+            let nombre = $("#nombre").val().trim();
+            let apellido = $("#apellido").val().trim();
+            let edad = $("#edad").val();
+
+            if (nombre === "" || !nameRegex.test(nombre)) {
+                validacion = false;
+                alert("Nombre ingresado no válido");
+            }
+            if (apellido === "" || !nameRegex.test(apellido)) {
+                validacion = false;
+                alert("Apellido ingresado no válido");
+            }
+            if (edad === "" || edad < 0 || edad > 105) {
+                validacion = false;
+                alert("Edad ingresada no válida");
+            }
+            if (!validarSeleccion("estudios") || !validarSeleccion("genero")) {
+                validacion = false
+            }
+            return validacion;
+        }
+
+        function validarSeleccion(nombre) {
+            let seleccionado = $(`input[name="${nombre}"]:checked`).length > 0;
+            if (!seleccionado) {
+                alert(`Debe seleccionar una opción para ${nombre}.`);
+            }
+            return seleccionado;
+        }
     </script>
 </body>
 </html>
