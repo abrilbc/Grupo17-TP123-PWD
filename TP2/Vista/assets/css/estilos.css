@@ -45,8 +45,8 @@ form {
     display: flex;
     flex-direction: column;
     align-items: center;
-    max-width: 500px;
-    margin: 0 auto;
+    max-width: 400px;
+    margin: 0;
 }
 
 .selecciones {
@@ -66,14 +66,22 @@ label {
     max-width: 300px;
 }
 
-input[type="number"], input[type="text"], select {
+.form-input {
     height: 0.5em;
     width: 100%;
     max-width: 300px;
     padding: 6px;
     margin-bottom: 10px;
-    border: 1px solid #5C5B63;
+    border: 0;
+    border-bottom: 1px solid #5C5B63;
     border-radius: 2px;
+}
+form .error{
+    color: red;
+}
+        
+input .error{
+    border-color: red;
 }
 
 .btn {
