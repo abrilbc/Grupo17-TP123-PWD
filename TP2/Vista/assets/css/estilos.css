@@ -67,12 +67,13 @@ label {
 }
 
 input[type="number"], input[type="text"], select {
+    height: 0.5em;
     width: 100%;
     max-width: 300px;
-    padding: 10px;
+    padding: 6px;
     margin-bottom: 10px;
     border: 1px solid #5C5B63;
-    border-radius: 5px;
+    border-radius: 2px;
 }
 
 .btn {
