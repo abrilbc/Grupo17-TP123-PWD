@@ -19,11 +19,11 @@ class Numero{
     public function comparar() {
         $mensaje = "";
             if ($this->getValor() < 0) {
-                $mensaje = "El número ingresado es negativo";
+                $mensaje = "El número ingresado es <span>NEGATIVO</span>";
             } elseif ($this->getValor() == 0) {
-                $mensaje = "El número ingresado es cero";
+                $mensaje = "El número ingresado es <span>CERO</span>";
             } elseif ($this->getValor() > 0) {
-                $mensaje = "El número ingresado es positivo.";
+                $mensaje = "El número ingresado es <span>POSITIVO</span>";
             }
         return $mensaje;
     }
