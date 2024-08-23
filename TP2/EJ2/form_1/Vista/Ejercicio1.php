@@ -23,9 +23,9 @@
         y que sean del tipo correcto.
         </p>
         <h3>INFORMACIÓN PERSONAL</h3>
-        <form action="Action/action_ej1.php" method="post" name="miForm" id="miForm" onsubmit="return validar()">
+        <form action="Action/action_ej1.php" method="post" name="miForm" id="miForm" onSubmit="return validar()">
             <label for="number">Ingrese el número a comparar </label>
-            <input type="number" id="number" name="number" class="form-input" required>
+            <input type="text" id="number" name="number" class="form-input" required>
             <input type="submit" class="btn">
         </form>
         </div>
@@ -35,8 +35,7 @@
             let retorna = false
             let num = $('#number').val()
             if ($.isNumeric(num)) {
-                alert("Numero Enviado")
-                retorna true
+                retorna = true
             } else {
                 alert("Por favor, ingrese un número válido.")
             }
