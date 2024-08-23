@@ -2,20 +2,13 @@
 include_once '../../Control/Persona.php';
 include_once '../../Utils/funciones.php';
     $datos = darDatosSubmitted();
-
-
     if (!empty($datos)) {
-    $persona = new Persona();
-
-    $persona->setNombre($datos['nombre']);
-    $persona->setApellido($datos['apellido']);
-    $persona->setEdad($datos['edad']);
-    $persona->setDireccion($datos['dire']);
-    
+        $persona = new Persona();
+        $persona->setNombre($datos['nombre']);
+        $persona->setApellido($datos['apellido']);
+        $persona->setEdad($datos['edad']);
+        $persona->setDireccion($datos['dire']);
     }
-    
-
-
 ?>
 
 <!DOCTYPE html>

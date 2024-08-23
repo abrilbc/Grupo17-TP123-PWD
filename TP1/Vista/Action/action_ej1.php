@@ -55,7 +55,7 @@ $resultado = $objNumero->comparar();
                 echo $resultado;
                 ?>
             </p>
-            <a href="../Ejercicio1.php"><button class="btn" onclick="volver()">Volver</button></a>
+            <a href="../Ejercicio1.php"><button class="btn">Volver</button></a>
         </div>
     </div>
     <script>
