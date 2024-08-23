@@ -13,12 +13,9 @@
     <ul>
         <li><a href="./EJ2/Vista/ej-1.php">TP 2 - Ejercicio 1</a></li>
         <li><a href="./EJ2/index.php">TP 2 - Ejercicio 2</a></li>
-        <li><a href="./Vista/Ejercicio3.php">TP 1 - Ejercicio 3</a></li>
+        <li><a href="./EJ3/Vista/Ej3.php">TP 2 - Ejercicio 3</a></li>
         <li><a href="./Vista/Ejercicio4.php">TP 1 - Ejercicio 4</a></li>
-        <li><a href="./Vista/Ejercicio5.php">TP 1 - Ejercicio 5</a></li>
-        <li><a href="./Vista/Ejercicio6.php">TP 1 - Ejercicio 6</a></li>
-        <li><a href="./Vista/Ejercicio7.php">TP 1 - Ejercicio 7</a></li>
-        <li><a href="./Vista/Ejercicio8.php">TP 1 - Ejercicio 8</a></li>
+       
     </ul>
     </div>
 </body>
