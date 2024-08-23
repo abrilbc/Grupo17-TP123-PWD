@@ -40,13 +40,13 @@ h1, h2, h3 {
 }
 
 form {
-    outline: 1px solid purple;
+    background-color: rgb(224, 206, 160);
     padding-top: 10px; padding-bottom: 10px;
-    outline: 2px dashed #5C5B63;
+    box-shadow: 0 0 5px black;
     display: flex;
     flex-direction: column;
     align-items: center;
-    max-width: 400px;
+    width: 400px;
     margin: 0;
 }
 
