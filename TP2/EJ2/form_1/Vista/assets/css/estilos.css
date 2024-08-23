@@ -40,7 +40,7 @@ h1, h2, h3 {
 }
 
 form {
-    background-color: rgb(224, 206, 160);
+    background-color: rgb(237, 218, 168);
     padding-top: 10px; padding-bottom: 10px;
     box-shadow: 0 0 5px black;
     display: flex;
@@ -86,8 +86,8 @@ input .error{
 }
 
 .btn {
-    width: 150px;
-    padding: 10px;
+    width: 130px;
+    padding: 8px;
     margin-top: 10px;
     background-color: #699676;
     border-radius: 2em;

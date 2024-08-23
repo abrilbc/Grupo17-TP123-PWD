@@ -1,12 +1,13 @@
 <?php
+include_once '../../Control/Tiempo.php';
 
-include_once '../../Control/Numero.php';
 
-$informacion = $_POST['number'];
+if(!empty($_GET)) {
+    $arregloUnidimensional = [$_GET['lunes'], $_GET['martes'], $_GET['miercoles'], $_GET['jueves'], $_GET['viernes']];
+}
 
-$objNumero = new Numero($informacion);
-
-$resultado = $objNumero->comparar();
+$objTiempo = new Tiempo();
+$horasTotales = $objTiempo->sumarHoras($arregloUnidimensional);
 
 ?>
 
@@ -24,13 +25,12 @@ $resultado = $objNumero->comparar();
     <div class="header"></div>
     <div class="container">
         <div class="centrar">
-            <h2>RESULTADO</h2>
-            <p class="texto-normal">
-                <?php
-                echo $resultado;
-                ?>
-            </p>
-            <a href="../Ejercicio1.php"><button class="btn">Volver</button></a>
+        <h2>RESULTADO</h2>
+        <p class="texto-normal">
+            <?php
+            echo "Las horas totales por semana son " . $horasTotales;
+            ?>
+        </p>
         </div>
     </div>
     <script>

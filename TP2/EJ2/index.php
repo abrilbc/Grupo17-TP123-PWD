@@ -12,13 +12,13 @@
     <div class="container">
     <ul>
         <li><a href="./form_1/Vista/Ejercicio1.php">TP 2 - EJ 2 - Formulario 1</a></li>
-        <li><a href="./form_1/Vista/Ejercicio2.php">TP 2 - EJ 2 - Formulario 2</a></li>
-        <li><a href="./form_1/Vista/Ejercicio3.php">TP 2 - EJ 2 - Formulario 3</a></li>
-        <li><a href="./form_1/Vista/Ejercicio4.php">TP 2 - EJ 2 - Formulario 4</a></li>
-        <li><a href="./form_1/Vista/Ejercicio5.php">TP 2 - EJ 2 - Formulario 5</a></li>
-        <li><a href="./form_1/Vista/Ejercicio6.php">TP 2 - EJ 2 - Formulario 6</a></li>
-        <li><a href="./form_1/Vista/Ejercicio7.php">TP 2 - EJ 2 - Formulario 7</a></li>
-        <li><a href="./form_1/Vista/Ejercicio8.php">TP 2 - EJ 2 - Formulario 8</a></li>
+        <li><a href="./form_2/Vista/Ejercicio2.php">TP 2 - EJ 2 - Formulario 2</a></li>
+        <li><a href="./form_3/Vista/Ejercicio3.php">TP 2 - EJ 2 - Formulario 3</a></li>
+        <li><a href="./form_4/Vista/Ejercicio4.php">TP 2 - EJ 2 - Formulario 4</a></li>
+        <li><a href="./form_5/Vista/Ejercicio5.php">TP 2 - EJ 2 - Formulario 5</a></li>
+        <li><a href="./form_6/Vista/Ejercicio6.php">TP 2 - EJ 2 - Formulario 6</a></li>
+        <li><a href="./form_7/Vista/Ejercicio7.php">TP 2 - EJ 2 - Formulario 7</a></li>
+        <li><a href="./form_8/Vista/Ejercicio8.php">TP 2 - EJ 2 - Formulario 8</a></li>
     </ul>
     </div>
 </body>
