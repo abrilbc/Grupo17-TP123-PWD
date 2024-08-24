@@ -1,24 +1,22 @@
 <?php
-// Obtener datos del formulario
-$usuarioIngresado = $_POST['usuario'] ?? '';
-$claveIngresada = $_POST['contrasenia'] ?? '';
+
+include_once '../../Control/ControlUsuario.php';
+include_once '../../Utils/funciones.php';
+
 
 $loginExitoso = false;
 
-// Arreglo de usuarios registrados
+$datos= darDatosSubmitted();
 $usuarios = [
     ["usuario" => "Rodrigo", "clave" => "rodri123"],
     ["usuario" => "Martincho", "clave" => "Nomerentielquehiciste1"],
     ["usuario" => "Brisa", "clave" => "brisa"]
 ];
+$objControl= new ControlUsuario($usuarios);   
 
-// Verificación de usuario y contraseña
-foreach ($usuarios as $usuario) {
-    if ($usuario['usuario'] === $usuarioIngresado && $usuario['clave'] === $claveIngresada) {
-        $loginExitoso = true;
-        break;
-    }
-}
+$loginExitoso= $objControl->verificarUsuario($datos['usuario'],$datos['contrasenia']);
+
+
 ?>
 
 <!DOCTYPE html>
@@ -39,14 +37,12 @@ foreach ($usuarios as $usuario) {
         <div class="centrar">
         <h2>Resultado de la Autenticación</h2>
         <p class="texto-normal">
-            <?php  
-            if ($loginExitoso) {
-                echo "<h2>Bienvenido, $usuarioIngresado!</h2>";
-            } else {
-                echo "<h2>Error: Usuario o contraseña incorrectos.</h2>";
-            }
-            ?>
+            <h2><?php  
+           echo $loginExitoso;
+           ?>
+           </h2>
         </p>
+        
         <a href="../Ej3.php"><button class="btn">Volver</button></a>
         </div>
     </div>

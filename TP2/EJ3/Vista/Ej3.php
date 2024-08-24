@@ -21,7 +21,7 @@
             de bienvenida. De lo contrario, se muestra un mensaje de error.
         </p>
         
-        <form action="./Action/verificaPass.php" method="post" name="miFormulario" id="miFormulario">
+        <form action="../Vista/Action/verificaPass.php" method="post" name="miFormulario" id="miFormulario">
             <label for="usuario">Ingrese su usuario:</label> <br>
             <input type="text" name="usuario" id="usuario" class="form-input" required> <br>
             <label for="contrasenia">Ingrese su contraseña:</label> <br>
