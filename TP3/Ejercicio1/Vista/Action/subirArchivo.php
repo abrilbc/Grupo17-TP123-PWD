@@ -1,6 +1,10 @@
 <?php
 include_once '../../Utils/funciones.php';
 include_once '../../Control/Archivo.php';
+ini_set('file_uploads', 'On');
+ini_set('upload_max_filesize', '2M');
+ini_set('upload_tmp_dir', '../../Archivos');
+
 $datos = data_submitted();
 
 $objArchivo = new Archivo();

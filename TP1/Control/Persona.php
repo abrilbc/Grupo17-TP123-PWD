@@ -139,6 +139,7 @@ class Persona{
     }
 
     public function generarMensaje($datos) {
+        $mensaje = "";
         if (!empty($datos)) {
             $this->setNombre($datos['nombre']);
             $this->setApellido($datos['apellido']);
@@ -165,10 +166,7 @@ class Persona{
                 $this->setDeportes($datos['deportes']);
                 $mensaje .= "\nDeportes que practico: " . $this->mostrarDeportes();
             }
-
-            return $mensaje;
-        } else {
-            return "";
-        }
+        } 
+        return $mensaje;
     }
 }
