@@ -4,7 +4,24 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Ejercicios</title>
-    <link rel="stylesheet" href="./TP1/Vista/css/estilos.css">
+    <style>
+        body {
+        padding: 0;
+        margin: 0;
+        font-family: 'Jost';
+        font-size: 13px;
+        background-color: #FAF6ED;
+        }
+
+        .header {
+            margin-bottom: 0px;
+            width: 100%;
+            height: 9em;
+            background: url(TP1/Vista/img/banner_tp.png) no-repeat center center;
+            background-size: contain;
+            border-bottom: 1.5px solid #5C5B63;
+        }
+    </style>
 </head>
 <body>
     <div class="header"></div>

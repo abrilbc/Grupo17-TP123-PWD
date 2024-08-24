@@ -23,7 +23,7 @@
             background: url(assets/img/banner_tp2.png) no-repeat center center;
             background-size: contain;
             border-bottom: 1.5px solid #5C5B63;
-            background-color: #FAF6ED; /* Este es el color de fondo */
+            background-color: #FAF6ED;
         }
     </style>
 </head>
