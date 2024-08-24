@@ -10,11 +10,11 @@ $datos= darDatosSubmitted();
 $usuarios = [
     ["usuario" => "Rodrigo", "clave" => "rodri123"],
     ["usuario" => "Martincho", "clave" => "Nomerentielquehiciste1"],
-    ["usuario" => "Brisa", "clave" => "brisa"]
+    ["usuario" => "Brisa", "clave" => "loveskzlove1"]
 ];
 $objControl= new ControlUsuario($usuarios);   
 
-$loginExitoso= $objControl->verificarUsuario($datos['usuario'],$datos['contrasenia']);
+$loginExitoso= $objControl->verificarUsuario($datos);
 
 
 ?>

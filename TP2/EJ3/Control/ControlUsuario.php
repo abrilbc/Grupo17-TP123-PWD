@@ -22,12 +22,15 @@ class ControlUsuario {
     }
 
     
-    public function verificarUsuario($nombre, $contrasenia){
+    public function verificarUsuario($datos){
+        $nombre = $datos['usuario'];
+        $contrasenia = $datos['contrasenia'];
+
         $mensaje= "Error: Usuario o contraseña incorrectos.";
         // Verificación de usuario y contraseña
             foreach ($this->getColUsuarios() as $usuario) {
             if ($usuario['usuario'] === $nombre && $usuario['clave'] === $contrasenia) {
-                $mensaje = "Bienvenido, ".$nombre."!.";
+                $mensaje = "¡Bienvenidx, ".$nombre."!";
                 break;
             }
             }
