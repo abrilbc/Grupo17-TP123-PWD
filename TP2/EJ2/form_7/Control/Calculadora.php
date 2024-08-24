@@ -33,28 +33,17 @@ class Calculadora{
     {
         $this->operacion = $operacion;
     }
-    public function getResultado()
-    {
-        return $this->resultado;
-    }
-    public function setResultado($resultado)
-    {
-        $this->resultado = $resultado;
-    }
     public function operar(){
         $resultado = null;
         switch ($this->getOperacion()) {
             case 'suma': 
                 $resultado = $this->getNumero1() + $this->getNumero2();
-                $this->setResultado($resultado);
                 break;
             case 'resta': 
                 $resultado = $this->getNumero1() - $this->getNumero2();
-                $this->setResultado($resultado);
                 break;
             case 'multiplicacion': 
                 $resultado = $this->getNumero1() * $this->getNumero2();
-                $this->setResultado($resultado);
                 break;
         }
         return $resultado;

@@ -55,8 +55,6 @@
     </div>
     <script>
 
-        console.log($("#deporte").val())
-
         function validar() {
             let validacion = true;
             const nameRegex = /^[a-zA-ZáéíóúÁÉÍÓÚñÑ\s]+$/;

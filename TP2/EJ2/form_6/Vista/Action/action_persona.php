@@ -24,7 +24,7 @@ include_once '../../Utils/funciones.php';
         <h2>RESULTADO</h2>
         <p class="texto-normal">
             <?php
-            echo $mensaje;
+            echo nl2br($mensaje);
             ?>
         </p>
         </div>
