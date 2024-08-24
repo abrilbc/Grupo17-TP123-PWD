@@ -27,8 +27,8 @@
     <br><br>
     <ul>
         <li><a href="./TP3/Ejercicio1/Vista/Ejercicio1.php">TP 3 - Ejercicio 1</a></li>
-        <li><a href="./tp3/vistas/eje2.php">TP 3 - Ejercicio 2</a></li>
-        <li><a href="./tp3/vistas/eje3.php">TP 3 - Ejercicio 3</a></li>
+        <li><a href="./TP3/Ejercicio2/Vista/Ejercicio2.php">TP 3 - Ejercicio 2</a></li>
+        <li><a href="./TP3/Ejercicio3/Vista/Ejercicio3.php">TP 3 - Ejercicio 3</a></li>
     </ul>
 </body>
 </html>

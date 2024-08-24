@@ -36,8 +36,8 @@ class Archivo{
     }
     public function validar() {
         $mensaje = "";
-        if (!isset($this->getArchivo()['archivo']) || $this->getArchivo()['archivo']['error'] != UPLOAD_ERR_OK) {
-            return "No se recibió ningún archivo, o el archivo es demasiado grande para ser procesado por el servidor.";
+        if ($this->getArchivo()['archivo']['error'] != UPLOAD_ERR_OK) {
+            $mensaje = "No se recibió ningún archivo, o el archivo es demasiado grande para ser procesado por el servidor.";
         }
 
         $archivo = $this->getArchivo()['archivo'];
@@ -47,8 +47,8 @@ class Archivo{
 
         // Validar tipo de archivo
         $tipoArchivo = $archivo['type'];
-        if ($tipoArchivo != 'application/pdf' || $tipoArchivo != 'application/msword') {
-            $mensaje .= "El tipo de archivo no es válido. Solo se permiten archivos .doc o .pdf.<br />";
+        if ($tipoArchivo != 'application/pdf' && $tipoArchivo != 'application/msword') {
+            $mensaje .= "El tipo de archivo no es válido. Solo se permiten archivos .doc o .pdf<br />";
         }
 
         return $mensaje;

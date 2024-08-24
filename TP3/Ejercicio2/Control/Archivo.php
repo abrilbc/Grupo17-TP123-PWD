@@ -7,7 +7,7 @@ class Archivo{
     public function __construct() {
         $this->archivo = null;
         $this->tamanioMaximo = 2097152; // 2MB
-        $this->dir = '../../Archivos/';
+        $this->dir = '../Archivos/';
     }
     public function getArchivo()
     {
@@ -34,48 +34,56 @@ class Archivo{
     {
         $this->dir = $dir;
     }
-    public function validar() {
+    private function validar($archivo) {
         $mensaje = "";
-        if (!isset($this->getArchivo()['archivo']) || $this->getArchivo()['archivo']['error'] != UPLOAD_ERR_OK) {
-            return "No se recibió ningún archivo, o el archivo es demasiado grande para ser procesado por el servidor.";
+        if ($this->getArchivo()['error'] !== UPLOAD_ERR_OK) {
+            $mensaje = "Error al cargar el archivo.";
         }
 
-        $archivo = $this->getArchivo()['archivo'];
-        if ($archivo['size'] > $this->getTamanioMaximo()) {
-            $mensaje .= "El tamaño del archivo supera los 2MB.<br />";
+        // Validar tamaño del archivo
+        if ($this->getArchivo()['size'] > $this->tamanioMaximo) {
+            $mensaje = "El tamaño del archivo supera los 2 MB.";
         }
 
         // Validar tipo de archivo
-        $tipoArchivo = $archivo['type'];
-        if ($tipoArchivo != 'application/pdf' || $tipoArchivo != 'application/msword') {
-            $mensaje .= "El tipo de archivo no es válido. Solo se permiten archivos .doc o .pdf.<br />";
+        if ($this->getArchivo()['type'] !== 'text/plain') {
+            $mensaje = "El archivo no es un archivo de texto (.txt).";
         }
-
         return $mensaje;
     }
 
     public function subirArchivo($datos) {
-        $this->setArchivo($datos);
-
-        $mensaje = $this->validar();
-        if ($mensaje === "") { // Si no hubo errores en la validación
-            $archivo = $this->getArchivo()['archivo'];
-
+        $this->setArchivo($datos['archivo']);
+        $mensaje = $this->validar($this->getArchivo());
+        if ($mensaje === "") { // Verifica si no hubo errores en la validación
+            $archivo = $this->getArchivo();
             if ($archivo["error"] === 0) {
-                $rutaDestino = $this->getDir() . $archivo['name'];
+                $rutaDestino = $this->getDir() . basename($archivo['name']);
                 if (!copy($archivo['tmp_name'], $rutaDestino)) {
-                    $mensaje .= "ERROR: no se pudo cargar el archivo.<br />";
+                    $mensaje .= "ERROR: no se pudo cargar el archivo.";
                 } else {
-                    $mensaje .= "El archivo " . $archivo["name"] . " se ha copiado con éxito.<br />";
-                    $mensaje .= "<a href='".$rutaDestino."'>Ver archivo</a>";
+                    $mensaje = $this->mostrarContenidoArchivo($rutaDestino);
                 }
             } else {
-                $mensaje .= "ERROR: no se pudo cargar el archivo. No se pudo acceder al archivo temporal.<br />";
+                $mensaje .= "ERROR: no se pudo cargar el archivo. No se pudo acceder al archivo temporal.";
             }
+        } else {
+            return $mensaje;
         }
 
-        return $mensaje;
+        
     }
+    public function mostrarContenidoArchivo($rutaArchivo) {
+            echo $rutaArchivo;
+            $retorna = "";
+            if (file_exists($rutaArchivo)) {
+                $contenido = file_get_contents("'".$rutaArchivo."'");
+                $retorna = htmlspecialchars($contenido); // Devuelve el contenido del archivo
+            } else {
+                $retorna = "El archivo no existe en " . $rutaArchivo;
+            }
+            return $retorna;
+        }
     
 }
 ?>

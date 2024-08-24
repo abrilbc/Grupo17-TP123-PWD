@@ -22,7 +22,7 @@
         </p>
         <form action="./Action/subirArchivo.php" method="post" id="miFormulario" enctype="multipart/form-data">
             <label for="archivo">Ingrese el archivo <span>.txt</span> para visualizarlo:</label>
-            <input type="file" name="archivo" id="archivo" required>
+            <input type="file" name="archivo" id="archivo" accept=".txt" required>
         <input type="submit" class="btn">
         </form>
         </div>

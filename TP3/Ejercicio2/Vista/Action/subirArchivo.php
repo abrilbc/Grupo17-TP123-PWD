@@ -4,7 +4,12 @@ include_once '../../Control/Archivo.php';
 $datos = data_submitted();
 
 $objArchivo = new Archivo();
-$response = $objArchivo->subirArchivo($datos);
+$mensaje = $objArchivo->subirArchivo($datos);
+
+if ($mensaje == true) {
+    file_get_contents($objArchivo->getDir() . $datos['archivo']['name']);
+}
+    
 ?>
 
 <!DOCTYPE html>
@@ -24,7 +29,13 @@ $response = $objArchivo->subirArchivo($datos);
             <h2>RESULTADO</h2>
             <p class="texto-normal">
                 <?php
-                echo $response;
+                if (strpos($mensaje, "Error") === false) {
+                    $contenido = $objArchivo->mostrarContenidoArchivo($mensaje);
+                    echo "<h2>Contenido del Archivo:</h2>";
+                    echo "<textarea rows='20' cols='80'>" . $contenido . "</textarea>";
+                } else {
+                    echo "<p>$mensaje</p>";
+                }
                 ?>
             </p>
             <a href="../Ejercicio1.php"><button class="btn">Volver</button></a>
@@ -34,4 +45,3 @@ $response = $objArchivo->subirArchivo($datos);
     </script>
 </body>
 </html>
-
