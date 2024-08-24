@@ -1,8 +1,9 @@
 <?php
 
 include_once '../../Control/Numero.php';
+include_once '../../Utils/funciones.php';
 
-$informacion = $_POST['number'];
+$informacion = darDatosSubmitted();
 
 $objNumero = new Numero($informacion);
 

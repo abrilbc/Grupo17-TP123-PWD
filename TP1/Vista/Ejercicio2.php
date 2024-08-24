@@ -36,7 +36,7 @@
     <title>Ejercicio 2 - TP 1</title>
     <link rel="stylesheet" href="css/estilos.css">
     <link href="https://fonts.googleapis.com/css2?family=Jost:ital,wght@0,100..900;1,100..900&display=swap" rel="stylesheet">
-    <script src="TP1/Utils/JQuery/jquery-3.7.1.min.js"></script>
+    <script src="https://code.jquery.com/jquery-3.7.1.min.js"></script>
 </head>
 <body>
     <div class="header"></div>
@@ -65,6 +65,25 @@
 
     </div>
     <script>
+        $(document).ready(function() {
+    $("#miFormulario").submit(function(event) {
+        let valid = true;
+        const days = ["lunes", "martes", "miercoles", "jueves", "viernes"];
+        
+        days.forEach(function(day) {
+            let value = $("#" + day).val();
+            if (value === "" || value < 0 || value > 24) {
+                alert("Por favor, ingrese un número válido para " + day);
+                valid = false;
+                return false; // Esto detiene la iteración si se encuentra un error
+            }
+        });
+
+        if (!valid) {
+            event.preventDefault(); // Previene el envío del formulario si hay errores
+        }
+    });
+});
     </script>
 </body>
 </html>

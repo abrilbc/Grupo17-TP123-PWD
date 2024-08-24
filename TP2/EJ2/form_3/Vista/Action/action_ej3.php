@@ -2,13 +2,9 @@
 include_once '../../Control/Persona.php';
 include_once '../../Utils/funciones.php';
     $datos = darDatosSubmitted();
-    if (!empty($datos)) {
-        $persona = new Persona();
-        $persona->setNombre($datos['nombre']);
-        $persona->setApellido($datos['apellido']);
-        $persona->setEdad($datos['edad']);
-        $persona->setDireccion($datos['dire']);
-    }
+    $persona = new Persona();
+    $mensaje = $persona->generarPersonaSimplificado($datos);
+
 ?>
 
 <!DOCTYPE html>
@@ -28,8 +24,7 @@ include_once '../../Utils/funciones.php';
         <h2>RESULTADO</h2>
         <p class="texto-normal">
             <?php
-            echo "Hola, soy " . $persona->getNombre() . " " . $persona->getApellido() . 
-            "<br>Tengo " . $persona->getEdad() . " años y vivo en " . $persona->getDireccion(); 
+            echo nl2br($mensaje)
             ?>
         </p>
         </div>

@@ -46,12 +46,15 @@ class Calculadora{
         switch ($this->getOperacion()) {
             case 'suma': 
                 $resultado = $this->getNumero1() + $this->getNumero2();
+                $this->setResultado($resultado);
                 break;
             case 'resta': 
                 $resultado = $this->getNumero1() - $this->getNumero2();
+                $this->setResultado($resultado);
                 break;
             case 'multiplicacion': 
                 $resultado = $this->getNumero1() * $this->getNumero2();
+                $this->setResultado($resultado);
                 break;
         }
         return $resultado;

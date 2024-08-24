@@ -23,15 +23,15 @@
 <div class="header" style="position: absolute; background-color: white;"></div>
     <div class="d-flex justify-content-center align-items-center vh-100 bg-dark">
         <div class="shadow-lg rounded p-4 bg-light w-25 w-md-50 min-vh-50"> <!-- Modificado aquí -->
-            <form action="../Vista/Action/verificaPass.php" method="post" name="miFormulario" id="miFormulario">
+            <form action="../Vista/Action/verificaPass.php" method="post" name="miFormulario" id="miFormulario" onSubmit="return validar()">
             <h1 class="text-center text-secondary h2 mb-4 mt-3">Member Login</h1>
-            <div class="mb-3 input-group">
-                <span class="input-group-text" id="basic-addon1">
-                    <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-person" viewBox="0 0 16 16">
-                        <path d="M8 7a3 3 0 1 0 0-6 3 3 0 0 0 0 6zm0 1a4 4 0 0 0-4 4v1h8v-1a4 4 0 0 0-4-4z"/>
-                    </svg>
-                </span>
-                <input name="usuario" id="usuario" type="text" class="form-control rounded-0" placeholder="Username" aria-label="Username" aria-describedby="basic-addon1" required>
+                <div class="mb-3 input-group">
+                    <span class="input-group-text" id="basic-addon1">
+                        <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-person" viewBox="0 0 16 16">
+                            <path d="M8 7a3 3 0 1 0 0-6 3 3 0 0 0 0 6zm0 1a4 4 0 0 0-4 4v1h8v-1a4 4 0 0 0-4-4z"/>
+                        </svg>
+                    </span>
+                    <input name="usuario" id="usuario" type="text" class="form-control rounded-0" placeholder="Username" aria-label="Username" aria-describedby="basic-addon1">
                 </div>
                 <div class="mb-3 input-group">
                     <span class="input-group-text" id="basic-addon2">
@@ -39,7 +39,7 @@
                             <path d="M11 6V4a3 3 0 0 0-6 0v2H2v9h12V6h-3zm-5-2a2 2 0 0 1 4 0v2H6V4z"/>
                         </svg>
                     </span>
-                    <input name="contrasenia" id="contrasenia" type="password" class="form-control rounded-0" placeholder="Password" aria-label="Password" aria-describedby="basic-addon2" required>
+                    <input name="contrasenia" id="contrasenia" type="password" class="form-control rounded-0" placeholder="Password" aria-label="Password" aria-describedby="basic-addon2">
                 </div>
                 <button type="submit" class="btn btn-success w-100 mb-3">Login</button>
             </form>
@@ -48,45 +48,51 @@
     
 
     <script>
-        $(document).ready(function() {
-            $('#miFormulario').on('submit', function(event) {
-                var usuario = ($('#usuario').val()).toLowerCase();
-                var contrasenia = ($('#contrasenia').val()).toLowerCase();
-                
-                // Validar que los campos no estén vacíos
-                if (!usuario || !contrasenia) {
-                    alert("Debes ingresar un nombre de usuario y una contraseña.");
-                    event.preventDefault();
-                    return;
-                }
+        function validar() {
+            let valid = true;
+            let errores = [];
 
-                // Validar la longitud de la contraseña
-                if (contrasenia.length < 8) {
-                    alert("La contraseña debe tener al menos 8 caracteres.");
-                    event.preventDefault();
-                    return;
-                }
+            // Limpiar estados previos
+            $("input").css("border", "1px solid #ced4da"); // Restaura los bordes anteriores
 
-                // Validar que la contraseña no sea igual al nombre de usuario o que no contenga al nombre de usuario
-                if (contrasenia.includes(usuario) || usuario.includes(contrasenia)) {
-                    alert("La contraseña no puede ser igual ni contener el nombre de usuario, ni viceversa.");
-                    event.preventDefault();
-                    return;
-}
+            // Obtener los valores de los campos
+            const usuario = $("#usuario");
+            const contrasenia = $("#contrasenia");
 
-                // Validar que la contraseña contenga al menos una letra y un número
-                var tieneLetra = /[a-zA-Z]/.test(contrasenia);
-                var tieneNumero = /[0-9]/.test(contrasenia);
+            // Validar usuario
+            if (!usuario.val().trim()) {
+                errores.push("El campo de usuario no puede estar vacío.");
+                usuario.css("border", "1px solid red");
+                valid = false;
+            }
 
-                if (!tieneLetra || !tieneNumero) {
-                    alert("La contraseña debe contener al menos una letra y un número.");
-                    event.preventDefault();
-                    return;
-                }
+            // Validar contraseña
+            if (!contrasenia.val().trim()) {
+                errores.push("El campo de contraseña no puede estar vacío.");
+                contrasenia.css("border", "1px solid red");
+                valid = false;
+            } else if (contrasenia.val().length < 8) {
+                errores.push("La contraseña debe tener al menos 8 caracteres.");
+                contrasenia.css("border", "1px solid red");
+                valid = false;
+            } else if (contrasenia.val() === usuario.val().trim()) {
+                errores.push("La contraseña no puede ser igual al nombre de usuario.");
+                contrasenia.css("border", "1px solid red");
+                valid = false;
+            } else if (!/[a-z]/i.test(contrasenia.val()) || !/\d/.test(contrasenia.val())) {
+                errores.push("La contraseña debe contener letras y números.");
+                contrasenia.css("border", "1px solid red");
+                valid = false;
+            }
 
-                // Si todo está bien, se puede enviar el formulario
-            });
-        });
+            // Mostrar errores
+            if (!valid) {
+                alert(errores.join("\n")); // Unir todos los errores en una sola alerta
+            }
+
+            return valid;
+        }
+
     </script>
 </body>
 </html>

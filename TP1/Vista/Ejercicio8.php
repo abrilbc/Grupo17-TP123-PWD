@@ -6,7 +6,7 @@
     <title>Ejercicio 8 - TP 1</title>
     <link rel="stylesheet" href="css/estilos.css">
     <link href="https://fonts.googleapis.com/css2?family=Jost:ital,wght@0,100..900;1,100..900&display=swap" rel="stylesheet">
-    <script src="TP1/Utils/JQuery/jquery-3.7.1.min.js"></script>
+    <script src="https://code.jquery.com/jquery-3.7.1.min.js"></script>
 </head>
 <body>
     <div class="header"></div>
@@ -20,7 +20,8 @@
             <label for="edad">Edad:</label>
             <input type="number" id="edad" name="edad" required><br>
             <label for="estudiante">¿Es estudiante?</label>
-            <select name="estudiante" id="estudiante">
+            <select name="estudiante" id="estudiante" required>
+            <option value="">Seleccionar</option>
             <option value="Si">Si</option>
             <option value="No">No</option>
             </select>

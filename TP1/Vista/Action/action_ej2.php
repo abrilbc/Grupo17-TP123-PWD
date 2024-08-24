@@ -1,9 +1,11 @@
 <?php
 include_once '../../Control/Tiempo.php';
+include_once '../../Utils/funciones.php';
 
+$datos = darDatosSubmitted();
 
 if(!empty($_GET)) {
-    $arregloUnidimensional = [$_GET['lunes'], $_GET['martes'], $_GET['miercoles'], $_GET['jueves'], $_GET['viernes']];
+    $arregloUnidimensional = [$datos['lunes'], $datos['martes'], $datos['miercoles'], $datos['jueves'], $datos['viernes']];
 }
 
 $objTiempo = new Tiempo();

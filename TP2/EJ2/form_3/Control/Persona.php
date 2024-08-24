@@ -137,4 +137,18 @@ class Persona{
         }
         return $retorna;
     }
+
+    public function generarPersonaSimplificado($datos) {
+        $mensaje = "";
+        if (!empty($datos)) {
+            $this->setNombre($datos['nombre']);
+            $this->setApellido($datos['apellido']);
+            $this->setEdad($datos['edad']);
+            $this->setDireccion($datos['dire']);
+
+            $mensaje = "Hola, soy " . $this->getNombre() . " " . $this->getApellido() . 
+                   "\nTengo " . $this->getEdad() . " años y vivo en " . $this->getDireccion();
+        }
+        return $mensaje;
+    }
 }

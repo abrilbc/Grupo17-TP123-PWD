@@ -137,4 +137,38 @@ class Persona{
         }
         return $retorna;
     }
+
+    public function generarMensaje($datos) {
+        if (!empty($datos)) {
+            $this->setNombre($datos['nombre']);
+            $this->setApellido($datos['apellido']);
+            $this->setEdad($datos['edad']);
+            $this->setDireccion($datos['dire']);
+
+            $mensaje = "Hola, soy " . $this->getNombre() . " " . $this->getApellido() . 
+                    "\nTengo " . $this->getEdad() . " años y vivo en " . $this->getDireccion(); 
+
+            if ($this->esMayor()) {
+                $mensaje .= "\nSoy mayor de edad";
+            } else {
+                $mensaje .= "\n\nSoy menor de edad";
+            }
+
+            if (!empty($datos['estudios']) && !empty($datos['genero'])) {
+                $this->setEstudios($datos['estudios']);
+                $this->setGenero($datos['genero']);
+                $mensaje .= "\nEstudios: " . $this->mostrarEstudios();
+                $mensaje .= "\nGenero: " . $this->mostrarGenero();
+            }
+
+            if (!empty($datos['deportes'])) {
+                $this->setDeportes($datos['deportes']);
+                $mensaje .= "\nDeportes que practico: " . $this->mostrarDeportes();
+            }
+
+            return $mensaje;
+        } else {
+            return "";
+        }
+    }
 }

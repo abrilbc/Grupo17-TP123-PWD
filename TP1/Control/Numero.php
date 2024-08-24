@@ -4,7 +4,7 @@ class Numero{
     private $valor;
 
     public function __construct($valor) {
-        $this->valor = $valor; 
+        $this->valor = $valor["number"]; 
     }
 
     public function getValor()

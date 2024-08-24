@@ -3,7 +3,6 @@ include_once '../../Control/Entrada.php';
 include_once '../../Utils/funciones.php';
 
 $datos = darDatosSubmitted();
-print_r($datos);
 
 $objEntrada = new Entrada($datos);
 
@@ -21,7 +20,7 @@ $estudiante = $objEntrada->getEstudiante() ? "Si" : "No";
     <title>Ejercicio 8 - TP 1</title>
     <link rel="stylesheet" href="../css/estilos.css">
     <link href="https://fonts.googleapis.com/css2?family=Jost:ital,wght@0,100..900;1,100..900&display=swap" rel="stylesheet">
-    <script src="TP1/Utils/JQuery/jquery-3.7.1.min.js"></script>
+    <script src="https://code.jquery.com/jquery-3.7.1.min.js"></script>
 </head>
 <body>
     <div class="header"></div>
