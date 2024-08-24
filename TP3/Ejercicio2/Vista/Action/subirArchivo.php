@@ -3,13 +3,8 @@ include_once '../../Utils/funciones.php';
 include_once '../../Control/Archivo.php';
 $datos = data_submitted();
 
-$objArchivo = new Archivo();
-$mensaje = $objArchivo->subirArchivo($datos);
-
-if ($mensaje == true) {
-    file_get_contents($objArchivo->getDir() . $datos['archivo']['name']);
-}
-    
+$archivoController = new Archivo();
+$respuesta = $archivoController->subirArchivo($datos);
 ?>
 
 <!DOCTYPE html>
@@ -29,12 +24,12 @@ if ($mensaje == true) {
             <h2>RESULTADO</h2>
             <p class="texto-normal">
                 <?php
-                if (strpos($mensaje, "Error") === false) {
-                    $contenido = $objArchivo->mostrarContenidoArchivo($mensaje);
+                if ($respuesta !== "" && file_exists($respuesta)) {
+                    $contenido = file_get_contents($respuesta);
                     echo "<h2>Contenido del Archivo:</h2>";
-                    echo "<textarea rows='20' cols='80'>" . $contenido . "</textarea>";
+                    echo "<textarea rows='20' cols='80'>" . htmlspecialchars($contenido) . "</textarea>";
                 } else {
-                    echo "<p>$mensaje</p>";
+                    echo nl2br("$respuesta");
                 }
                 ?>
             </p>
