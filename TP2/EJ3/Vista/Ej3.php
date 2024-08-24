@@ -26,22 +26,22 @@
             <form action="../Vista/Action/verificaPass.php" method="post" name="miFormulario" id="miFormulario">
             <h1 class="text-center text-secondary h2 mb-4 mt-3">Member Login</h1>
             <div class="mb-3 input-group">
-                    <span class="input-group-text" id="basic-addon1">
-                        <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-person-fill" viewBox="0 0 16 16">
-                            <path d="M3 14s-1 0-1-1 1-4 6-4 6 3 6 4-1 1-1 1zm5-6a3 3 0 1 0 0-6 3 3 0 0 0 0 6"/>
-                        </svg>
-                    </span>
-                    <input name="usuario" id="usuario" type="text" class="form-control" placeholder="Username" aria-label="Username" aria-describedby="basic-addon1" required>
+                <span class="input-group-text" id="basic-addon1">
+                    <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-person" viewBox="0 0 16 16">
+                        <path d="M8 7a3 3 0 1 0 0-6 3 3 0 0 0 0 6zm0 1a4 4 0 0 0-4 4v1h8v-1a4 4 0 0 0-4-4z"/>
+                    </svg>
+                </span>
+                <input name="usuario" id="usuario" type="text" class="form-control rounded-0" placeholder="Username" aria-label="Username" aria-describedby="basic-addon1" required>
                 </div>
                 <div class="mb-3 input-group">
                     <span class="input-group-text" id="basic-addon2">
-                        <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-lock-fill" viewBox="0 0 16 16">
-                            <path d="M8 1a2 2 0 0 1 2 2v2h4v11H2V5h4V3a2 2 0 0 1 2-2zm0 1a1 1 0 0 0-1 1v2h2V3a1 1 0 0 0-1-1z"/>
+                        <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-lock" viewBox="0 0 16 16">
+                            <path d="M11 6V4a3 3 0 0 0-6 0v2H2v9h12V6h-3zm-5-2a2 2 0 0 1 4 0v2H6V4z"/>
                         </svg>
                     </span>
-                    <input name="contrasenia" id="contrasenia" type="password" class="form-control" placeholder="Password" aria-label="Password" aria-describedby="basic-addon2" required>
+                    <input name="contrasenia" id="contrasenia" type="password" class="form-control rounded-0" placeholder="Password" aria-label="Password" aria-describedby="basic-addon2" required>
                 </div>
-                <button type="submit" class="btn btn-success w-100 mb-3">Ingresar</button>
+                <button type="submit" class="btn btn-success w-100 mb-3">Login</button>
             </form>
         </div>
     </div>
