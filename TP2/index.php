@@ -14,8 +14,7 @@
         <li><a href="./EJ2/Vista/ej-1.php">TP 2 - Ejercicio 1</a></li>
         <li><a href="./EJ2/index.php">TP 2 - Ejercicio 2</a></li>
         <li><a href="./EJ3/Vista/Ej3.php">TP 2 - Ejercicio 3</a></li>
-        <li><a href="./Vista/Ejercicio4.php">TP 2 - Ejercicio 4</a></li>
-       
+        <li><a href="./EJ4/Vista/Ej4.php">TP 2 - Ejercicio 4</a></li>    
     </ul>
     </div>
 </body>
