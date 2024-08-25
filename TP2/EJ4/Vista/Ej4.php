@@ -116,46 +116,51 @@
         </div>
     </div>
     <script>
-        function validar() {
-            let validacion = true;
-            let errores = [];
+    function validar() {
+        let validacion = true;
+        let errores = [];
 
-            // Array con los ids de los campos a validar (arreglo con formato JSON)
-            const campos = [
-                { id: "titulo", tipo: "texto" },
-                { id: "actores", tipo: "texto" },
-                { id: "director", tipo: "texto" },
-                { id: "guion", tipo: "texto" },
-                { id: "produccion", tipo: "texto" },
-                { id: "anio", tipo: "numero", maxLength: 4 },
-                { id: "nacionalidad", tipo: "texto" },
-                { id: "genero", tipo: "texto" },
-                { id: "duracion", tipo: "numero", maxLength: 3 },
-                { id: "sinopsis", tipo: "texto" }
-            ];
+        // Array con los ids de los campos a validar (arreglo con formato JSON)
+        const campos = [
+            { id: "titulo", tipo: "texto" },
+            { id: "actores", tipo: "texto" },
+            { id: "director", tipo: "texto" },
+            { id: "guion", tipo: "texto" },
+            { id: "produccion", tipo: "texto" },
+            { id: "anio", tipo: "numero", maxLength: 4 },
+            { id: "nacionalidad", tipo: "texto" },
+            { id: "genero", tipo: "texto" },
+            { id: "duracion", tipo: "numero", minLength: 2, maxLength: 3 },
+            { id: "sinopsis", tipo: "texto" }
+        ];
 
-            // Limpiar estados previos
-            $("input, textarea, select").css("border", "1px solid #ced4da"); // Restaurar bordes originales
+        // Limpiar estados previos
+        $("input, textarea, select").css("border", "1px solid #ced4da"); // Restaurar bordes originales
 
-            //Recorremos cada campo y se les da las alertas si es necesario
-            campos.forEach(campo => {
-                let valor = $("#" + campo.id).val();
-                if (campo.tipo === "texto" && !valor) {
-                    errores.push("El campo '" + campo.id + "' es obligatorio.");
+        // Recorremos cada campo y se les da las alertas si es necesario
+        campos.forEach(campo => {
+            let valor = $("#" + campo.id).val();
+            if (campo.tipo === "texto" && !valor) {
+                errores.push("El campo '" + campo.id + "' es obligatorio.");
+                $("#" + campo.id).css("border", "1px solid red");
+            } else if (campo.tipo === "numero") {
+                if (campo.id === "duracion" && (valor.length < campo.minLength || valor.length > campo.maxLength)) {
+                    errores.push("El campo '" + campo.id + "' debe tener entre " + campo.minLength + " y " + campo.maxLength + " dígitos.");
                     $("#" + campo.id).css("border", "1px solid red");
-                } else if (campo.tipo === "numero" && valor.length !== campo.maxLength) {
+                } else if (valor.length !== campo.maxLength && campo.id !== "duracion") {
                     errores.push("Ingrese un valor válido para el campo '" + campo.id + "' (" + campo.maxLength + " caracteres).");
                     $("#" + campo.id).css("border", "1px solid red");
                 }
-            });
-
-            if (errores.length > 0) {
-                alert(errores.join("\n")); //Unimos todos los errores en una sola alerta
-                validacion = false;
             }
+        });
 
-            return validacion;
+        if (errores.length > 0) {
+            alert(errores.join("\n")); // Unimos todos los errores en una sola alerta
+            validacion = false;
         }
+
+        return validacion;
+    }
     </script>
 </body>
 </html>
