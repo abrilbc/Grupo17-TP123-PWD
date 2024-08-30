@@ -8,7 +8,7 @@ class Entrada{
     public function __construct($datos){
         $this->edad = $datos['edad'];
         $this->estudiante = $datos['estudiante'];
-        $this->precio = $this->calcularPrecio();
+        $this->precio = 0;
     }
     public function getEdad()
     {
@@ -35,14 +35,16 @@ class Entrada{
         $this->precio = $precio;
     }
     public function calcularPrecio() {
+        
         $precio = 300;
         if ($this->getEdad() < 12 || $this->getEstudiante() == "si") {
             $precio = 160;
         }
-
         if ($this->getEdad() >= 12 && $this->getEstudiante() == "si") {
             $precio = 180;
         }
+        $this->setPrecio(0);
+        print($precio);
         return $precio;
     }
 }

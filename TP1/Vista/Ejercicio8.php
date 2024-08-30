@@ -22,8 +22,8 @@
             <label for="estudiante">¿Es estudiante?</label>
             <select name="estudiante" id="estudiante" required>
             <option value="">Seleccionar</option>
-            <option value="Si">Si</option>
-            <option value="No">No</option>
+            <option value="true">Si</option>
+            <option value="false">No</option>
             </select>
             <input type="submit" class="btn">
         </form>
