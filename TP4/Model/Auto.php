@@ -155,7 +155,7 @@ class Auto
         $resp = false;
         $base = new BaseDatos();
         $query = "UPDATE auto SET Marca = '" . $this->getMarca() . "',Modelo='" . $this->getModelo() . "',
-        DniDuenio='" . $this->getDuenio()->getNroDni() . "' WHERE Patente='" . $this->getPatente() . "'";
+        DniDuenio='" . $this->getObjDuenio()->getNroDni() . "' WHERE Patente='" . $this->getPatente() . "'";
         if ($base->Iniciar()) {
             if ($base->Ejecutar($query)) {
                 $resp = true;

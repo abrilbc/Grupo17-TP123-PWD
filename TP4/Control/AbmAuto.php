@@ -5,7 +5,8 @@ class AbmAuto
 
     public function obtenerTodosLosAutos()
     {
-        $autos = Auto::listar();
+        $auto = new Auto();
+        $autos = $auto->listar();
         return $autos;
     }
 

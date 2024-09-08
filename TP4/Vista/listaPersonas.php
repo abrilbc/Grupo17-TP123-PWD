@@ -15,6 +15,7 @@
     ?>
     <main class="container">
         <div class="bg-dark text-white p-3">
+            <h3>Lista de Personas</h3>
             <?php
             include_once('../Model/Connector/BaseDatos.php');
             include_once('../Model/Persona.php');
@@ -42,16 +43,15 @@
                 foreach ($colPersonas as $persona) {
                     $resp .= <<<FILA
                     <tr>
-                        <td><a href="autosPersona.php?dni={$persona->getNroDni()}">{$persona->getNroDni()}</a></td>
-                        <td>{$persona->getNombre()}</td>
-                        <td>{$persona->getApellido()}</td>
-                        <td>{$persona->getFechaNacimiento()}</td>
-                        <td>{$persona->getTel()}</td>
-                        <td>{$persona->getDomicilio()}</td>
+                        <td class="text-center">{$persona->getNroDni()}</td>
+                        <td class="text-center">{$persona->getNombre()}</td>
+                        <td class="text-center">{$persona->getApellido()}</td>
+                        <td class="text-center">{$persona->getFechaNacimiento()}</td>
+                        <td class="text-center">{$persona->getTel()}</td>
+                        <td class="text-center">{$persona->getDomicilio()}</td>
                     </tr>
                     FILA;
                 }
-
                 $resp .= <<<HTML
                     </tbody>
                 </table>
@@ -62,7 +62,7 @@
             echo $resp;
             ?>
             <!-- poner para ir al menu acá -->
-            <a href="#" class="btn btn-primary">Volver</a>
+            <a href="../../index.php" class="btn btn-primary">Volver</a>
         </div>
     </main>
 </body>

@@ -28,6 +28,7 @@
                     </form>
                 </div>
             </div>
+            <a href="../../index.php" class="btn btn-primary">Volver</a>
         </div>
     </main>
     <script src="Js/jquery-v3_7_1.js"></script>

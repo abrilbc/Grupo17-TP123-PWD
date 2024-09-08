@@ -50,8 +50,10 @@
         <li><a href="./TP3/Ejercicio3/Vista/Ejercicio3.php">TP 3 - Ejercicio 3</a></li>
     </ul>
     <ul>
-        <li><a href="./TP4/Vista/buscarAuto.php">TP 4 - Ejercicio 1 (buscar auto)</a></li>
-        <li><a href="./TP4/Vista/listaPersonas.php">TP 4 - Ejercicio 2 (listar personas)</a></li>
+        <li><a href="./TP4/Vista/verAutos.php">TP 4 - Ejercicio 1 (ver autos)</a></li>
+        <li><a href="./TP4/Vista/buscarAuto.php">TP 4 - Ejercicio 2 (buscar auto)</a></li>
+        <li><a href="./TP4/Vista/listaPersonas.php">TP 4 - Ejercicio 3 (listar personas)</a></li>
+        <li><a href="./TP4/Vista/nuevaPersona.php">TP 4 - Ejercicio 4 (agregar personas)</a></li>
     </ul>
 </body>
 

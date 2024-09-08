@@ -11,6 +11,8 @@ require_once('../../Estructura/menu/menuAction.php');
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Resultado</title>
     <link rel="stylesheet" href="../../node_modules/bootstrap/dist/css/bootstrap.css">
+    <link rel="stylesheet" href="../../node_modules/bootstrap/dist/css/init.css">
+    <!-- ESE INIT ES PARA PODER VER LAS LETRAS PORQUE ESTABAN EN BLANCO sjsjs -->
 </head>
 
 <body>
@@ -30,7 +32,7 @@ require_once('../../Estructura/menu/menuAction.php');
 
                     $datos = darDatosSubmitted1();
 
-                    $salida = "";
+                    $resp = "";
                     if (isset($datos['Patente'])) {
                         $patente = $datos['Patente'];
 
@@ -69,13 +71,11 @@ require_once('../../Estructura/menu/menuAction.php');
                     } else {
                         $resp = "<p>No patente.</p>";
                     }
-
                     echo $resp;
                     ?>
                 </div>
-
             </div>
-
+            <a href="../buscarAuto.php" class="btn btn-primary">Volver</a>
         </div>
     </main>
 </body>
