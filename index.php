@@ -1,16 +1,17 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Ejercicios</title>
     <style>
         body {
-        padding: 0;
-        margin: 0;
-        font-family: 'Jost';
-        font-size: 13px;
-        background-color: #FAF6ED;
+            padding: 0;
+            margin: 0;
+            font-family: 'Jost';
+            font-size: 13px;
+            background-color: #FAF6ED;
         }
 
         .header {
@@ -23,6 +24,7 @@
         }
     </style>
 </head>
+
 <body>
     <div class="header"></div>
     <ul>
@@ -47,5 +49,10 @@
         <li><a href="./TP3/Ejercicio2/Vista/Ejercicio2.php">TP 3 - Ejercicio 2</a></li>
         <li><a href="./TP3/Ejercicio3/Vista/Ejercicio3.php">TP 3 - Ejercicio 3</a></li>
     </ul>
+    <ul>
+        <li><a href="./TP4/Vista/buscarAuto.php">TP 4 - Ejercicio 1 (buscar auto)</a></li>
+        <li><a href="./TP4/Vista/listaPersonas.php">TP 4 - Ejercicio 2 (listar personas)</a></li>
+    </ul>
 </body>
+
 </html>
