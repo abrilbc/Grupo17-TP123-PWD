@@ -22,8 +22,6 @@
 
                     <?php
                     $datos = darDatosSubmitted1();
-                    $resp = "";
-
                     if ($_SERVER['REQUEST_METHOD'] == 'POST') {
                         $nroDni = $datos['NroDni'];
                         $apellido = $datos['Apellido'];
@@ -34,10 +32,10 @@
                         $domicilio = $datos['Domicilio'];
 
                         $ambObjPersona = new AbmPersona();
-                        $query = $ambObjPersona->agregarPersonaNueva($nroDni, $apellido, $nombre, $queryFecha, $telefono, $domicilio);
+                        $query = $ambObjPersona->agregarObjPersonaNueva($nroDni, $apellido, $nombre, $queryFecha, $telefono, $domicilio);
                         echo "<p>$query</p>";
                     } else {
-                        header("Location: NuevaPersona.php");
+                        header("Location: nuevaPersona.php");
                         exit();
                     }
                     ?>

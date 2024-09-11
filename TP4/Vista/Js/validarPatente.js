@@ -12,8 +12,8 @@ $(document).ready(function () {
             event.preventDefault()
             esValida = false
         } else {
-            $("#msjErrorPatente").text("");
-            $("#Patente").removeClass("error");
+            $("#msjErrorPatente").text("")
+            $("#Patente").removeClass("error")
 
         }
 

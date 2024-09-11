@@ -2,34 +2,55 @@
 
 class AbmPersona
 {
+    private $msjError;
+
     public function __construct() {}
 
-    public function obtenerTodasLasPersonas()
+    public function getMsjError()
     {
-        $persona = new Persona();
-        $personas = $persona->listar();
-        return $personas;
+        return $this->msjError;
+    }
+
+    public function setMsjError($msjError)
+    {
+        $this->msjError = $msjError;
+    }
+
+    public function obtenerColeccionPersonas()
+    {
+        try {
+            $colPersonas = Persona::listar();
+        } catch (Exception $e) {
+            $this->setMsjError($e->getMessage());
+            $colPersonas = [];
+        }
+        return $colPersonas;
     }
 
     // obbtener persona por dni
-    public function obtenerDatosPersona($nroDni)
+    public function obtenerDatosObjPersona($nroDni)
     {
-        $persona = new Persona();
-        $personas = $persona->listar("NroDni = '" . $nroDni . "'");
-        $salida = "";
-        if (count($personas) > 0) {
-            $salida = $personas[0];
-        } else {
-            $salida = null;
+        try {
+            $colPersonas = Persona::listar("NroDni = '" . $nroDni . "'");
+        } catch (Exception $e) {
+            $this->setMsjError($e->getMessage());
+            $colPersonas = [];
         }
-        return $salida;
+
+        $respuesta = '';
+        if (count($colPersonas) > 0) {
+            $respuesta = $colPersonas[0];
+        } else {
+            $respuesta = null;
+        }
+        return $respuesta;
     }
 
-    public function agregarPersonaNueva($nroDni, $apellido, $nombre, $fechaNac, $telefono, $domicilio)
+    public function agregarObjPersonaNueva($nroDni, $apellido, $nombre, $fechaNac, $telefono, $domicilio)
     {
         $msj = '';
 
-        if ($this->obtenerDatosPersona($nroDni) !== null) {
+        if ($this->obtenerDatosObjPersona($nroDni) !== null) {
             $msj = 'ya esta.';
         } else {
             try {

@@ -20,7 +20,7 @@
             include_once('../Control/AbmAuto.php');
             $abmAuto = new AbmAuto();
 
-            $autos = $abmAuto->obtenerTodosLosAutos();
+            $autos = $abmAuto->obtenerColAutos();
 
             if (count($autos) > 0) {
                 $resp = <<<HTML

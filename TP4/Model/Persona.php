@@ -127,7 +127,7 @@ class Persona
         return $resp;
     }
 
-    public function listar($condicion = "")
+    public static function listar($condicion = "")
     {
         $arreglo = [];
         $base = new BaseDatos();
@@ -136,9 +136,8 @@ class Persona
             $query .= 'WHERE ' . $condicion;
         }
         $res = $base->Ejecutar($query);
-        if ($res > -1) {
+        if ($res > -1) { // para verificar si hubo un error en la consulta
             if ($res > 0) {
-
                 while ($row = $base->Registro()) {
                     $objDuenio = new Persona();
                     $objDuenio->cargar($row['NroDni'], $row['Apellido'], $row['Nombre'], $row['fechaNac'], $row['Telefono'], $row['Domicilio']);
@@ -146,7 +145,7 @@ class Persona
                 }
             }
         } else {
-            $this->setMsjOperacion("persona->listar: " . $base->getError());
+            throw new Exception("persona->listar: " . $base->getError()); // función nativa de php, que crea una excepción cuando hay un error
         }
         return $arreglo;
     }

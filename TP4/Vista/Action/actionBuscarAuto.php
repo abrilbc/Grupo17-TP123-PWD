@@ -39,7 +39,7 @@ require_once('../../Estructura/menu/menuAction.php');
                         $abmAuto = new AbmAuto();
                         $abmPersona = new AbmPersona();
 
-                        $auto = $abmAuto->obtenerDatosAuto($patente);
+                        $auto = $abmAuto->obtenerDatosObjAuto($patente);
 
                         if ($auto !== null) {
 

@@ -22,7 +22,7 @@
             include_once('../Control/AbmPersona.php');
 
             $ambObjPersona = new AbmPersona();
-            $colPersonas = $ambObjPersona->obtenerTodasLasPersonas();
+            $colPersonas = $ambObjPersona->obtenerColeccionPersonas();
 
             if (count($colPersonas) > 0) {
                 $resp = <<<HTML
