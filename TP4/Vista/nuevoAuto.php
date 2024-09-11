@@ -19,7 +19,7 @@
             <div class="container text-center">
                 <div class="col d-flex text-center flex-column align-items-center justify-content-center p-5 ">
 
-                    <form action="./Action/actionNuevoAuto.php" class="d-flex flex-column gap-3" style="width:80%" method="POST" id="miForm">
+                    <form onsubmit="return validar()" action="./Action/actionNuevoAuto.php" class="d-flex flex-column gap-3" style="width:80%" method="POST" id="miForm">
                         <h3>Agregar un auto nuevo</h3>
 
                         <input class="form-control p-3" type="text" id="Patente" name="Patente" placeholder="Patente (ADC 153)">
@@ -33,7 +33,7 @@
 
                         <input class="form-control p-3" type="text" id="DniDuenio" name="DniDuenio" placeholder="12345678">
                         <span id="dniPersona"></span>
-                        <input class="btn btn-success p-2" type="submit" style="width:20%" onsubmit="return validar()" value="Agregar">
+                        <input class="btn btn-success p-2" type="submit" style="width:20%" value="Agregar">
                     </form>
                 </div>
             </div>

@@ -71,4 +71,25 @@ class AbmPersona
         }
         return $msj;
     }
+
+    public function modificarDatosPersona($nroDni, $nombre, $apellido, $fechaNac, $telefono, $domicilio)
+    {
+        $msj = '';
+
+        $abmObjPersona = new AbmPersona();
+        $objPersona = new Persona();
+        $objPersona->cargar($nroDni, $apellido, $nombre, $fechaNac, $telefono, $domicilio);
+
+        if (!($abmObjPersona->obtenerDatosObjPersona($nroDni) === null)) {
+            try {
+                $objPersona->modificar();
+                $msj = "exito";
+            } catch (PDOException $e) {
+                $msj = "Error: " . $e->getMessage();
+            }
+        } else {
+            $msj = "nop ersona en bdd";
+        }
+        return $msj;
+    }
 }

@@ -3,3 +3,7 @@
 -Que cuando ingresas una patente que está en el sistema y un DNI inexistente, el mensaje es el de agregar a la persona, e ignora la patente. Más bien es un detalle.
 -Colores y diseño, obiusli.
 -Tratar de mudar la validación de validarPersona.js a Jquery
+-Linkear bien las rutas
+-Header, footer
+-Tests
+-Rezar
