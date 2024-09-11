@@ -19,7 +19,7 @@
             <div class="container text-center">
                 <div class="col d-flex text-center flex-column align-items-center justify-content-center p-5 ">
 
-                    <form action="./Action/actionNuevaPersona.php" class="d-flex flex-column gap-3" style="width:80%" method="POST" id="miFormulario">
+                    <form onsubmit="return validar()" action="./Action/actionNuevaPersona.php" class="d-flex flex-column gap-3" style="width:80%" method="POST" id="miFormulario">
                         <h3>Agregar una nueva persona</h3>
 
                         <input class="form-control p-3" type="text" id="NroDni" name="NroDni" placeholder="Número de DNI">
@@ -39,13 +39,13 @@
 
                         <input class="form-control p-3" type="text" id="Domicilio" name="Domicilio" placeholder="Domicilio">
                         <span id="personaDomicilio"></span>
-                        <input class="btn btn-success p-2" type="submit" style="width:20%" onsubmit="return validar();" value="Agregar">
+                        <input class="btn btn-success p-2" type="submit" style="width:20%" value="Agregar">
                     </form>
                 </div>
             </div>
         </div>
     </main>
-    <script src="Js/validarPersona.js"></script>
+    <script src="./Js/validarPersona.js"></script>
 </body>
 
 </html>

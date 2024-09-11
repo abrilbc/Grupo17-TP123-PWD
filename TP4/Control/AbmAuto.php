@@ -67,4 +67,31 @@ class AbmAuto
         }
         return $msj;
     }
+
+    public function cambiarDuenioAuto($patente, $dniDuenio)
+    {
+        $rpta = [
+            'estado' => 0, // si sale 0, éxito; si es -1, error
+            'msj' => ''
+        ];
+
+        $objAuto = $this->obtenerDatosObjAuto($patente);
+
+        if ($objAuto === null) {
+            $rpta['estado'] = -1;
+            $rpta['msj'] = 'no esta en la bdd';
+        } else {
+            try {
+                $objNuevoDuenio = new Persona();
+                $objNuevoDuenio->setNroDni($dniDuenio);
+                $objAuto->setObjDuenio($objNuevoDuenio);
+                $objAuto->modificar();
+                $rpta['msj'] = 'El dueño se actualizó';
+            } catch (PDOException $e) {
+                $rpta['estado'] = -1;
+                $rpta['msj'] = 'Error: ' . $e->getMessage();
+            }
+        }
+        return $rpta;
+    }
 }

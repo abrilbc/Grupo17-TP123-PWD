@@ -134,7 +134,6 @@ class Auto
     {
         $resp = false;
         $base = new BaseDatos();
-        $objDuenio = $this->getObjDuenio();
 
         if ($this->getObjDuenio() != null) {
             $sql = "INSERT INTO auto(Patente, Marca, Modelo, DniDuenio)  VALUES ('" . $this->getPatente() . "','" . $this->getMarca() . "','" . $this->getModelo() . "','" . $this->getObjDuenio()->getNroDni() . "')";
@@ -150,23 +149,6 @@ class Auto
             }
         }
         return $resp;
-
-        /*if ($objDuenio != null && $objDuenio instanceof Persona) { // Verifica que sea un objeto Persona
-            $nroDniDuenio = $objDuenio->getNroDni(); // Obtiene el DNI del objeto Persona
-            $sql = "INSERT INTO auto(Patente, Marca, Modelo, DniDuenio) VALUES ('" . $this->getPatente() . "','" . $this->getMarca() . "','" . $this->getModelo() . "','" . $nroDniDuenio . "')";
-
-            if ($base->Iniciar()) {
-                if ($base->Ejecutar($sql)) {
-                    $resp = true;
-                } else {
-                    $this->setMsjOperacion("auto->insertar: " . $base->getError());
-                }
-            } else {
-                $this->setMsjOperacion("auto->insertar: " . $base->getError());
-            }
-        }
-
-        return $resp;*/
     }
 
     public function modificar()

@@ -54,7 +54,8 @@
         <li><a href="./TP4/Vista/buscarAuto.php">TP 4 - Ejercicio 2 (buscar auto)</a></li>
         <li><a href="./TP4/Vista/listaPersonas.php">TP 4 - Ejercicio 3 (listar personas)</a></li>
         <li><a href="./TP4/Vista/nuevaPersona.php">TP 4 - Ejercicio 4 (agregar personas)</a></li>
-        <li><a href="./TP4/Vista/nuevoAuto.php">TP 4 - Ejercicio 4 (agregar personas)</a></li>
+        <li><a href="./TP4/Vista/nuevoAuto.php">TP 4 - Ejercicio 4 (agregar auto)</a></li>
+        <li><a href="./TP4/Vista/cambioDuenio.php">TP 4 - Ejercicio 4 (cambiar dueño)</a></li>
     </ul>
 </body>
 
