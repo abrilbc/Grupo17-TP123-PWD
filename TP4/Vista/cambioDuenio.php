@@ -1,18 +1,5 @@
-<!DOCTYPE html>
-<html lang="es">
-
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Agregar Nueva Persona</title>
-    <link rel="stylesheet" href="../node_modules/bootstrap/dist/css/bootstrap.css">
-    <link rel="stylesheet" href="../node_modules/bootstrap/dist/css/init.css">
-</head>
-
-<body>
-    <?php
-    include_once('../Estructura/menu/menu.php');
-    include_once('../Estructura/header.php');
+<?php
+    include_once 'Estructura/header.php' ;
     ?>
     <main class="container">
         <div class="card col-12 text-center">

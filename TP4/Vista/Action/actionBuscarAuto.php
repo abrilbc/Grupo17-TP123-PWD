@@ -3,7 +3,6 @@
 
 <?php
 require_once('../../../configuracion.php');
-require_once('../../Estructura/menu/menuAction.php');
 ?>
 
 <head>
@@ -17,8 +16,8 @@ require_once('../../Estructura/menu/menuAction.php');
 
 <body>
     <?php
-    include_once('../../Estructura/header.php');
-    include_once('../../Estructura/menu/menuAction.php');
+    include_once('../Estructura/header.php');
+    include_once('../Estructura/menu/menuAction.php');
     ?>
 
     <main class="container">
