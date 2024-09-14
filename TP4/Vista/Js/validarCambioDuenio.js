@@ -1,46 +1,44 @@
-/**
- * Validación con Bootstrap
- */
-
 function validar() {
     let verificacion = true
-    let patente = document.getElementById("Patente")
-    let dniDuenio = document.getElementById("DniDuenio")
+    let patente = $("#Patente")
+    let dniDuenio = $("#DniDuenio")
+    const expreRegPatente = /^[A-Z]{3} ?\d{3}$/
+    const expreRegDNI = /^\d{7,8}$/
 
-    limpiarValidacion(patente)
-    limpiarValidacion(dniDuenio)
+    //spans
+    let msjPatente = $("#aPatente")
+    let msjPersona = $("#personaDNI")
 
-    if (patente.value.trim() === "") {
-        agregarError(patente, "Requiere patente")
+    if (patente.val().trim() === "") {
+        agregarError(patente, msjPatente, "Requiere patente")
         verificacion = false
-    } else if (!/^[A-Z]{3} ?\d{3}$/.test(patente.value.trim())) {
-        agregarError(patente, "Formato de patente incorrecto")
+    } else if (!expreRegPatente.test(patente.val().trim())) {
+        agregarError(patente, msjPatente, "Formato de patente incorrecto")
         verificacion = false
+    } else {
+        limpiarValidacion(patente, msjPatente)
     }
 
-    if (dniDuenio.value.trim() === "") {
-        agregarError(dniDuenio, "El DNI es obligatorio")
+    if (dniDuenio.val().trim() === "") {
+        agregarError(dniDuenio, msjPersona, "Requiere DNI")
         verificacion = false
-    } else if (!/^\d{7,8}$/.test(dniDuenio.value.trim())) {
-        agregarError(dniDuenio, "El DNI debe tener 7 u 8 dígitos")
+    } else if (!expreRegDNI.test(dniDuenio.val().trim())) {
+        agregarError(dniDuenio, msjPersona, "El DNI debe tener 7 u 8 dígitos")
         verificacion = false
+    } else {
+        limpiarValidacion(dniDuenio, msjPersona)
     }
 
     return verificacion
 }
 
-function agregarError(campo, mensaje) {
-    campo.classList.add("is-invalid")
-    let span = campo.nextElementSibling
-    span.textContent = mensaje
-    span.classList.add("invalid-feedback")
+function agregarError(campo, campoMsj, msj) {
+    campoMsj.text(msj)
+    campo.addClass("is-invalid")
 }
 
-function limpiarValidacion(campo) {
-    campo.classList.remove("is-invalid")
-    campo.classList.remove("is-valid")
-    let span = campo.nextElementSibling
-    span.textContent = ''
-    span.classList.remove("invalid-feedback")
-    span.classList.remove("valid-feedback")
+function limpiarValidacion(campo, campoMsj) {
+    campoMsj.text('')
+    campo.removeClass("is-invalid")
+    campo.addClass("is-valid")
 }

@@ -1,23 +1,30 @@
-$(document).ready(function () {
-    window.validacion = function (event) {
-        let patenteCod = $('#Patente').val();
-        let esValida = true;
+function validar() {
+    let verificacion = true
 
-        const expresionRegular = /^[A-Z]{3}\s\d{3}$/;
+    let patente = $("#Patente").val()
+    let msj = $("#msjErrorPatente")
+    const expreReg = /^[A-Z]{3} ?\d{3}$/
 
-        if (!expresionRegular.test(patenteCod)) {
-            $('#msjErrorPatente').text('Error: Ingrese un formato de patente válido. Ej: ABC 123');
-            $('#Patente').addClass('is-invalid');
-            esValida = false;
-        } else {
-            $("#msjErrorPatente").text("");
-            $("#Patente").removeClass("is-invalid").addClass('is-valid');
-        }
+    limpiarValidacion(patente, msj)
 
-        if (!esValida) {
-            event.preventDefault();
-        }
-
-        return esValida;
+    if (patente.trim() === "") {
+        agregarError(patente, msj, "La patente es obligatoria")
+        verificacion = false
+    } else if (!expreReg.test(patente.trim())) {
+        agregarError(patente, msj, "El formato de la patente es incorrecto (Ej: ADC 152)")
+        verificacion = false
     }
-});
+
+    return verificacion
+}
+
+function agregarError(campo, campoMsj, msj) {
+    $(campoMsj).text(msj)
+    $(campo).addClass("is-invalid")
+}
+
+function limpiarValidacion(campo, campoMsj) {
+    $(campoMsj).text('')
+    $(campo).removeClass("is-invalid")
+    $(campo).removeClass("is-valid")
+}
