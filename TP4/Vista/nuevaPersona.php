@@ -22,22 +22,23 @@
                         <h3>Agregar una nueva persona</h3>
 
                         <input class="form-control p-3" type="text" id="NroDni" name="NroDni" placeholder="Número de DNI">
-                        <span id="personaDNI"></span>
+                        <span class="text-danger" id="personaDNI"></span>
 
                         <input class="form-control p-3" type="text" id="Apellido" name="Apellido" placeholder="Apellido">
-                        <span id="personaApellido"></span>
+                        <span class="text-danger" id="personaApellido"></span>
 
                         <input class="form-control p-3" type="text" id="Nombre" name="Nombre" placeholder="Nombre">
+                        <span class="text-danger" id="personaNombre"></span>
 
-                        <span id="personaNombre"></span>
                         <input class="form-control p-3" type="text" id="fechaNac" name="fechaNac" placeholder="Fecha de nacimiento (DD/MM/YYYY)">
-                        <span id="personaFechaNac"></span>
+                        <span class="text-danger" id="personaFechaNac"></span>
 
                         <input class="form-control p-3" type="text" id="Telefono" name="Telefono" placeholder="Teléfono (sin el 15)">
-                        <span id="personaTelefono"></span>
+                        <span class="text-danger" id="personaTelefono"></span>
 
                         <input class="form-control p-3" type="text" id="Domicilio" name="Domicilio" placeholder="Domicilio">
-                        <span id="personaDomicilio"></span>
+                        <span class="text-danger" id="personaDomicilio"></span>
+
                         <input class="btn btn-success p-2" type="submit" style="width:20%" value="Agregar">
                         <a onclick="history.back()" class="btn btn-success fs-5 w-50">Volver</a>
                     </form>
@@ -45,6 +46,7 @@
             </div>
         </div>
     </main>
+    <script src="./Js/jquery-v3_7_1.js"></script>
     <script src="./Js/validarPersona.js"></script>
 </body>
 

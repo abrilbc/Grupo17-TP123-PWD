@@ -65,8 +65,6 @@ class AbmPersona
                 $msj = 'Exito';
             } catch (PDOException $e) {
                 $msj = 'Error registrar: ' . $e->getMessage();
-            } catch (Exception $e) {
-                $msj = 'otro error: ' . $e->getMessage();
             }
         }
         return $msj;

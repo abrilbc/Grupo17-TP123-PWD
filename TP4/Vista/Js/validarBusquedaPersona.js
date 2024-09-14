@@ -1,36 +1,29 @@
-/**
- * Validación con Bootstrap
- */
-
 function validar() {
     let verificacion = true
-    let nroDni = document.getElementById("NroDni")
+    let nroDni = $("#NroDni")
+    let msjPersona = $("#msjErrorDNI")
+    const expreReg = /^[A-Z]{3} ?\d{3}$/
 
-    limpiarValidacion(nroDni)
-
-    if (nroDni.value.trim() === "") {
-        agregarError(nroDni, "El DNI es obligatorio")
+    if (nroDni.val().trim() === "") {
+        agregarError(nroDni, msjPersona, "El DNI es obligatorio")
         verificacion = false
-    } else if (!/^\d{7,8}$/.test(nroDni.value.trim())) {
-        agregarError(nroDni, "El DNI debe tener 7 u 8 dígitos")
+    } else if (!expreReg.test(nroDni.val().trim())) {
+        agregarError(nroDni, msjPersona, "El DNI debe tener 7 u 8 dígitos")
         verificacion = false
+    } else {
+        limpiarValidacion(nroDni, msjPersona)
     }
 
     return verificacion
 }
 
-function agregarError(campo, mensaje) {
-    campo.classList.add("is-invalid")
-    let span = campo.nextElementSibling
-    span.textContent = mensaje
-    span.classList.add("invalid-feedback")
+function agregarError(campo, campoMsj, msj) {
+    campoMsj.text(msj)
+    campo.addClass("is-invalid")
 }
 
-function limpiarValidacion(campo) {
-    campo.classList.remove("is-invalid")
-    campo.classList.remove("is-valid")
-    let span = campo.nextElementSibling
-    span.textContent = ''
-    span.classList.remove("invalid-feedback")
-    span.classList.remove("valid-feedback")
+function limpiarValidacion(campo, campoMsj) {
+    campoMsj.text('')
+    campo.removeClass("is-invalid")
+    campo.addClass("is-valid")
 }

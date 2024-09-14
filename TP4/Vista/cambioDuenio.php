@@ -10,10 +10,10 @@ include_once 'Estructura/header.php';
                     <h3>Cambiar Dueño</h3>
 
                     <input class="form-control p-3" type="text" id="Patente" name="Patente" placeholder="Patente del vehículo">
-                    <span id="aPatente"></span>
+                    <span class="text-danger" id="aPatente"></span>
 
                     <input class="form-control p-3" type="text" id="DniDuenio" name="DniDuenio" placeholder="DNI del Dueño">
-                    <span id="personaDNI"></span>
+                    <span class="text-danger" id="personaDNI"></span>
 
                     <input class="btn btn-success p-2" type="submit" style="width:20%" value="Cambiar">
                     <a onclick="history.back()" class="btn btn-success fs-5 w-50">Volver</a>
