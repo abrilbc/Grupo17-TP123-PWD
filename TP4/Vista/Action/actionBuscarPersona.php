@@ -76,7 +76,7 @@ require_once('../../../configuracion.php');
                     ?>
                 </div>
             </div>
-            <a href="../buscarPersona.php" class="btn btn-primary">Volver</a>
+            <a onclick="history.back()" class="btn btn-primary">Volver</a>
         </div>
     </main>
 </body>

@@ -42,6 +42,7 @@
                     ?>
                 </div>
             </div>
+            <a onclick="window.location='../../index.php';" class="btn btn-primary">Volver</a>
         </div>
     </main>
 

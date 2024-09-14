@@ -79,7 +79,7 @@ require_once('../../../configuracion.php');
                     ?>
                 </div>
             </div>
-            <a href="../buscarAuto.php" class="btn btn-primary">Volver</a>
+            <a onclick="history.back()" class="btn btn-success fs-5">Volver</a>
         </div>
     </main>
 </body>

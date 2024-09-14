@@ -15,7 +15,7 @@ include_once 'Estructura/header.php';
                     </div>
                     <div class="d-flex justify-content-around w-100">
                         <button class="btn btn-success fs-5" type="submit">Buscar</button>
-                        <a onclick="history.back()" class="btn btn-dark fs-5">Volver</a>
+                        <a onclick="window.location='../../index.php';" class="btn btn-dark fs-5">Volver</a>
                     </div>
                 </form>
             </div>
