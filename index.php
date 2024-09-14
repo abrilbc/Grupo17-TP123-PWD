@@ -64,22 +64,10 @@ javaScript (JQuery, Mootools, Dojo, Prototype, etc).
                 <div class="col-10 d-flex align-items-center justify-content-between px-3">
                     <p class="m-1" style="font-size: 14px">...
                     </p>
-                    <a href="TP1/" class="btn btn-success col-1 ms-5 h-50 fs-5">Ir</a>
+                    <a href="#" class="btn btn-success col-1 ms-5 h-50 fs-5">Ir</a>
                 </div>
             </div>
         </div>
     </div>
 </body>
-</html>
-    <ul>
-        <li><a href="./TP4/Vista/verAutos.php">TP 4 - Ejercicio 1 (ver autos)</a></li>
-        <li><a href="./TP4/Vista/buscarAuto.php">TP 4 - Ejercicio 2 (buscar auto)</a></li>
-        <li><a href="./TP4/Vista/listaPersonas.php">TP 4 - Ejercicio 3 (listar personas)</a></li>
-        <li><a href="./TP4/Vista/nuevaPersona.php">TP 4 - Ejercicio 4 (agregar personas)</a></li>
-        <li><a href="./TP4/Vista/nuevoAuto.php">TP 4 - Ejercicio 5 (agregar auto)</a></li>
-        <li><a href="./TP4/Vista/cambioDuenio.php">TP 4 - Ejercicio 6 (cambiar dueño)</a></li>
-        <li><a href="./TP4/Vista/buscarPersona.php">TP 4 - Ejercicio 7 (buscar persona)</a></li>
-    </ul>
-</body>
-
 </html>
