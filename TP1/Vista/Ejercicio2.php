@@ -1,90 +1,47 @@
 <?php
-/**<!DOCTYPE html>
-<html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Ejercicio 1</title>
-    <link rel="stylesheet" href="css/estilos.css">
-    <link href="https://fonts.googleapis.com/css2?family=Jost:ital,wght@0,100..900;1,100..900&display=swap" rel="stylesheet">
-    <script src="TP1/Utils/JQuery/jquery-3.7.1.min.js"></script>
-</head>
-<body>
-    <div class="header"></div>
-    <div class="container">
-        <div class="centrar">
-        <h1>CONSIGNA</h1>
-        <p class="texto-normal">
-        </p>
-        <form class="centrar" action="./Action/action_numero.php" method="post" id="miFormulario">
-        </form>
-        </div>
-
-    </div>
-    <script>
-    </script>
-</body>
-</html>
- */
+include_once('./Estructura/header.php');
 ?>
-
-<!DOCTYPE html>
-<html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Ejercicio 2 - TP 1</title>
-    <link rel="stylesheet" href="css/estilos.css">
-    <link href="https://fonts.googleapis.com/css2?family=Jost:ital,wght@0,100..900;1,100..900&display=swap" rel="stylesheet">
-    <script src="https://code.jquery.com/jquery-3.7.1.min.js"></script>
-    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-QWTKZyjpPEjISv5WaRU9OFeRpok6YctnYmDr5pNlyT2bRjXh0JMhjY6hW+ALEwIH" crossorigin="anonymous">
-</head>
-<body>
-    <div class="header"></div>
-    <div class="container">
-        <div class="centrar">
-        <h2>CONSIGNA</h2>
-        <p class="texto-normal">
-        Crear una página php que contenga un formulario HTML que permita ingresar las horas de cursada, de la materia Programación Web Dinámica, por cada día de la semana. Enviar los datos del formulario por el método Get a otra página php que los reciba y complete un array unidimensional. Visualizar por pantalla la cantidad total de horas que se cursan por semana.
+<div class="container mb-5">
+    <div class="p-4 border rounded-3 shadow-sm">
+        <h2>CONSIGNA - Ejercicio 2</h2>
+        <p class="fs-5">
+            Crear una página php que contenga un formulario HTML que permita ingresar las horas de cursada, de la materia Programación Web Dinámica, por cada día de la semana. Enviar los datos del formulario por el método Get a otra página php que los reciba y complete un array unidimensional. Visualizar por pantalla la cantidad total de horas que se cursan por semana.
         </p>
         
-        <form action="./Action/action_ej2.php" method="get" id="miFormulario">
-            <h4>Ingrese las horas de cursada de PWD por día de semana:</h4>
-            <label for="lunes">Lunes</label>
-            <input type="number" name="lunes" id="lunes" required>
-            <label for="martes">Martes</label>
-            <input type="number" name="martes" id="martes" required>
-            <label for="miercoles">Miercoles</label>
-            <input type="number" name="miercoles" id="miercoles" required>
-            <label for="jueves">Jueves</label>
-            <input type="number" name="jueves" id="jueves" required>
-            <label for="viernes">Viernes</label>
-            <input type="number" name="viernes" id="viernes" required>
-            <input type="submit" class="btn">
+        <form action="./Action/action_ej2.php" method="get" id="miFormulario-2" class="w-50 mx-auto">
+            <h4 class="mb-4">Ingrese las horas de cursada de PWD por día de semana: <br>(1h a 24hs permitidas)</h4>
+            
+            <div class="mb-3">
+                <label for="lunes" class="form-label fs-5">Lunes</label>
+                <input type="number" name="lunes" id="lunes" class="form-control p-2" required>
+            </div>
+
+            <div class="mb-3">
+                <label for="martes" class="form-label fs-5">Martes</label>
+                <input type="number" name="martes" id="martes" class="form-control p-2" required>
+            </div>
+
+            <div class="mb-3">
+                <label for="miercoles" class="form-label fs-5">Miércoles</label>
+                <input type="number" name="miercoles" id="miercoles" class="form-control p-2" required>
+            </div>
+
+            <div class="mb-3">
+                <label for="jueves" class="form-label fs-5">Jueves</label>
+                <input type="number" name="jueves" id="jueves" class="form-control p-2" required>
+            </div>
+
+            <div class="mb-3">
+                <label for="viernes" class="form-label fs-5">Viernes</label>
+                <input type="number" name="viernes" id="viernes" class="form-control p-2" required>
+            </div>
+
+            <input type="submit" class="btn btn-success w-100 fs-5" value="Enviar">
         </form>
+        <div class="d-flex justify-content-center">
+            <a href="../" class="mt-3 btn btn-secondary fs-5 w-50 mb-2">Volver</a>
         </div>
-
     </div>
-    <script>
-        $(document).ready(function() {
-    $("#miFormulario").submit(function(event) {
-        let valid = true;
-        const days = ["lunes", "martes", "miercoles", "jueves", "viernes"];
-        
-        days.forEach(function(day) {
-            let value = $("#" + day).val();
-            if (value === "" || value < 0 || value > 24) {
-                alert("Por favor, ingrese un número válido para " + day);
-                valid = false;
-                return false; // Esto detiene la iteración si se encuentra un error
-            }
-        });
-
-        if (!valid) {
-            event.preventDefault(); // Previene el envío del formulario si hay errores
-        }
-    });
-});
-    </script>
+</div>
 </body>
 </html>

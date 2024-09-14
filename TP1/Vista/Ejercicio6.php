@@ -1,59 +1,47 @@
 <?php
+include_once('./Estructura/header.php');
 ?>
-
-<!DOCTYPE html>
-<html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Ejercicio 6 - TP 1</title>
-    <link rel="stylesheet" href="css/estilos.css">
-    <link href="https://fonts.googleapis.com/css2?family=Jost:ital,wght@0,100..900;1,100..900&display=swap" rel="stylesheet">
-    <script src="https://code.jquery.com/jquery-3.7.1.min.js"></script>
-    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-QWTKZyjpPEjISv5WaRU9OFeRpok6YctnYmDr5pNlyT2bRjXh0JMhjY6hW+ALEwIH" crossorigin="anonymous">
-</head>
-<body>
-    <div class="header"></div>
-    <div class="container">
-        <div class="centrar">
-        <h2>CONSIGNA</h2>
-        <p class="texto-normal">
-        Modificar el formulario del ejercicio anterior solicitando, tal que usando componentes “radios buttons” se ingrese el nivel de estudio de la persona: 1-no tiene estudios, 2-estudios primarios, 3-estudios secundarios. Agregar el componente que crea más apropiado para solicitar el sexo. En la página que procesa el formulario mostrar además un mensaje que indique el tipo de estudios que posee y su sexo.
+<div class="container my-5">
+    <div class="p-4 border rounded-3 shadow-sm">
+        <h2 class="mb-4">CONSIGNA - Ejercicio 6</h2>
+        <p class="fs-5">
+            Modificar el formulario del ejercicio anterior solicitando, tal que usando componentes “radios buttons” se ingrese el nivel de estudio de la persona: 1-no tiene estudios, 2-estudios primarios, 3-estudios secundarios. Agregar el componente que crea más apropiado para solicitar el sexo. En la página que procesa el formulario mostrar además un mensaje que indique el tipo de estudios que posee y su sexo.
         </p>
-        <form action="./Action/action_persona.php" method="post" id="miFormulario">
-            <label for="nombre">Nombre:</label>
-            <input type="text" id="nombre" name="nombre" required><br>
-            <label for="apellido">Apellido:</label>
-            <input type="text" id="apellido" name="apellido" required><br>
-            <label for="edad">Edad:</label>
-            <input type="number" id="edad" name="edad" required><br>
-            <label for="dire">Direcci&oacute;n</label>
-            <input type="text" id="dire" name="dire" required><br>
-            <label for="radio">¿Cuál es su nivel de estudios?</label><br>
-            <div class="selecciones">
-            <label for="ninguno"><input type="radio" name="estudios" id="ninguno" value="ninguno">No tiene estudios</label><br>
-            <label for="primario"><input type="radio" name="estudios" id="primario" value="primario">Estudios Primarios</label><br>
-            <label for="secundario"><input type="radio" name="estudios" id="secundario" value="secundario">Estudios secundarios</label><br>
+        <form action="./Action/action_persona.php" method="post" id="miFormulario-6">
+            <label for="nombre" class="fs-5">Nombre:</label>
+            <input type="text" id="nombre" name="nombre" class="form-control p-2 mb-3 fs-6" required><br>
+            <label for="apellido" class="fs-5">Apellido:</label>
+            <input type="text" id="apellido" name="apellido" class="form-control p-2 mb-3 fs-6" required><br>
+            <label for="edad" class="fs-5">Edad:</label>
+            <input type="number" id="edad" name="edad" class="form-control p-2 mb-3 fs-6" required><br>
+            <label for="dire" class="fs-5">Dirección:</label>
+            <input type="text" id="dire" name="dire" class="form-control p-2 mb-3 fs-6" required><br>
+            <label for="radio" class="fs-5">¿Cuál es su nivel de estudios?</label><br>
+            <div class="selecciones mb-3">
+                <label for="ninguno" class="fs-5"><input type="radio" name="estudios" id="ninguno" value="ninguno"> No tiene estudios</label><br>
+                <label for="primario" class="fs-5"><input type="radio" name="estudios" id="primario" value="primario"> Estudios Primarios</label><br>
+                <label for="secundario" class="fs-5"><input type="radio" name="estudios" id="secundario" value="secundario"> Estudios secundarios</label><br>
             </div>
-            <label for="radio">Genero:</label><br>
-            <div class="selecciones">
-            <label for="mujer"><input type="radio" name="genero" id="mujer" value="mujer">Mujer</label><br>
-            <label for="hombre"><input type="radio" name="genero" id="hombre" value="hombre">Hombre</label><br>
-            <label for="nobinario"><input type="radio" name="genero" id="nobinario" value="nobinario">No binario</label><br>
-            <label for="otro"><input type="radio" name="genero" id="otro" value="otro">Prefiero no decir</label><br>
+            <label for="radio" class="fs-5">Género:</label><br>
+            <div class="selecciones mb-3">
+                <label for="mujer" class="fs-5"><input type="radio" name="genero" id="mujer" value="mujer"> Mujer</label><br>
+                <label for="hombre" class="fs-5"><input type="radio" name="genero" id="hombre" value="hombre"> Hombre</label><br>
+                <label for="nobinario" class="fs-5"><input type="radio" name="genero" id="nobinario" value="nobinario"> No binario</label><br>
+                <label for="otro" class="fs-5"><input type="radio" name="genero" id="otro" value="otro"> Prefiero no decir</label><br>
             </div>
-            <label for="radio">¿Qué deporte practica?</label>
-            <div class="selecciones">
-                <label for="futbol"><input type="checkbox" name="deportes[]" id="futbol" value="futbol">Futbol</label>
-                <label for="basket"><input type="checkbox" name="deportes[]" id="basket" value="basket">Basketball</label>
-                <label for="voley"><input type="checkbox" name="deportes[]" id="voley" value="voley">Voleyball</label>
-                <label for="tenis"><input type="checkbox" name="deportes[]" id="tenis" value="tenis">Tenis</label>
+            <label for="radio" class="fs-5">¿Qué deporte practica?</label><br>
+            <div class="d-grid mb-3">
+                <label for="futbol" class="fs-5"><input type="checkbox" name="deportes[]" id="futbol" value="futbol"> Fútbol</label>
+                <label for="basket" class="fs-5"><input type="checkbox" name="deportes[]" id="basket" value="basket"> Basketball</label>
+                <label for="voley" class="fs-5"><input type="checkbox" name="deportes[]" id="voley" value="voley"> Voleyball</label>
+                <label for="tenis" class="fs-5"><input type="checkbox" name="deportes[]" id="tenis" value="tenis"> Tenis</label>
+                <label for="ningun" class="fs-5"><input type="checkbox" name="deportes[]" id="ningun" value="ningun" class="ningun-deporte"> Ningún deporte</label>
             </div>
-            <input type="submit" class="btn">
+            <div class="d-flex">
+                <input type="submit" class="m-3 btn btn-success fs-5" value="Enviar">
+                <a href="../" class="m-3 btn btn-secondary fs-5">Volver</a>
         </form>
-        </div>
     </div>
-    <script>
-    </script>
+</div>
 </body>
 </html>

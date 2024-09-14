@@ -1,36 +1,8 @@
-<!DOCTYPE html>
-<html lang="es">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Ejercicio 3 - TP 2</title>
-    <link href="https://fonts.googleapis.com/css2?family=Jost:ital,wght@0,100..900;1,100..900&display=swap" rel="stylesheet">
-    <script src="https://code.jquery.com/jquery-3.7.1.min.js"></script>
-    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-QWTKZyjpPEjISv5WaRU9OFeRpok6YctnYmDr5pNlyT2bRjXh0JMhjY6hW+ALEwIH" crossorigin="anonymous">
-    <style>
-        body {
-            padding: 0;
-            margin: 0;
-            font-family: 'Jost';
-            font-size: 13px;
-            background-color: #FAF6ED;
-        }
-
-        .header {
-            margin-bottom: 20px;
-            width: 100%;
-            height: 8em;
-            background: url(assets/img/banner_tp2.png) no-repeat center center;
-            background-size: contain;
-            border-bottom: 1.5px solid #5C5B63;
-            background-color: #FAF6ED;
-        }
-    </style>
-</head>
-<body>
-<div class="header" style="background-color: white;"></div>
-    <div name="box" class="d-flex justify-content-center align-items-center vh-100 w-100 p-3">
-        <div class="all-form-box w-75 shadow mb-5 bg-white rounded">
+<?php
+include_once './Estructura/header.php';
+?>
+    <div name="box" class="d-flex justify-content-center align-items-center p-3" style="height: 555px">
+        <div class="all-form-box w-75 shadow mb-2 bg-white rounded">
             <div name="title-box" class="w-100 bg-light bg-gradient px-2">
             <svg width="12" height="12" viewBox="0 0 24.00 24.00" fill="none" xmlns="http://www.w3.org/2000/svg" stroke="#00eeff">
                 <g id="SVGRepo_bgCarrier" stroke-width="0"></g>
@@ -108,59 +80,12 @@
                         <textarea name="sinopsis" id="sinopsis" class="form-control"></textarea>
                     </div>
                     <div class="pt-3 w-100 d-flex justify-content-end mb-3 mt-3">
-                        <input type="submit" value="Enviar" class="btn bg-info bg-gradient text-white p-1 pe-3 ps-3">
-                        <input type="reset" value="Borrar" class="btn bg-light bg-gradient ms-2 p-1.5 pe-3 ps-3">
+                        <input type="submit" value="Enviar" class="btn btn-info bg-gradient text-white p-1 pe-3 ps-3">
+                        <input type="reset" value="Borrar" class="btn btn-light bg-gradient ms-2 p-1.5 pe-3 ps-3">
                     </div>
                 </form>
             </div>
         </div>
     </div>
-    <script>
-    function validar() {
-        let validacion = true;
-        let errores = [];
-
-        // Array con los ids de los campos a validar (arreglo con formato JSON)
-        const campos = [
-            { id: "titulo", tipo: "texto" },
-            { id: "actores", tipo: "texto" },
-            { id: "director", tipo: "texto" },
-            { id: "guion", tipo: "texto" },
-            { id: "produccion", tipo: "texto" },
-            { id: "anio", tipo: "numero", maxLength: 4 },
-            { id: "nacionalidad", tipo: "texto" },
-            { id: "genero", tipo: "texto" },
-            { id: "duracion", tipo: "numero", minLength: 2, maxLength: 3 },
-            { id: "sinopsis", tipo: "texto" }
-        ];
-
-        // Limpiar estados previos
-        $("input, textarea, select").css("border", "1px solid #ced4da"); // Restaurar bordes originales
-
-        // Recorremos cada campo y se les da las alertas si es necesario
-        campos.forEach(campo => {
-            let valor = $("#" + campo.id).val();
-            if (campo.tipo === "texto" && !valor) {
-                errores.push("El campo '" + campo.id + "' es obligatorio.");
-                $("#" + campo.id).css("border", "1px solid red");
-            } else if (campo.tipo === "numero") {
-                if (campo.id === "duracion" && (valor.length < campo.minLength || valor.length > campo.maxLength)) {
-                    errores.push("El campo '" + campo.id + "' debe tener entre " + campo.minLength + " y " + campo.maxLength + " dígitos.");
-                    $("#" + campo.id).css("border", "1px solid red");
-                } else if (valor.length !== campo.maxLength && campo.id !== "duracion") {
-                    errores.push("Ingrese un valor válido para el campo '" + campo.id + "' (" + campo.maxLength + " caracteres).");
-                    $("#" + campo.id).css("border", "1px solid red");
-                }
-            }
-        });
-
-        if (errores.length > 0) {
-            alert(errores.join("\n")); // Unimos todos los errores en una sola alerta
-            validacion = false;
-        }
-
-        return validacion;
-    }
-    </script>
 </body>
 </html>

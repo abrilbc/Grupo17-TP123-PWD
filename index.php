@@ -1,54 +1,76 @@
-<!DOCTYPE html>
-<html lang="en">
+<?php 
+include_once 'Vista/Estructura/header.php';
 
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Ejercicios</title>
-    <style>
-        body {
-            padding: 0;
-            margin: 0;
-            font-family: 'Jost';
-            font-size: 13px;
-            background-color: #FAF6ED;
-        }
+?>
+    <div class="container my-4 justify-content-center d-flex">
+        <div class="h-100 w-75">
+            <div class="box mb-3 d-flex align-items-center border rounded overflow-hidden" style="height: 60px;">
+                <div class="col-2 bg-success text-white d-flex align-items-center justify-content-center" style="height: 100%;">
+                    <p class="m-1 fs-5">Trabajo Práctico 1</p>
+                </div>
+                <div class="col-10 d-flex align-items-center justify-content-between px-3">
+                    <p class="m-1" style="font-size: 14px">PHP - HTML <br> Formularios y validación con JavaScript
+                    </p>
+                    <a href="TP1/" class="btn btn-success col-1 ms-5 h-50 fs-5">Ir</a>
+                </div>
+            </div>
+            <div class="box mb-3 d-flex align-items-center border rounded overflow-hidden" style="height: 60px;">
+                <div class="col-2 bg-success text-white d-flex align-items-center justify-content-center" style="height: 100%;">
+                    <p class="m-1 fs-5">Trabajo Práctico 2</p>
+                </div>
+                <div class="col-10 d-flex align-items-center justify-content-between px-3">
+                    <p class="m-1" style="font-size: 14px">Validación de formularios usando alguna librería o framework
+javaScript (JQuery, Mootools, Dojo, Prototype, etc).
 
-        .header {
-            margin-bottom: 0px;
-            width: 100%;
-            height: 9em;
-            background: url(TP1/Vista/img/banner_tp.png) no-repeat center center;
-            background-size: contain;
-            border-bottom: 1.5px solid #5C5B63;
-        }
-    </style>
-</head>
-
-<body>
-    <div class="header"></div>
-    <ul>
-        <li><a href="./TP1/Vista/Ejercicio1.php">TP 1 - Ejercicio 1</a></li>
-        <li><a href="./TP1/Vista/Ejercicio2.php">TP 1 - Ejercicio 2</a></li>
-        <li><a href="./TP1/Vista/Ejercicio3.php">TP 1 - Ejercicio 3</a></li>
-        <li><a href="./TP1/Vista/Ejercicio4.php">TP 1 - Ejercicio 4</a></li>
-        <li><a href="./TP1/Vista/Ejercicio5.php">TP 1 - Ejercicio 5</a></li>
-        <li><a href="./TP1/Vista/Ejercicio6.php">TP 1 - Ejercicio 6</a></li>
-        <li><a href="./TP1/Vista/Ejercicio7.php">TP 1 - Ejercicio 7</a></li>
-        <li><a href="./TP1/Vista/Ejercicio8.php">TP 1 - Ejercicio 8</a></li>
-    </ul>
-    <br><br>
-    <ul>
-        <li><a href="./TP2/EJ2">TP 2 - Ejercicio 2</a></li>
-        <li><a href="./TP2/EJ3/Vista/Ej3.php">TP 2 - Ejercicio 3</a></li>
-        <li><a href="./TP2/EJ4/Vista/Ej4.php">TP 2 - Ejercicio 4</a></li>
-    </ul>
-    <br><br>
-    <ul>
-        <li><a href="./TP3/Ejercicio1/Vista/Ejercicio1.php">TP 3 - Ejercicio 1</a></li>
-        <li><a href="./TP3/Ejercicio2/Vista/Ejercicio2.php">TP 3 - Ejercicio 2</a></li>
-        <li><a href="./TP3/Ejercicio3/Vista/Ejercicio3.php">TP 3 - Ejercicio 3</a></li>
-    </ul>
+                    </p>
+                    <a href="TP2/" class="btn btn-success col-1 ms-5 h-50 fs-5">Ir</a>
+                </div>
+            </div>
+            <div class="box mb-3 d-flex align-items-center border rounded overflow-hidden" style="height: 60px;">
+                <div class="col-2 bg-success text-white d-flex align-items-center justify-content-center" style="height: 100%;">
+                    <p class="m-1 fs-5">Trabajo Práctico 3</p>
+                </div>
+                <div class="col-10 d-flex align-items-center justify-content-between px-3">
+                    <p class="m-1" style="font-size: 14px">Subir Archivos al Servidor
+                    </p>
+                    <a href="TP3/" class="btn btn-success col-1 ms-5 h-50 fs-5">Ir</a>
+                </div>
+            </div>
+            <div class="box mb-3 d-flex align-items-center border rounded overflow-hidden" style="height: 60px;">
+                <div class="col-2 bg-success text-white d-flex align-items-center justify-content-center" style="height: 100%;">
+                    <p class="m-1 fs-5">Trabajo Práctico 4</p>
+                </div>
+                <div class="col-10 d-flex align-items-center justify-content-between px-3">
+                    <p class="m-1" style="font-size: 14px">PHP - MySQL
+                    PDO
+                    </p>
+                    <a href="TP4/" class="btn btn-success col-1 ms-5 h-50 fs-5">Ir</a>
+                </div>
+            </div>
+            <div class="box mb-3 d-flex align-items-center border rounded overflow-hidden" style="height: 60px;">
+                <div class="col-2 bg-success text-white d-flex align-items-center justify-content-center" style="height: 100%;">
+                    <p class="m-1 fs-5">Trabajo Práctico 5</p>
+                </div>
+                <div class="col-10 d-flex align-items-center justify-content-between px-3">
+                    <p class="m-1" style="font-size: 14px">...
+                    </p>
+                    <a href="#" class="btn btn-success col-1 ms-5 h-50 fs-5">Ir</a>
+                </div>
+            </div>
+            <div class="box mb-3 d-flex align-items-center border rounded overflow-hidden" style="height: 60px;">
+                <div class="col-2 bg-success text-white d-flex align-items-center justify-content-center" style="height: 100%;">
+                    <p class="m-1 fs-5">TP FINAL</p>
+                </div>
+                <div class="col-10 d-flex align-items-center justify-content-between px-3">
+                    <p class="m-1" style="font-size: 14px">...
+                    </p>
+                    <a href="TP1/" class="btn btn-success col-1 ms-5 h-50 fs-5">Ir</a>
+                </div>
+            </div>
+        </div>
+    </div>
+</body>
+</html>
     <ul>
         <li><a href="./TP4/Vista/verAutos.php">TP 4 - Ejercicio 1 (ver autos)</a></li>
         <li><a href="./TP4/Vista/buscarAuto.php">TP 4 - Ejercicio 2 (buscar auto)</a></li>

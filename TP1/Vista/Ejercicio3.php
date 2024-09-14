@@ -1,40 +1,40 @@
 <?php
+include_once('./Estructura/header.php');
 ?>
-
-<!DOCTYPE html>
-<html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Ejercicio 3 - TP 1</title>
-    <link rel="stylesheet" href="css/estilos.css">
-    <link href="https://fonts.googleapis.com/css2?family=Jost:ital,wght@0,100..900;1,100..900&display=swap" rel="stylesheet">
-    <script src="https://code.jquery.com/jquery-3.7.1.min.js"></script>
-    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-QWTKZyjpPEjISv5WaRU9OFeRpok6YctnYmDr5pNlyT2bRjXh0JMhjY6hW+ALEwIH" crossorigin="anonymous">
-</head>
-<body>
-    <div class="header"></div>
-    <div class="container">
-        <div class="centrar">
-        <h2>CONSIGNA</h2>
-        <p class="texto-normal">
-        Crear una página php que contenga un formulario HTML como el que se indica en la imagen (darle formato con CSS), enviar estos datos por el método Post a otra página php que los reciba y muestre por pantalla un mensaje como el siguiente: “Hola, yo soy nombre , apellido tengo edad años y vivo en dirección”, usando la información recibida.
-Cambiar el método Post por Get y analizar las diferencias.
+<div class="container mb-5">
+    <div class="p-4 border rounded-3 shadow-sm">
+        <h2>CONSIGNA - Ejercicio 3</h2>
+        <p class="fs-5">
+            Crear una página php que contenga un formulario HTML como el que se indica en la imagen (darle formato con CSS), enviar estos datos por el método Post a otra página php que los reciba y muestre por pantalla un mensaje como el siguiente: “Hola, yo soy nombre , apellido tengo edad años y vivo en dirección”, usando la información recibida.
+            Cambiar el método Post por Get y analizar las diferencias.
         </p>
-        <form action="./Action/action_ej3.php" method="post" id="miFormulario">
-            <label for="nombre">Nombre:</label>
-            <input type="text" id="nombre" name="nombre" required><br>
-            <label for="apellido">Apellido:</label>
-            <input type="text" id="apellido" name="apellido" required><br>
-            <label for="edad">Edad:</label>
-            <input type="number" id="edad" name="edad" required><br>
-            <label for="dire">Direcci&oacute;n</label>
-            <input type="text" id="dire" name="dire" required><br>
-            <input type="submit" class="btn">
-        </form>
+        <div class="mt-5">
+            <form action="./Action/action_ej3.php" method="post" id="miFormulario-3" class="w-50 mx-auto">
+                <div class="mb-3">
+                    <label for="nombre" class="fs-4 form-label">Nombre:</label>
+                    <input type="text" id="nombre" name="nombre" class="form-control p-2 fs-5" required>
+                </div>
+                <div class="mb-3">
+                    <label for="apellido" class="fs-4 form-label">Apellido:</label>
+                    <input type="text" id="apellido" name="apellido" class="form-control p-2 fs-5" required>
+                </div>
+                <div class="mb-3">
+                    <label for="edad" class="fs-4 form-label">Edad:</label>
+                    <input type="number" id="edad" name="edad" class="form-control p-2 fs-5" required>
+                </div>
+                <div class="mb-3">
+                    <label for="dire" class="fs-4 form-label">Dirección:</label>
+                    <input type="text" id="dire" name="dire" class="form-control p-2 fs-5" required>
+                </div>
+                <div class="d-grid">
+                    <input type="submit" class="btn btn-success fs-5" value="Enviar">
+                </div>
+            </form>
+            <div class="d-flex justify-content-center">
+                <a href="../" class="mt-3 btn btn-secondary fs-5 w-50 mb-2">Volver</a>
+            </div>
         </div>
     </div>
-    <script>
-    </script>
+</div>
 </body>
 </html>

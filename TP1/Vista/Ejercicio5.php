@@ -1,52 +1,57 @@
 <?php
+include_once('./Estructura/header.php');
 ?>
-
-<!DOCTYPE html>
-<html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Ejercicio 5 - TP 1</title>
-    <link rel="stylesheet" href="css/estilos.css">
-    <link href="https://fonts.googleapis.com/css2?family=Jost:ital,wght@0,100..900;1,100..900&display=swap" rel="stylesheet">
-    <script src="https://code.jquery.com/jquery-3.7.1.min.js"></script>
-    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-QWTKZyjpPEjISv5WaRU9OFeRpok6YctnYmDr5pNlyT2bRjXh0JMhjY6hW+ALEwIH" crossorigin="anonymous">
-</head>
-<body>
-    <div class="header"></div>
-    <div class="container">
-        <div class="centrar">
-        <h2>CONSIGNA</h2>
-        <p class="texto-normal">
-        Modificar el formulario del ejercicio anterior solicitando, tal que usando componentes “radios buttons” se ingrese el nivel de estudio de la persona: 1-no tiene estudios, 2-estudios primarios, 3-estudios secundarios. Agregar el componente que crea más apropiado para solicitar el sexo. En la página que procesa el formulario mostrar además un mensaje que indique el tipo de estudios que posee y su sexo.
+<div class="container mb-5">
+    <div class="p-4 border rounded-3 shadow-sm">
+        <h2 class="mb-4">CONSIGNA - Ejercicio 5</h2>
+        <p class="mb-5 fs-5">
+            Modificar el formulario del ejercicio anterior solicitando, tal que usando componentes “radios buttons” se ingrese el nivel de estudio de la persona: 1-no tiene estudios, 2-estudios primarios, 3-estudios secundarios. Agregar el componente que crea más apropiado para solicitar el sexo. En la página que procesa el formulario mostrar además un mensaje que indique el tipo de estudios que posee y su sexo.
         </p>
-        <form action="./Action/action_persona.php" method="post" id="miFormulario">
-            <label for="nombre">Nombre:</label>
-            <input type="text" id="nombre" name="nombre" required><br>
-            <label for="apellido">Apellido:</label>
-            <input type="text" id="apellido" name="apellido" required><br>
-            <label for="edad">Edad:</label>
-            <input type="number" id="edad" name="edad" required><br>
-            <label for="dire">Direcci&oacute;n</label>
-            <input type="text" id="dire" name="dire" required><br>
-            <label for="radio">¿Cuál es su nivel de estudios?</label><br>
-            <div class="selecciones">
-            <label for="ninguno"><input type="radio" name="estudios" id="ninguno" value="ninguno">No tiene estudios</label><br>
-            <label for="primario"><input type="radio" name="estudios" id="primario" value="primario">Estudios Primarios</label><br>
-            <label for="secundario"><input type="radio" name="estudios" id="secundario" value="secundario">Estudios secundarios</label><br>
+        <form action="./Action/action_persona.php" method="post" id="miFormulario-5" class="w-100 mx-auto">
+            <div class="mb-3">
+                <label for="nombre" class="form-label fs-5">Nombre:</label>
+                <input type="text" id="nombre" name="nombre" class="form-control p-2" required>
             </div>
-            <label for="radio">Genero:</label><br>
-            <div class="selecciones">
-            <label for="mujer"><input type="radio" name="genero" id="mujer" value="mujer">Mujer</label><br>
-            <label for="hombre"><input type="radio" name="genero" id="hombre" value="hombre">Hombre</label><br>
-            <label for="nobinario"><input type="radio" name="genero" id="nobinario" value="nobinario">No binario</label><br>
-            <label for="otro"><input type="radio" name="genero" id="otro" value="otro">Prefiero no decir</label><br>
+            <div class="mb-3">
+                <label for="apellido" class="form-label fs-5">Apellido:</label>
+                <input type="text" id="apellido" name="apellido" class="form-control p-2" required>
             </div>
-            <input type="submit" class="btn">
+            <div class="mb-3">
+                <label for="edad" class="form-label fs-5">Edad:</label>
+                <input type="number" id="edad" name="edad" class="form-control p-2" required>
+            </div>
+            <div class="mb-3">
+                <label for="dire" class="form-label fs-5">Dirección:</label>
+                <input type="text" id="dire" name="dire" class="form-control p-2" required>
+            </div>
+            <div class="d-flex justify-content-between mb-4">
+                <div class="me-4 w-50 p-4">
+                    <label for="radio" class="form-label fs-5">¿Cuál es su nivel de estudios?</label><br>
+                    <div class="selecciones">
+                        <label for="ninguno" class="fs-5"><input type="radio" name="estudios" id="ninguno" value="ninguno"> No tiene estudios</label><br>
+                        <label for="primario" class="fs-5"><input type="radio" name="estudios" id="primario" value="primario"> Estudios Primarios</label><br>
+                        <label for="secundario" class="fs-5"><input type="radio" name="estudios" id="secundario" value="secundario"> Estudios secundarios</label><br>
+                    </div>
+                </div>
+                <div class="w-50 p-4">
+                    <label for="radio" class="form-label fs-5">Género:</label><br>
+                    <div class="selecciones">
+                        <label for="mujer" class="fs-5"><input type="radio" name="genero" id="mujer" value="mujer"> Mujer</label><br>
+                        <label for="hombre" class="fs-5"><input type="radio" name="genero" id="hombre" value="hombre"> Hombre</label><br>
+                        <label for="nobinario" class="fs-5"><input type="radio" name="genero" id="nobinario" value="nobinario"> No binario</label><br>
+                        <label for="otro" class="fs-5"><input type="radio" name="genero" id="otro" value="otro"> Prefiero no decir</label><br>
+                    </div>
+                </div>
+            </div>
+            <div class="d-flex">
+                <input type="submit" class="m-3 btn btn-success fs-5" value="Enviar">
+            </div>
         </form>
+        <div class="d-flex justify-content-center">
+            <a href="../" class="mt-3 btn btn-secondary fs-5 mb-2">Volver</a>
         </div>
     </div>
-    <script>
-    </script>
+</div>
+
 </body>
 </html>
