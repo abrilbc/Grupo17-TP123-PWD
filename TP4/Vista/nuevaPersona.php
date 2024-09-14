@@ -11,8 +11,7 @@
 
 <body>
     <?php
-    include_once('../Estructura/menu/menu.php');
-    include_once('../Estructura/header.php');
+    include_once('../Vista/Estructura/header.php');
     ?>
     <main class="container">
         <div class="card col-12 text-center">
@@ -40,6 +39,7 @@
                         <input class="form-control p-3" type="text" id="Domicilio" name="Domicilio" placeholder="Domicilio">
                         <span id="personaDomicilio"></span>
                         <input class="btn btn-success p-2" type="submit" style="width:20%" value="Agregar">
+                        <a onclick="history.back()" class="btn btn-success fs-5 w-50">Volver</a>
                     </form>
                 </div>
             </div>

@@ -46,7 +46,7 @@ class AbmPersona
         return $respuesta;
     }
 
-    public function agregarObjPersonaNueva($nroDni, $apellido, $nombre, $fechaNac, $telefono, $domicilio)
+    public function agregarObjPersonaNueva($nroDni, $nombre, $apellido,  $fechaNac, $telefono, $domicilio)
     {
         $msj = '';
 
@@ -56,8 +56,8 @@ class AbmPersona
             try {
                 $objPersona = new Persona();
                 $objPersona->setNroDni($nroDni);
-                $objPersona->setApellido($apellido);
                 $objPersona->setNombre($nombre);
+                $objPersona->setApellido($apellido);
                 $objPersona->setFechaNacimiento($fechaNac);
                 $objPersona->setTel($telefono);
                 $objPersona->setDomicilio($domicilio);
@@ -72,7 +72,7 @@ class AbmPersona
         return $msj;
     }
 
-    public function modificarDatosPersona($nroDni, $nombre, $apellido, $fechaNac, $telefono, $domicilio)
+    public function modificarDatosPersona($nroDni, $apellido, $nombre, $fechaNac, $telefono, $domicilio)
     {
         $msj = '';
 

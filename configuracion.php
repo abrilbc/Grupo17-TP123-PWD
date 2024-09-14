@@ -5,12 +5,12 @@ header("Cache-Control: no-cache, must-revalidate ");
 // CONFIGURACION APP//
 /////////////////////////////
 
-$PROYECTO = 'TPs_1_2_3/TP4';
+$PROYECTO = 'Grupo17-TP123-PWD';
 
 //variable que almacena el directorio del proyecto
 $ROOT = $_SERVER['DOCUMENT_ROOT'] . "/$PROYECTO/";
 
-include_once($ROOT . 'Utils/funcs.php');
+include_once($ROOT . './TP4/Utils/funcs.php');
 
 
 // Variable que define la pagina de autenticacion del proyecto

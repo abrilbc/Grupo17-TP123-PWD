@@ -21,6 +21,10 @@
                     <h3 class="text-center" style="color:black">Holaaaa</h3>
 
                     <?php
+                    include_once('../../Model/Connector/BaseDatos.php');
+                    include_once('../../Model/Persona.php');
+                    include_once('../../Control/AbmPersona.php');
+
                     $datos = darDatosSubmitted1();
                     if ($_SERVER['REQUEST_METHOD'] == 'POST') {
                         $nroDni = $datos['NroDni'];
@@ -32,7 +36,7 @@
                         $domicilio = $datos['Domicilio'];
 
                         $ambObjPersona = new AbmPersona();
-                        $query = $ambObjPersona->agregarObjPersonaNueva($nroDni, $apellido, $nombre, $queryFecha, $telefono, $domicilio);
+                        $query = $ambObjPersona->agregarObjPersonaNueva($nroDni, $nombre, $apellido,  $queryFecha, $telefono, $domicilio);
                         echo "<p>$query</p>";
                     } else {
                         header("Location: nuevaPersona.php");

@@ -26,6 +26,10 @@ require_once('../../../configuracion.php');
                     <h3 class="text-center" style="color:black">Persona EncontradACTION</h3>
 
                     <?php
+                    include_once('../../Model/Connector/BaseDatos.php');
+                    include_once('../../Model/Persona.php');
+                    include_once('../../Control/AbmPersona.php');
+
                     $datos = darDatosSubmitted1();
                     if ($_SERVER['REQUEST_METHOD'] === 'POST' && isset($datos['NroDni'])) {
                         $nroDni = $datos['NroDni'];

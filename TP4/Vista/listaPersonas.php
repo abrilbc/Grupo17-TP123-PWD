@@ -10,8 +10,7 @@
 
 <body>
     <?php
-    include_once('../Estructura/menu/menu.php');
-    include_once('../Estructura/header.php');
+    include_once('../Vista/Estructura/header.php');
     ?>
     <main class="container">
         <div class="bg-dark text-white p-3">
@@ -62,7 +61,7 @@
             echo $resp;
             ?>
             <!-- poner para ir al menu acá -->
-            <a href="../../index.php" class="btn btn-primary">Volver</a>
+            <a onclick="history.back()" class="btn btn-success fs-5 w-50">Volver</a>
         </div>
     </main>
 </body>

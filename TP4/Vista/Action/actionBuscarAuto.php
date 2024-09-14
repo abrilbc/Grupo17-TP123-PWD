@@ -28,6 +28,11 @@ require_once('../../../configuracion.php');
                     <h3 class="text-center" style="color:black">Autos encontrados</h3>
 
                     <?php
+                    include_once('../../Model/Connector/BaseDatos.php');
+                    include_once('../../Model/Auto.php');
+                    include_once('../../Control/AbmAuto.php');
+                    include_once('../../Model/Persona.php');
+                    include_once('../../Control/AbmPersona.php');
 
                     $datos = darDatosSubmitted1();
 
