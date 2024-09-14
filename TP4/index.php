@@ -8,32 +8,35 @@ include_once './Vista/Estructura/header.php';
         <ul class="list-group">
             <li class="list-group-item d-flex justify-content-between align-items-center fs-5">
                 TP 4 - Ejercicio 1 (ver autos)
-                <a href="./Vista/verAutos.php" class="btn btn-success">Ir</a>
+                <a href="./Vista/verAutos.php" class="btn btn-success fs-5" style="width: 80px">Ir</a>
             </li>
             <li class="list-group-item d-flex justify-content-between align-items-center fs-5">
                 TP 4 - Ejercicio 2 (buscar auto)
-                <a href="./Vista/buscarAuto.php" class="btn btn-success">Ir</a>
+                <a href="./Vista/buscarAuto.php" class="btn btn-success fs-5" style="width: 80px">Ir</a>
             </li>
             <li class="list-group-item d-flex justify-content-between align-items-center fs-5">
                 TP 4 - Ejercicio 3 (listar personas)
-                <a href="./Vista/listaPersonas.php" class="btn btn-success">Ir</a>
+                <a href="./Vista/listaPersonas.php" class="btn btn-success fs-5" style="width: 80px">Ir</a>
             </li>
             <li class="list-group-item d-flex justify-content-between align-items-center fs-5">
                 TP 4 - Ejercicio 4 (agregar personas)
-                <a href="./Vista/nuevaPersona.php" class="btn btn-success">Ir</a>
+                <a href="./Vista/nuevaPersona.php" class="btn btn-success fs-5" style="width: 80px">Ir</a>
             </li>
             <li class="list-group-item d-flex justify-content-between align-items-center fs-5">
                 TP 4 - Ejercicio 5 (agregar auto)
-                <a href="./Vista/nuevoAuto.php" class="btn btn-success">Ir</a>
+                <a href="./Vista/nuevoAuto.php" class="btn btn-success fs-5" style="width: 80px">Ir</a>
             </li>
             <li class="list-group-item d-flex justify-content-between align-items-center fs-5">
                 TP 4 - Ejercicio 6 (cambiar dueño)
-                <a href="./Vista/cambioDuenio.php" class="btn btn-success">Ir</a>
+                <a href="./Vista/cambioDuenio.php" class="btn btn-success fs-5" style="width: 80px">Ir</a>
             </li>
             <li class="list-group-item d-flex justify-content-between align-items-center fs-5">
                 TP 4 - Ejercicio 7 (buscar persona)
-                <a href="./Vista/buscarPersona.php" class="btn btn-success">Ir</a>
+                <a href="./Vista/buscarPersona.php" class="btn btn-success fs-5" style="width: 80px">Ir</a>
             </li>
         </ul>
+        <div class="mt-4 d-flex flex-column align-items-center w-100">
+            <a href="../" class="w-25"><button class="btn btn-secondary w-100 fs-5">Volver</button></a>
+        </div>
     </div>
 </div>

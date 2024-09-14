@@ -1,25 +1,13 @@
-<!DOCTYPE html>
-<html lang="es">
-
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Agregar Nueva Persona</title>
-    <link rel="stylesheet" href="../node_modules/bootstrap/dist/css/bootstrap.css">
-    <link rel="stylesheet" href="../node_modules/bootstrap/dist/css/init.css">
-</head>
-
-<body>
-    <?php
+<?php
     include_once('../Vista/Estructura/header.php');
     ?>
     <main class="container">
-        <div class="card col-12 text-center">
-            <div class="container text-center">
-                <div class="col d-flex text-center flex-column align-items-center justify-content-center p-5 ">
+        <div class="card col-12 text-center m-5 shadow">
+            <div class="container text-center ">
+                <div class="col d-flex text-center flex-column align-items-center justify-content-center ">
 
                     <form onsubmit="return validar()" action="./Action/actionNuevaPersona.php" class="d-flex flex-column gap-3" style="width:80%" method="POST" id="miFormulario">
-                        <h3>Agregar una nueva persona</h3>
+                        <h3 class="pt-5">Agregar una nueva persona</h3>
 
                         <input class="form-control p-3" type="text" id="NroDni" name="NroDni" placeholder="Número de DNI">
                         <span id="personaDNI"></span>
@@ -38,8 +26,10 @@
 
                         <input class="form-control p-3" type="text" id="Domicilio" name="Domicilio" placeholder="Domicilio">
                         <span id="personaDomicilio"></span>
-                        <input class="btn btn-success p-2" type="submit" style="width:20%" value="Agregar">
-                        <a onclick="history.back()" class="btn btn-success fs-5 w-50">Volver</a>
+                        <div class="d-flex flex-column align-items-center">
+                            <input class="btn btn-success p-2 fs-5 w-50 m-2" type="submit" style="width:20%" value="Agregar">
+                            <a onclick="history.back()" class="btn btn-secondary fs-5 w-50 m-2 mb-5">Volver</a>
+                        </div>
                     </form>
                 </div>
             </div>
