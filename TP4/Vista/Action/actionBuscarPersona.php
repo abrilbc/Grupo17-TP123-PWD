@@ -38,30 +38,39 @@ require_once('../../../configuracion.php');
                         $verificacionPersona = $abmObjPersona->obtenerDatosObjPersona($nroDni);
 
                         if ($verificacionPersona) {
+                            $fechaNac = $verificacionPersona->getFechaNacimiento();
+                            $fechaFormateada = DateTime::createFromFormat('Y-m-d', $fechaNac)->format('d/m/Y');
+
                             $rpta = '';
                             $rpta = <<<HTML
                                 <h4>Buscar y Actualizar Persona</h4>
-                                <form action="ActualizarDatosPersona.php" class="d-flex flex-column gap-3" style="width:60%" method="POST">
+                                <form onsubmit="return validar()" action="ActualizarDatosPersona.php" class="d-flex flex-column gap-3" style="width:60%" method="POST">
                                     <input type="hidden" id="NroDni" name="NroDni" value="{$verificacionPersona->getNroDni()}">           
                                     <div class="form-group">
                                         <label for="nombre">Nombre</label>
                                         <input class="form-control p-3" type="text" id="Nombre" name="Nombre" placeholder="Nombre" value="{$verificacionPersona->getNombre()}">
+                                        <span class="text-danger" id="actNombre"></span>
+
                                     </div>
                                     <div class="form-group">
                                         <label for="apellido">Apellido</label>
                                         <input class="form-control p-3" type="text" id="Apellido" name="Apellido" placeholder="Apellido" value="{$verificacionPersona->getApellido()}">
+                                        <span class="text-danger" id="actApellido"></span>
                                     </div>
                                     <div class="form-group">
                                         <label for="fechaNac">Fecha Nacimiento</label>
-                                        <input class="form-control p-3" type="text" id="fechaNac" name="fechaNac" placeholder="Fecha Nacimiento" value="{$verificacionPersona->getFechaNacimiento()}">
+                                        <input class="form-control p-3" type="text" id="fechaNac" name="fechaNac" placeholder="Fecha Nacimiento" value="{$fechaFormateada}">
+                                        <span class="text-danger" id="actFecha"></span>
                                     </div>
                                     <div class="form-group">
                                         <label for="telefono">Teléfono</label>
                                         <input class="form-control p-3" type="text" id="Telefono" name="Telefono" placeholder="Teléfono" value="{$verificacionPersona->getTel()}">
+                                        <span class="text-danger" id="actTel"></span>
                                     </div>
                                     <div class="form-group">
                                         <label for="domicilio">Domicilio</label>
                                         <input class="form-control p-3" type="text" id="Domicilio" name="Domicilio" placeholder="Domicilio" value="{$verificacionPersona->getDomicilio()}">
+                                        <span class="text-danger" id="actDom"></span>
                                     </div>
                                     <button class="btn btn-light p-3" type="submit">Actualizar</button>
                                 </form>
@@ -79,6 +88,8 @@ require_once('../../../configuracion.php');
             <a onclick="history.back()" class="btn btn-primary">Volver</a>
         </div>
     </main>
+    <script src="../Js/jquery-v3_7_1.js"></script>
+    <script src="../Js/validarActPersona.js"></script>
 </body>
 
 </html>

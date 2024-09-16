@@ -11,19 +11,19 @@ include_once 'Estructura/header.php';
                     <div class="input-group mb-3">
                         <input type="text" class="form-control form-control-lg rounded" placeholder="Ej: 12345678"
                             id="NroDni" name="NroDni">
-                        <span class="text-danger" id="msjErrorDNI"></span>
                     </div>
+                    <span class="text-danger" id="msjErrorDNI"></span>
                     <div class="d-flex justify-content-around w-100">
                         <button class="btn btn-success fs-5" type="submit">Buscar</button>
-                        <a onclick="window.location='../../index.php';" class="btn btn-dark fs-5">Volver</a>
+                        <a onclick="history.back()" class="btn btn-dark fs-5">Volver</a>
                     </div>
                 </form>
             </div>
         </div>
-
     </div>
 </main>
-<script src="./Js/validarBusquedaPersona.js"></script>
+<script src="./Js/jquery-v3_7_1.js"></script>
+<script src="./Js/validarBusquedaPersona1.js"></script>
 </body>
 
 </html>

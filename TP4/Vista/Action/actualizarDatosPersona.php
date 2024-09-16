@@ -31,12 +31,11 @@
                         $apellido = $datos['Apellido'];
                         $nombre = $datos['Nombre'];
                         $fechaNac = $datos['fechaNac'];
-                        // $queryFecha = date('Y-m-d', strtotime(str_replace('/', '-', $fechaNac)));
+                        $queryFecha = date('Y-m-d', strtotime(str_replace('/', '-', $fechaNac)));
                         $telefono = $datos['Telefono'];
                         $domicilio = $datos['Domicilio'];
-
                         $ambObjPersona = new AbmPersona();
-                        $query = $ambObjPersona->modificarDatosPersona($nroDni, $apellido, $nombre, $fechaNac, $telefono, $domicilio);
+                        $query = $ambObjPersona->modificarDatosPersona($nroDni, $apellido, $nombre, $queryFecha, $telefono, $domicilio);
                         echo "<p>$query</p>";
                     }
                     ?>

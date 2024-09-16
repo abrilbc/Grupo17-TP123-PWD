@@ -1,11 +1,9 @@
 const expresiones = {
     nombre: /^[a-zA-ZÀ-ÿ\s]{1,40}$/,
     apellido: /^[a-zA-ZÀ-ÿ\s]{1,40}$/,
-    dni: /^\d{1,8}$/,
-    telefono: /^\d{10}$/,
+    telefono: /^(\+?\d{1,3}[-.\s]?)?(\(?\d{1,4}\)?[-.\s]?)?[\d\s.-]{7,10}$/,
     domicilio: /^[a-zA-Z0-9À-ÿ\s.,-]{1,100}$/,
-    fechaNac: /^([1-9]|0[1-9]|[12][0-9]|3[01])\/([1-9]|0[1-9]|1[0-2])\/\d{4}$/
-
+    fechaNac: /^([0-2][0-9]|3[01])\/(0[1-9]|1[0-2])\/\d{4}$/
 }
 
 function anioBisiesto(anio) {
@@ -32,8 +30,6 @@ function fechaValida(dia, mes, anio) {
 
 function validar() {
     let verificacion = true
-
-    let nroDni = $("#NroDni")
     let apellido = $("#Apellido")
     let nombre = $("#Nombre")
     let fechaNac = $("#fechaNac")
@@ -41,22 +37,11 @@ function validar() {
     let domicilio = $("#Domicilio")
 
     // spans
-    let msjDni = $("#personaDNI")
-    let msjApellido = $("#personaApellido")
-    let msjNombre = $("#personaNombre")
-    let msjFechaNac = $("#personaFechaNac")
-    let msjTel = $("#personaTelefono")
-    let msjDomicilio = $("#personaDomicilio")
-
-    if (nroDni.val().trim() === '') {
-        agregarError(nroDni, msjDni, "Rellene este campo")
-        verificacion = false
-    } else if (!expresiones.dni.test(nroDni.val())) {
-        agregarError(nroDni, msjDni, "DNI inválido")
-        verificacion = false
-    } else {
-        limpiarValidacion(nroDni, msjDni)
-    }
+    let msjApellido = $("#actApellido")
+    let msjNombre = $("#actaNombre")
+    let msjFechaNac = $("#actFecha")
+    let msjTel = $("#actTel")
+    let msjDomicilio = $("#actDom")
 
     if (apellido.val().trim() === "") {
         agregarError(apellido, msjApellido, "Relleno este campo")
@@ -99,21 +84,20 @@ function validar() {
     }
 
     if (fechaNac.val().trim() === "") {
-        agregarError(fechaNac, msjFechaNac, "Rellene este campo")
-        verificacion = false
+        agregarError(fechaNac, msjFechaNac, "Rellene este campo");
+        verificacion = false;
     } else if (!expresiones.fechaNac.test(fechaNac.val().trim())) {
-        agregarError(fechaNac, msjFechaNac, "Fecha de nacimiento inválida")
-        verificacion = false
+        agregarError(fechaNac, msjFechaNac, "Fecha de nacimiento inválida, use el formato dd/mm/yyyy");
+        verificacion = false;
     } else {
-        let [dia, mes, anio] = fechaNac.val().trim().split('/').map(num => parseInt(num, 10))
+        let [dia, mes, anio] = fechaNac.val().trim().split('/').map(num => parseInt(num, 10));
         if (!fechaValida(dia, mes, anio)) {
-            agregarError(fechaNac, msjFechaNac, "Fecha de nacimiento no válida")
-            verificacion = false
+            agregarError(fechaNac, msjFechaNac, "Fecha de nacimiento no válida");
+            verificacion = false;
         } else {
-            limpiarValidacion(fechaNac, msjFechaNac)
+            limpiarValidacion(fechaNac, msjFechaNac);
         }
     }
-
     return verificacion
 }
 

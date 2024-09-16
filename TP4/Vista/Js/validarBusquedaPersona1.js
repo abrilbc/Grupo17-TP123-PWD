@@ -2,13 +2,13 @@ function validar() {
     let verificacion = true
     let nroDni = $("#NroDni")
     let msjPersona = $("#msjErrorDNI")
-    const expreReg = /^[A-Z]{3} ?\d{3}$/
+    const expreReg = /^\d{7,8}$/
 
     if (nroDni.val().trim() === "") {
-        agregarError(nroDni, msjPersona, "El DNI es obligatorio")
+        agregarError(nroDni, msjPersona, "Requiere DNI")
         verificacion = false
     } else if (!expreReg.test(nroDni.val().trim())) {
-        agregarError(nroDni, msjPersona, "El DNI debe tener 7 u 8 dígitos")
+        agregarError(nroDni, msjPersona, "El DNI debe tener 8 dígitos")
         verificacion = false
     } else {
         limpiarValidacion(nroDni, msjPersona)
