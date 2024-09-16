@@ -13,9 +13,9 @@ include_once 'Estructura/header.php';
                             id="NroDni" name="NroDni">
                     </div>
                     <span class="text-danger" id="msjErrorDNI"></span>
-                    <div class="d-flex justify-content-around w-100">
-                        <button class="btn btn-success fs-5" type="submit">Buscar</button>
-                        <a onclick="history.back()" class="btn btn-dark fs-5">Volver</a>
+                    <div class="d-flex flex-column align-items-center w-100 gap-3">
+                        <button class="btn btn-success fs-5 w-50" type="submit">Buscar</button>
+                        <a href="../" class="btn btn-secondary w-50 fs-5">Volver</a>
                     </div>
                 </form>
             </div>

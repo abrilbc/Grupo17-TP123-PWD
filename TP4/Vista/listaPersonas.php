@@ -49,7 +49,11 @@
         }
         echo $resp;
         ?>
-        
+        <div>
+            <a class="fs-5" href="">
+                <button class="fs-5 btn btn-success rounded bg-white text-dark font-weight-bold">Ver AUTOS por Persona</button>
+            </a>
+        </div>
         <!-- Botón para regresar -->
         <div class="d-flex justify-content-center mt-4">
             <a onclick="history.back()" class="btn btn-success fs-5 w-50">Volver</a>

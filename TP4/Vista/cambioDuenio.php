@@ -2,21 +2,24 @@
 include_once 'Estructura/header.php';
 ?>
 <main class="container">
-    <div class="card col-12 text-center">
+    <div class="card col-12 text-center shadow">
         <div class="container text-center">
-            <div class="col d-flex text-center flex-column align-items-center justify-content-center p-5 ">
+            <div class="col d-flex text-center flex-column align-items-center justify-content-center p-5">
 
                 <form onsubmit="return validar()" action="./Action/actionCambioDuenio.php" class="d-flex flex-column gap-3" style="width:80%" method="POST" id="miFormulario">
-                    <h3>Cambiar Dueño</h3>
+                    <h3 class="pt-3">Cambiar Dueño</h3>
 
-                    <input class="form-control p-3" type="text" id="Patente" name="Patente" placeholder="Patente del vehículo">
+                    <label for="Patente" class="fs-5">Patente del vehículo</label>
+                    <input class="form-control p-3" type="text" id="Patente" name="Patente" placeholder="Ej: ABC1234">
                     <span class="text-danger" id="aPatente"></span>
 
-                    <input class="form-control p-3" type="text" id="DniDuenio" name="DniDuenio" placeholder="DNI del Dueño">
+                    <label for="DniDuenio" class="fs-5">DNI del Dueño</label>
+                    <input class="form-control p-3" type="text" id="DniDuenio" name="DniDuenio" placeholder="Ej: 12345678">
                     <span class="text-danger" id="personaDNI"></span>
-
-                    <input class="btn btn-success p-2" type="submit" style="width:20%" value="Cambiar">
-                    <a onclick="history.back()" class="btn btn-success fs-5 w-50">Volver</a>
+                    <div class="w-100 d-flex flex-column gap-3 align-items-center">
+                        <input class="btn btn-success p-2 w-25 fs-5" type="submit" value="Cambiar">
+                        <a href="../" class="btn btn-secondary fs-5 w-25">Volver</a>
+                    </div>
                 </form>
             </div>
         </div>

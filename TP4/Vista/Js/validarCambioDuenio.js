@@ -2,7 +2,7 @@ function validar() {
     let verificacion = true
     let patente = $("#Patente")
     let dniDuenio = $("#DniDuenio")
-    const expreRegPatente = /^[A-Z]{3} ?\d{3}$/
+    const expreRegPatente = /^[A-Z]{3}\s\d{3}$/
     const expreRegDNI = /^\d{7,8}$/
 
     //spans
