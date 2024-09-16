@@ -22,7 +22,7 @@ include_once 'Estructura/menu/menu.php';
     </div>
 </main>
 <script src="Js/jquery-v3_7_1.js"></script>
-<script src="Js/validarPatente.js"></script>
+<script src="Js/validarPatente1.js"></script>
 </body>
 
 </html>

@@ -1,16 +1,16 @@
 function validar() {
     let verificacion = true
 
-    let patente = $("#Patente").val()
+    let patente = $("#Patente")
     let msj = $("#msjErrorPatente")
-    const expreReg = /^[A-Z]{3} ?\d{3}$/
+    const expreReg = /^[A-Z]{3}\s\d{3}$/
 
     limpiarValidacion(patente, msj)
 
-    if (patente.trim() === "") {
+    if (patente.val().trim() === "") {
         agregarError(patente, msj, "La patente es obligatoria")
         verificacion = false
-    } else if (!expreReg.test(patente.trim())) {
+    } else if (!expreReg.test(patente.val().trim())) {
         agregarError(patente, msj, "El formato de la patente es incorrecto (Ej: ADC 152)")
         verificacion = false
     }
