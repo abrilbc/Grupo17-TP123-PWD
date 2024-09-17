@@ -94,4 +94,15 @@ class AbmAuto
         }
         return $rpta;
     }
+
+    public function obtenerAutoPorDNI($nroDni)
+    {
+        try {
+            $colAutos = Auto::listar("dniDuenio = '" . $nroDni . "'");
+        } catch (Exception $e) {
+            $this->setMsjError($e->getMessage());
+            $colAutos = [];
+        }
+        return $colAutos;
+    }
 }

@@ -50,7 +50,7 @@
         echo $resp;
         ?>
         <div>
-            <a class="fs-5" href="">
+            <a class="fs-5" href="autosPersona.php">
                 <button class="fs-5 btn btn-success rounded bg-white text-dark font-weight-bold">Ver AUTOS por Persona</button>
             </a>
         </div>
