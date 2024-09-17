@@ -3,8 +3,8 @@ include_once 'Estructura/header.php';
 ?>
 
 <main class="container">
-    <div class="">
-        <div class="shadow d-flex justify-content-center align-items-center" style="height: 450px;">
+    <div class="d-flex flex-column align-items-center">
+        <div class="shadow w-50 d-flex justify-content-center align-items-center rounded" style="height: 450px;">
             <div class=" ">
                 <h3 class="text-center">Buscar persona por DNI</h3>
                 <form onsubmit="return validar()" action="./Action/actionBuscarPersona.php" method="POST" id="form">
