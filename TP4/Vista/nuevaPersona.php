@@ -34,8 +34,8 @@ include_once('../Vista/Estructura/header.php');
                     </div>
 
                     <div class="w-100 text-start">
-                        <label for="Telefono" class="fs-5">Teléfono (sin el 15)</label>
-                        <input class="form-control p-3" type="text" id="Telefono" name="Telefono" placeholder="Ej: 1123456789">
+                        <label for="Telefono" class="fs-5">Teléfono</label>
+                        <input class="form-control p-3" type="text" id="Telefono" name="Telefono" placeholder="ej. 2994123456">
                         <span class="text-danger" id="personaTelefono"></span>
                     </div>
 
@@ -51,3 +51,10 @@ include_once('../Vista/Estructura/header.php');
                     </div>
                 </form>
             </div>
+        </div>
+    </div>
+</main>
+<script src="./Js/jquery-v3_7_1.js"></script>
+<script src="./Js/validarPersona1.js"></script>
+</body>
+</html>

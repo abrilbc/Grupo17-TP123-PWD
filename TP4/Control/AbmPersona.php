@@ -51,7 +51,7 @@ class AbmPersona
         $msj = '';
 
         if ($this->obtenerDatosObjPersona($nroDni) !== null) {
-            $msj = 'ya esta.';
+            $msj = 'PERSONA AGREGADA CORRECTAMENTE';
         } else {
             try {
                 $objPersona = new Persona();
@@ -86,7 +86,7 @@ class AbmPersona
                 $msj = "Error: " . $e->getMessage();
             }
         } else {
-            $msj = "nop ersona en bdd";
+            $msj = "no persona en bdd";
         }
         return $msj;
     }

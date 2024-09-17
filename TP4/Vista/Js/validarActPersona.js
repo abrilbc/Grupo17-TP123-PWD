@@ -10,6 +10,40 @@ function anioBisiesto(anio) {
     return (anio % 4 === 0 && (anio % 100 !== 0 || anio % 400 === 0))
 }
 
+
+
+//FUNCION Y EVENTO PARA DESHABILITAR EL BOTON DE MODIFICAR CUANDO SE CARGA LA PAGINA
+
+$(document).ready(function() {
+    const $inputs = $('input[type="text"]');
+    const $btnActualizar = $('#btnActualizar');
+
+    $btnActualizar.prop('disabled', true);
+
+    function verificarCambios() {
+        let cambiosDetectados = false;
+
+        $inputs.each(function() {
+            const valorOriginal = $(this).data('original');
+            const valorActual = $(this).val();
+
+            if (valorActual !== valorOriginal) {
+                cambiosDetectados = true;
+            }
+        });
+
+        $btnActualizar.prop('disabled', !cambiosDetectados);
+    }
+
+    $inputs.each(function() {
+        $(this).data('original', $(this).val());
+    });
+
+    $inputs.on('input', verificarCambios);
+});
+
+
+
 function fechaValida(dia, mes, anio) {
     // https://stackoverflow.com/questions/6177975/how-to-validate-date-with-format-mm-dd-yyyy-in-javascript
     // array de maximo de dias SEGUN el mes
@@ -38,13 +72,13 @@ function validar() {
 
     // spans
     let msjApellido = $("#actApellido")
-    let msjNombre = $("#actaNombre")
+    let msjNombre = $("#actNombre")
     let msjFechaNac = $("#actFecha")
     let msjTel = $("#actTel")
     let msjDomicilio = $("#actDom")
 
     if (apellido.val().trim() === "") {
-        agregarError(apellido, msjApellido, "Relleno este campo")
+        agregarError(apellido, msjApellido, "Rellene este campo")
         verificacion = false
     } else if (!expresiones.apellido.test(apellido.val())) {
         agregarError(apellido, msjApellido, "Apellido inválido")
@@ -54,7 +88,7 @@ function validar() {
     }
 
     if (nombre.val().trim() === "") {
-        agregarError(nombre, msjNombre, "Relleno este campo")
+        agregarError(nombre, msjNombre, "Rellene este campo")
         verificacion = false
     } else if (!expresiones.nombre.test(nombre.val())) {
         agregarError(nombre, msjNombre, "Nombre inválido")
@@ -64,7 +98,7 @@ function validar() {
     }
 
     if (telefono.val().trim() === "") {
-        agregarError(telefono, msjTel, "Relleno este campo")
+        agregarError(telefono, msjTel, "Rellene este campo")
         verificacion = false
     } else if (!expresiones.telefono.test(telefono.val())) {
         agregarError(telefono, msjTel, "Teléfono inválido")
@@ -74,7 +108,7 @@ function validar() {
     }
 
     if (domicilio.val().trim() === "") {
-        agregarError(domicilio, msjDomicilio, "Relleno este campo")
+        agregarError(domicilio, msjDomicilio, "Rellene este campo")
         verificacion = false
     } else if (!expresiones.domicilio.test(domicilio.val())) {
         agregarError(domicilio, msjDomicilio, "Domicilio inválido")

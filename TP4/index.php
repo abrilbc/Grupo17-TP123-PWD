@@ -7,31 +7,31 @@ include_once './Vista/Estructura/header.php';
         <h2 class="mb-4">Menú de Ejercicios - TP 4</h2>
         <ul class="list-group">
             <li class="list-group-item d-flex justify-content-between align-items-center fs-5">
-                TP 4 - Ejercicio 1 (ver autos)
+                Ver lista de AUTOS
                 <a href="./Vista/verAutos.php" class="btn btn-success fs-5" style="width: 80px">Ir</a>
             </li>
             <li class="list-group-item d-flex justify-content-between align-items-center fs-5">
-                TP 4 - Ejercicio 2 (buscar auto)
-                <a href="./Vista/buscarAuto.php" class="btn btn-success fs-5" style="width: 80px">Ir</a>
-            </li>
-            <li class="list-group-item d-flex justify-content-between align-items-center fs-5">
-                TP 4 - Ejercicio 3 (listar personas)
+                Ver lista de PERSONAS
                 <a href="./Vista/listaPersonas.php" class="btn btn-success fs-5" style="width: 80px">Ir</a>
             </li>
             <li class="list-group-item d-flex justify-content-between align-items-center fs-5">
-                TP 4 - Ejercicio 4 (agregar personas)
+                BUSCAR AUTO
+                <a href="./Vista/buscarAuto.php" class="btn btn-success fs-5" style="width: 80px">Ir</a>
+            </li>
+            <li class="list-group-item d-flex justify-content-between align-items-center fs-5">
+                AGREGAR PERSONA
                 <a href="./Vista/nuevaPersona.php" class="btn btn-success fs-5" style="width: 80px">Ir</a>
             </li>
             <li class="list-group-item d-flex justify-content-between align-items-center fs-5">
-                TP 4 - Ejercicio 5 (agregar auto)
+                AGREGAR AUTO
                 <a href="./Vista/nuevoAuto.php" class="btn btn-success fs-5" style="width: 80px">Ir</a>
             </li>
             <li class="list-group-item d-flex justify-content-between align-items-center fs-5">
-                TP 4 - Ejercicio 6 (cambiar dueño)
+                Cambiar dueño de un AUTO
                 <a href="./Vista/cambioDuenio.php" class="btn btn-success fs-5" style="width: 80px">Ir</a>
             </li>
             <li class="list-group-item d-flex justify-content-between align-items-center fs-5">
-                TP 4 - Ejercicio 7 (buscar persona)
+                Actualizar los datos de una PERSONA
                 <a href="./Vista/buscarPersona.php" class="btn btn-success fs-5" style="width: 80px">Ir</a>
             </li>
         </ul>

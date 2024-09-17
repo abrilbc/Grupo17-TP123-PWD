@@ -2,9 +2,9 @@
 include_once 'Estructura/header.php';
 ?>
 
-<main class="container">
+<main class="container " style="height:555px">
     <div class="d-flex flex-column align-items-center">
-        <div class="shadow w-50 d-flex justify-content-center align-items-center rounded" style="height: 450px;">
+        <div class="shadow w-50 d-flex justify-content-center align-items-center rounded" style="height: 250px;">
             <div class=" ">
                 <h3 class="text-center">Buscar persona por DNI</h3>
                 <form onsubmit="return validar()" action="./Action/actionBuscarPersona.php" method="POST" id="form">

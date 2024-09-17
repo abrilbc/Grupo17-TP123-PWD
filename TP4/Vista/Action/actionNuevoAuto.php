@@ -1,57 +1,60 @@
-<!DOCTYPE html>
-<html lang="es">
-
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Nuevo Auto - Action</title>
-    <link rel="stylesheet" href="../../node_modules/bootstrap/dist/css/bootstrap.css">
-    <link rel="stylesheet" href="../../node_modules/bootstrap/dist/css/init.css">
-</head>
-
-<body>
-    <?php
+<?php
     include_once('../../../configuracion.php');
-    ?>
+    include_once '../Estructura/header.php';
+?>
 
     <main class="container">
-        <div class="bg-dark text-white">
-            <div class="d-flex justify-content-center align-items-center" style="height: 450px;">
-                <div class="bg-dark p-4" style="width: 80%;">
-                    <h3 class="text-center" style="color:black">AUTO AGREGAR ACTION</h3>
+        <div class="card col-12 text-center m-5 shadow">
+            <div class="container text-center">
+                <div class="col d-flex text-center flex-column align-items-center justify-content-center">
+                    <div class="d-flex flex-column gap-3 p-5" style="width:80%">
+                        <h3 class="text-center">Agregar Nuevo Auto</h3>
 
-                    <?php
-                    include_once('../../Model/Connector/BaseDatos.php');
-                    include_once('../../Model/Auto.php');
-                    include_once('../../Control/AbmAuto.php');
-                    include_once('../../Model/Persona.php');
-                    include_once('../../Control/AbmPersona.php');
+                        <?php
+                        include_once('../../Model/Connector/BaseDatos.php');
+                        include_once('../../Model/Auto.php');
+                        include_once('../../Control/AbmAuto.php');
+                        include_once('../../Model/Persona.php');
+                        include_once('../../Control/AbmPersona.php');
 
-                    $datos = darDatosSubmitted1();
-                    if ($_SERVER['REQUEST_METHOD'] == 'POST') {
-                        $patente = $datos['Patente'];
-                        $marca = $datos['Marca'];
-                        $modelo = $datos['Modelo'];
-                        $dniDuenio = $datos['DniDuenio'];
+                        $mensaje = ""; // Para almacenar el mensaje de éxito o error
+                        $datos = darDatosSubmitted1();
 
-                        $ambObjPersona = new AbmPersona();
-                        $banderaAmbObjPersona = $ambObjPersona->obtenerDatosObjPersona($dniDuenio);
+                        if ($_SERVER['REQUEST_METHOD'] == 'POST') {
+                            $patente = $datos['Patente'];
+                            $marca = $datos['Marca'];
+                            $modelo = $datos['Modelo'];
+                            $dniDuenio = $datos['DniDuenio'];
 
-                        if ($banderaAmbObjPersona !== null) {
-                            $ambObjAuto = new AbmAuto();
-                            $query = $ambObjAuto->agregarObjAutoNuevo($patente, $marca, $modelo, $dniDuenio);
-                            echo "<p>$query</p>";
+                            $ambObjPersona = new AbmPersona();
+                            $banderaAmbObjPersona = $ambObjPersona->obtenerDatosObjPersona($dniDuenio);
+
+                            if ($banderaAmbObjPersona !== null) {
+                                $ambObjAuto = new AbmAuto();
+                                $query = $ambObjAuto->agregarObjAutoNuevo($patente, $marca, $modelo, $dniDuenio);
+                                
+                                // Mostrar mensaje de éxito
+                                $mensaje = "<p class='alert alert-success fw-bold fs-5'>¡Auto registrado con éxito!</p>";
+                            } else {
+                                // Mostrar mensaje de error con link para registrar a la persona
+                                $mensaje = "<p class='alert alert-warning fw-bold fs-5'>La persona no está registrada. Haga click <a href='../nuevaPersona.php'>acá</a> para registrar a la persona.</p>";
+                            }
                         } else {
-                            echo "La persona no está. Haga click <a href='../nuevaPersona.php'>acá</a> para registrar a la persona.";
+                            header("Location: nuevoAuto.php");
+                            exit();
                         }
-                    } else {
-                        header("Location: nuevoAuto.php");
-                        exit();
-                    }
-                    ?>
+                        ?>
+
+                        <!-- Mostrar mensaje de éxito o error -->
+                        <?php echo $mensaje; ?>
+
+                        <div class="w-100 d-flex flex-column align-items-center">
+                            <a onclick="window.location='../../index.php';" class="btn btn-success fs-5 mt-2 w-50">Volver</a>
+                        </div>
+
+                    </div>
                 </div>
             </div>
-            <a onclick="window.location='../../index.php';" class="btn btn-primary">Volver</a>
         </div>
     </main>
 
