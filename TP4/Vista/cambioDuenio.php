@@ -10,7 +10,7 @@ include_once 'Estructura/header.php';
                     <h3 class="pt-3">Cambiar Dueño</h3>
 
                     <label for="Patente" class="fs-5 fw-bold">Patente del vehículo</label>
-                    <input class="form-control p-3" type="text" id="Patente" name="Patente" placeholder="Ej: ABC1234">
+                    <input class="form-control p-3" type="text" id="Patente" name="Patente" placeholder="Ej: ABC 123">
                     <span class="text-danger" id="aPatente"></span>
 
                     <label for="DniDuenio" class="fs-5 fw-bold">DNI del Dueño</label>

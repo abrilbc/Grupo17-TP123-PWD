@@ -2,7 +2,7 @@
 include_once './Estructura/header.php';
 ?>
 <div class="header" style="background-color: white;"></div>
-    <div name="box" class="d-flex justify-content-center align-items-center vh-100 w-100 p-3">
+    <div name="box" class="d-flex flex-column align-items-center vh-100 w-100 p-3">
         <div class="all-form-box w-75 shadow mb-5 bg-white rounded">
             <div name="title-box" class="w-100 bg-light bg-gradient px-2">
             <svg width="12" height="12" viewBox="0 0 24.00 24.00" fill="none" xmlns="http://www.w3.org/2000/svg" stroke="#00eeff">
@@ -91,6 +91,7 @@ include_once './Estructura/header.php';
                 </form>
             </div>
         </div>
+        <a onclick="history.back()" class="btn btn-secondary fs-5 w-25 mb-3 mt-3">Volver</a>
     </div>
 </body>
 </html>

@@ -47,7 +47,7 @@ include_once('../Vista/Estructura/header.php');
 
                     <div class="d-flex flex-column gap-3 align-items-center">
                         <input class="btn btn-success p-2 fs-5 w-25" type="submit" style="width:20%" value="Agregar">
-                        <a onclick="history.back()" class="btn btn-secondary fs-5 w-25 mb-3">Volver</a>
+                        <a href="../" class="btn btn-secondary fs-5 w-25 mb-3">Volver</a>
                     </div>
                 </form>
             </div>

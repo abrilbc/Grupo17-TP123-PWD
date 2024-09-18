@@ -58,7 +58,6 @@ function fechaValida(dia, mes, anio) {
         const fecha = new Date(anio, mes - 1, dia)
         fechaValida = fecha.getFullYear() === anio && fecha.getMonth() === mes - 1 && fecha.getDate() === dia
     }
-
     return fechaValida
 }
 
@@ -118,20 +117,30 @@ function validar() {
     }
 
     if (fechaNac.val().trim() === "") {
-        agregarError(fechaNac, msjFechaNac, "Rellene este campo");
-        verificacion = false;
+        agregarError(fechaNac, msjFechaNac, "Rellene este campo")
+        verificacion = false
     } else if (!expresiones.fechaNac.test(fechaNac.val().trim())) {
-        agregarError(fechaNac, msjFechaNac, "Fecha de nacimiento inválida, use el formato dd/mm/yyyy");
-        verificacion = false;
+        agregarError(fechaNac, msjFechaNac, "Fecha de nacimiento inválida")
+        verificacion = false
     } else {
-        let [dia, mes, anio] = fechaNac.val().trim().split('/').map(num => parseInt(num, 10));
+        let [dia, mes, anio] = fechaNac.val().trim().split('/').map(num => parseInt(num, 10)) // base decimal
         if (!fechaValida(dia, mes, anio)) {
-            agregarError(fechaNac, msjFechaNac, "Fecha de nacimiento no válida");
-            verificacion = false;
+            agregarError(fechaNac, msjFechaNac, "Fecha de nacimiento no válida")
+            verificacion = false
         } else {
-            limpiarValidacion(fechaNac, msjFechaNac);
+            limpiarValidacion(fechaNac, msjFechaNac)
+            let limiteAnio = 1920
+            let fechaIngresada = new Date(anio, mes - 1, dia)
+            let fechaActual = new Date()
+            let fechaDiff = new Date(fechaActual.getFullYear() - 18, fechaActual.getMonth(), fechaActual.getDate()) // para menbores de 18 años
+            console.log(fechaDiff)
+            if (fechaIngresada > fechaActual || anio < limiteAnio || fechaIngresada > fechaDiff) {
+                agregarError(fechaNac, msjFechaNac, "Rango de fecha invalida, debe ser mayor de edad")
+                verificacion = false
+            }
         }
     }
+
     return verificacion
 }
 

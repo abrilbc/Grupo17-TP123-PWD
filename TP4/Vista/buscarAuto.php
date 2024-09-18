@@ -15,7 +15,7 @@ include_once 'Estructura/menu/menu.php';
                     <span class="text-danger" id="msjErrorPatente"></span>
                 </form>
                 <div class="w-100 d-flex justify-content-center">
-                    <a onclick="history.back()" class="btn btn-success fs-5">Volver</a>
+                    <a onclick="history.back()" class="btn btn-secondary fs-5">Volver</a>
                 </div>
             </div>
         </div>

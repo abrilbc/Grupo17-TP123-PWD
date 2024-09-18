@@ -56,7 +56,7 @@
         </div>
         <!-- Botón para regresar -->
         <div class="d-flex justify-content-center mt-4">
-            <a onclick="history.back()" class="btn btn-success fs-5 w-50">Volver</a>
+            <a onclick="history.back()" class="btn btn-secondary fs-5 w-50">Volver</a>
         </div>
     </div>
 </main>

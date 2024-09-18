@@ -32,9 +32,11 @@
                             if ($banderaAmbObjPersona !== null) {
                                 $ambObjAuto = new AbmAuto();
                                 $query = $ambObjAuto->agregarObjAutoNuevo($patente, $marca, $modelo, $dniDuenio);
-                                
-                                // Mostrar mensaje de éxito
+                                if ($query === "el auto está"){
+                                    $mensaje = "<p class='alert alert-warning fw-bold fs-5'>El auto ya se encuentra registrado</p>";
+                                } else {
                                 $mensaje = "<p class='alert alert-success fw-bold fs-5'>¡Auto registrado con éxito!</p>";
+                                }
                             } else {
                                 // Mostrar mensaje de error con link para registrar a la persona
                                 $mensaje = "<p class='alert alert-warning fw-bold fs-5'>La persona no está registrada. Haga click <a href='../nuevaPersona.php'>acá</a> para registrar a la persona.</p>";
@@ -49,7 +51,7 @@
                         <?php echo $mensaje; ?>
 
                         <div class="w-100 d-flex flex-column align-items-center">
-                            <a onclick="window.location='../../index.php';" class="btn btn-success fs-5 mt-2 w-50">Volver</a>
+                            <a onclick="window.location='../../index.php';" class="btn btn-secondary fs-5 mt-2 w-50">Volver</a>
                         </div>
 
                     </div>

@@ -6,7 +6,7 @@ include_once 'Vista/Estructura/header.php';
         <div class="h-100 w-75">
             <div class="box mb-3 d-flex align-items-center border rounded overflow-hidden" style="height: 60px;">
                 <div class="col-2 bg-success text-white d-flex align-items-center justify-content-center" style="height: 100%;">
-                    <p class="m-1 fs-5">Trabajo Práctico 1</p>
+                    <p class="m-1 fs-6">Trabajo Práctico 1</p>
                 </div>
                 <div class="col-10 d-flex align-items-center justify-content-between px-3">
                     <p class="m-1" style="font-size: 14px">PHP - HTML <br> Formularios y validación con JavaScript
@@ -16,7 +16,7 @@ include_once 'Vista/Estructura/header.php';
             </div>
             <div class="box mb-3 d-flex align-items-center border rounded overflow-hidden" style="height: 60px;">
                 <div class="col-2 bg-success text-white d-flex align-items-center justify-content-center" style="height: 100%;">
-                    <p class="m-1 fs-5">Trabajo Práctico 2</p>
+                    <p class="m-1 fs-6">Trabajo Práctico 2</p>
                 </div>
                 <div class="col-10 d-flex align-items-center justify-content-between px-3">
                     <p class="m-1" style="font-size: 14px">Validación de formularios usando alguna librería o framework
@@ -28,7 +28,7 @@ javaScript (JQuery, Mootools, Dojo, Prototype, etc).
             </div>
             <div class="box mb-3 d-flex align-items-center border rounded overflow-hidden" style="height: 60px;">
                 <div class="col-2 bg-success text-white d-flex align-items-center justify-content-center" style="height: 100%;">
-                    <p class="m-1 fs-5">Trabajo Práctico 3</p>
+                    <p class="m-1 fs-6">Trabajo Práctico 3</p>
                 </div>
                 <div class="col-10 d-flex align-items-center justify-content-between px-3">
                     <p class="m-1" style="font-size: 14px">Subir Archivos al Servidor
@@ -38,7 +38,7 @@ javaScript (JQuery, Mootools, Dojo, Prototype, etc).
             </div>
             <div class="box mb-3 d-flex align-items-center border rounded overflow-hidden" style="height: 60px;">
                 <div class="col-2 bg-success text-white d-flex align-items-center justify-content-center" style="height: 100%;">
-                    <p class="m-1 fs-5">Trabajo Práctico 4</p>
+                    <p class="m-1 fs-6">Trabajo Práctico 4</p>
                 </div>
                 <div class="col-10 d-flex align-items-center justify-content-between px-3">
                     <p class="m-1" style="font-size: 14px">PHP - MySQL
@@ -49,7 +49,7 @@ javaScript (JQuery, Mootools, Dojo, Prototype, etc).
             </div>
             <div class="box mb-3 d-flex align-items-center border rounded overflow-hidden" style="height: 60px;">
                 <div class="col-2 bg-success text-white d-flex align-items-center justify-content-center" style="height: 100%;">
-                    <p class="m-1 fs-5">Trabajo Práctico 5</p>
+                    <p class="m-1 fs-6">Trabajo Práctico 5</p>
                 </div>
                 <div class="col-10 d-flex align-items-center justify-content-between px-3">
                     <p class="m-1" style="font-size: 14px">...
@@ -59,7 +59,7 @@ javaScript (JQuery, Mootools, Dojo, Prototype, etc).
             </div>
             <div class="box mb-3 d-flex align-items-center border rounded overflow-hidden" style="height: 60px;">
                 <div class="col-2 bg-success text-white d-flex align-items-center justify-content-center" style="height: 100%;">
-                    <p class="m-1 fs-5">TP FINAL</p>
+                    <p class="m-1 fs-6">TP FINAL</p>
                 </div>
                 <div class="col-10 d-flex align-items-center justify-content-between px-3">
                     <p class="m-1" style="font-size: 14px">...

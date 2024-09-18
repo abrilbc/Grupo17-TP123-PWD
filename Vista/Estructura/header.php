@@ -35,7 +35,7 @@
                 <div class="col-3">
                     <nav>
                         <ul class="nav justify-content-around list-unstyled">
-                            <li class="nav-item"><a href="tp4.html" class="nav-link">TP 4</a></li>
+                            <li class="nav-item"><a href="TP4/index.php" class="nav-link">TP 4</a></li>
                             <li class="nav-item"><a href="tp5.html" class="nav-link">TP 5</a></li>
                             <li class="nav-item"><a href="tp6.html" class="nav-link">FINAL</a></li>
                         </ul>

@@ -76,10 +76,13 @@ class AbmAuto
         ];
 
         $objAuto = $this->obtenerDatosObjAuto($patente);
-
+        $objAutoDuenio = $objAuto->getObjDuenio();
         if ($objAuto === null) {
             $rpta['estado'] = -1;
             $rpta['msj'] = 'no esta en la bdd';
+        }else if ($objAutoDuenio->getNroDni() === $dniDuenio){
+            $rpta['estado'] = -2;
+            $rpta['msj'] = 'Este auto ya esta registrado con este DNI';
         } else {
             try {
                 $objNuevoDuenio = new Persona();

@@ -117,7 +117,7 @@ function validar() {
             let fechaDiff = new Date(fechaActual.getFullYear() - 18, fechaActual.getMonth(), fechaActual.getDate()) // para menbores de 18 años
             console.log(fechaDiff)
             if (fechaIngresada > fechaActual || anio < limiteAnio || fechaIngresada > fechaDiff) {
-                agregarError(fechaNac, msjFechaNac, "Rango de fecha invalida")
+                agregarError(fechaNac, msjFechaNac, "Rango de fecha invalida, debe ser mayor de edad")
                 verificacion = false
             }
         }

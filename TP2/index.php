@@ -4,7 +4,7 @@
 
 <div class="container my-4">
         <div class="h-100 w-100">
-            <div class="box mb-3 d-flex align-items-center border rounded overflow-hidden" style="height: 60px;">
+            <div class="box mb-3 d-flex align-items-center border rounded overflow-hidden" style="height: 90px;">
                 <div class="col-2 bg-success text-white d-flex align-items-center justify-content-center" style="height: 100%;">
                     <p class="m-1 fs-5 font-weight-bold">Ejercicio 1</p>
                 </div>
@@ -13,7 +13,7 @@
                     javaScript (JQuery, Mootools, Dojo, Prototype, etc).</p>
                 </div>
             </div>
-            <div class="box mb-3 d-flex align-items-center border rounded overflow-hidden" style="height: 60px;">
+            <div class="box mb-3 d-flex align-items-center border rounded overflow-hidden" style="height: 90px;">
                 <div class="col-2 bg-success text-white d-flex align-items-center justify-content-center" style="height: 100%;">
                     <p class="m-1 fs-5 font-weight-bold">Ejercicio 2</p>
                 </div>
@@ -25,7 +25,7 @@ y que sean del tipo correcto. </p>
                     <a href="EJ2/" class="btn btn-success col-1 ms-5 h-50 fs-5">Ir</a>
                 </div>
             </div>
-            <div class="box mb-3 d-flex align-items-center border rounded overflow-hidden" style="height: 60px;">
+            <div class="box mb-3 d-flex align-items-center border rounded overflow-hidden" style="height: 90px;">
                 <div class="col-2 bg-success text-white d-flex align-items-center justify-content-center" style="height: 100%;">
                     <p class="m-1 fs-5 font-weight-bold">Ejercicio 3</p>
                 </div>
@@ -36,7 +36,7 @@ verificaPass.php en el que contienen un arreglo asociativo...</p>
                     <a href="EJ3/Vista/Ej3.php" class="btn btn-success col-1 ms-5 h-50 fs-5">Ir</a>
                 </div>
             </div>
-            <div class="box mb-3 d-flex align-items-center border rounded overflow-hidden" style="height: 60px;">
+            <div class="box mb-3 d-flex align-items-center border rounded overflow-hidden" style="height: 90px;">
                 <div class="col-2 bg-success text-white d-flex align-items-center justify-content-center" style="height: 100%;">
                     <p class="m-1 fs-5 font-weight-bold">Ejercicio 4</p>
                 </div>
@@ -48,6 +48,7 @@ Aplicar Bootstrap y validar...</p>
                 </div>
             </div>
         </div>
+        <a href="../" class="w-25"><button class="btn btn-secondary w-100 fs-5">Volver</button></a>
     </div>
     
 </body>

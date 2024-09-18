@@ -3,7 +3,7 @@ include_once 'Vista/Estructura/header.php';
 ?>
     <div class="container my-4">
         <div class="h-100 w-100">
-            <div class="box mb-3 d-flex align-items-center border rounded overflow-hidden" style="height: 60px;">
+            <div class="box mb-3 d-flex align-items-center border rounded overflow-hidden" style="height: 90px;">
                 <div class="col-2 bg-success text-white d-flex align-items-center justify-content-center" style="height: 100%;">
                     <p class="m-1 fs-5">Ejercicio 1</p>
                 </div>
@@ -13,7 +13,7 @@ include_once 'Vista/Estructura/header.php';
                     <a href="Vista/Ejercicio1.php" class="btn btn-success col-1 ms-5 h-50 fs-5">Ir</a>
                 </div>
             </div>
-            <div class="box mb-3 d-flex align-items-center border rounded overflow-hidden" style="height: 60px;">
+            <div class="box mb-3 d-flex align-items-center border rounded overflow-hidden" style="height: 90px;">
                 <div class="col-2 bg-success text-white d-flex align-items-center justify-content-center" style="height: 100%;">
                     <p class="m-1 fs-5">Ejercicio 2</p>
                 </div>
@@ -24,7 +24,7 @@ include_once 'Vista/Estructura/header.php';
                     <a href="Vista/Ejercicio2.php" class="btn btn-success col-1 ms-5 h-50 fs-5">Ir</a>
                 </div>
             </div>
-            <div class="box mb-3 d-flex align-items-center border rounded overflow-hidden" style="height: 60px;">
+            <div class="box mb-3 d-flex align-items-center border rounded overflow-hidden" style="height: 90px;">
                 <div class="col-2 bg-success text-white d-flex align-items-center justify-content-center" style="height: 100%;">
                     <p class="m-1 fs-5">Ejercicio 3</p>
                 </div>
@@ -35,7 +35,7 @@ include_once 'Vista/Estructura/header.php';
                     <a href="Vista/Ejercicio3.php" class="btn btn-success col-1 ms-5 h-50 fs-5">Ir</a>
                 </div>
             </div>
-            <div class="box mb-3 d-flex align-items-center border rounded overflow-hidden" style="height: 60px;">
+            <div class="box mb-3 d-flex align-items-center border rounded overflow-hidden" style="height: 90px;">
                 <div class="col-2 bg-success text-white d-flex align-items-center justify-content-center" style="height: 100%;">
                     <p class="m-1 fs-5">Ejercicio 4</p>
                 </div>
@@ -46,7 +46,7 @@ include_once 'Vista/Estructura/header.php';
                     <a href="Vista/Ejercicio4.php" class="btn btn-success col-1 ms-5 h-50 fs-5">Ir</a>
                 </div>
             </div>
-            <div class="box mb-3 d-flex align-items-center border rounded overflow-hidden" style="height: 60px;">
+            <div class="box mb-3 d-flex align-items-center border rounded overflow-hidden" style="height: 90px;">
                 <div class="col-2 bg-success text-white d-flex align-items-center justify-content-center" style="height: 100%;">
                     <p class="m-1 fs-5">Ejercicio 5</p>
                 </div>
@@ -57,7 +57,7 @@ estudios primarios, 3-estudios secundarios...</p>
                     <a href="Vista/Ejercicio5.php" class="btn btn-success col-1 ms-5 h-50 fs-5">Ir</a>
                 </div>
             </div>
-            <div class="box mb-3 d-flex align-items-center border rounded overflow-hidden" style="height: 60px;">
+            <div class="box mb-3 d-flex align-items-center border rounded overflow-hidden" style="height: 90px;">
                 <div class="col-2 bg-success text-white d-flex align-items-center justify-content-center" style="height: 100%;">
                     <p class="m-1 fs-5">Ejercicio 6</p>
                 </div>
@@ -68,7 +68,7 @@ que procesa el formulario la cantidad de deportes que practica...</p>
                     <a href="Vista/Ejercicio6.php" class="btn btn-success col-1 ms-5 h-50 fs-5">Ir</a>
                 </div>
             </div>
-            <div class="box mb-3 d-flex align-items-center border rounded overflow-hidden" style="height: 60px;">
+            <div class="box mb-3 d-flex align-items-center border rounded overflow-hidden" style="height: 90px;">
                 <div class="col-2 bg-success text-white d-flex align-items-center justify-content-center" style="height: 100%;">
                     <p class="m-1 fs-5">Ejercicio 7</p>
                 </div>
@@ -79,7 +79,7 @@ matemática que podrá resolverse usando los números ingresados...</p>
                     <a href="Vista/Ejercicio7.php" class="btn btn-success col-1 ms-5 h-50 fs-5">Ir</a>
                 </div>
             </div>
-            <div class="box mb-3 d-flex align-items-center border rounded overflow-hidden" style="height: 60px;">
+            <div class="box mb-3 d-flex align-items-center border rounded overflow-hidden" style="height: 90px;">
                 <div class="col-2 bg-success text-white d-flex align-items-center justify-content-center" style="height: 100%;">
                     <p class="m-1 fs-5">Ejercicio 8</p>
                 </div>
@@ -90,6 +90,7 @@ matemática que podrá resolverse usando los números ingresados...</p>
                 </div>
             </div>
         </div>
+        <a href="../" class="w-25"><button class="btn btn-secondary w-100 fs-5">Volver</button></a>
     </div>
 </body>
 </html>

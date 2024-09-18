@@ -4,19 +4,18 @@
 
 <div class="container my-4">
         <div class="h-100 w-100">
-            <div class="box mb-3 d-flex align-items-center border rounded overflow-hidden" style="height: 80px;">
+            <div class="box mb-3 d-flex align-items-center border rounded overflow-hidden" style="height: 90px;">
                 <div class="col-2 bg-success text-white d-flex align-items-center justify-content-center" style="height: 100%;">
                     <p class="m-1 fs-5 font-weight-bold">Ejercicio 1</p>
                 </div>
                 <div class="col-10 d-flex align-items-center justify-content-between px-3">
                     <p class="m-1 fs-5">Crear un formulario HTML que permita subir un archivo. En el servidor se deberá
 controlar, antes de guardar el archivo, que los tipos validos son .doc o pdf y además el tamaño
-máximo permitido es de 2mb. En caso que se cumplan las condiciones mostrar un link al archivo
-cargado, en caso contrario mostrar un mensaje indicando el problema.</p>
+máximo permitido es de 2mb...</p>
                     <a href="EJ1/Vista/Ejercicio1.php" class="btn btn-success col-1 ms-5 h-50 fs-5">Ir</a>
                 </div>
             </div>
-            <div class="box mb-3 d-flex align-items-center border rounded overflow-hidden" style="height: 80px;">
+            <div class="box mb-3 d-flex align-items-center border rounded overflow-hidden" style="height: 90px;">
                 <div class="col-2 bg-success text-white d-flex align-items-center justify-content-center" style="height: 100%;">
                     <p class="m-1 fs-5 font-weight-bold">Ejercicio 2</p>
                 </div>
@@ -27,7 +26,7 @@ contenido en un textarea</p>
                     <a href="EJ2/Vista/Ejercicio2.php" class="btn btn-success col-1 ms-5 h-50 fs-5">Ir</a>
                 </div>
             </div>
-            <div class="box mb-3 d-flex align-items-center border rounded overflow-hidden" style="height: 80px;">
+            <div class="box mb-3 d-flex align-items-center border rounded overflow-hidden" style="height: 90px;">
                 <div class="col-2 bg-success text-white d-flex align-items-center justify-content-center" style="height: 100%;">
                     <p class="m-1 fs-5 font-weight-bold">Ejercicio 3</p>
                 </div>
@@ -39,6 +38,7 @@ deberá guardar la imagen y luego mostrarla junto con la información cargada en
                 </div>
             </div>
         </div>
+        <a href="../" class="w-25"><button class="btn btn-secondary w-100 fs-5">Volver</button></a>
     </div>
     
 </body>

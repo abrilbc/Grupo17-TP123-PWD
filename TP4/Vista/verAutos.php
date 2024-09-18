@@ -53,7 +53,7 @@ include_once 'Estructura/header.php';
         echo $resp;
         ?>
         <div class="w-100 d-flex justify-content-center">
-            <a href="../" class="btn btn-success fs-5 w-50">Volver</a>
+            <a href="../" class="btn btn-secondary fs-5 w-50">Volver</a>
         </div>
     </div>
 </main>
