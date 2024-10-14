@@ -32,14 +32,4 @@ class BaseDatos
     {
         return $this->database;
     }
-
-    /*public function getMsjOp()
-    {
-        return $this->msjOp;
-    }
-
-    public function setMsjOp($msjOp)
-    {
-        $this->msjOp = $msjOp;
-    }*/
 }

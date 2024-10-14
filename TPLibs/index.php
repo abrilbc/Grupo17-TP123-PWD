@@ -30,6 +30,9 @@ include_once './view/Estructura/header.php';
             </div>
             <span class="badge bg-success text-white">Buscar</span>
         </a>
-
+        
+    </div>
+    <div class="d-flex justify-content-center mt-4">
+        <a href="../" class="btn btn-secondary fs-5">Volver</a>
     </div>
 </div>
