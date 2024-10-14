@@ -1,4 +1,5 @@
-<?php header('Content-Type: text/html; charset=utf-8');
+<?php 
+header('Content-Type: text/html; charset=utf-8');
 header("Cache-Control: no-cache, must-revalidate ");
 
 /////////////////////////////
@@ -10,8 +11,9 @@ $PROYECTO = 'Grupo17-TP123-PWD';
 //variable que almacena el directorio del proyecto
 $ROOT = $_SERVER['DOCUMENT_ROOT'] . "/$PROYECTO/";
 
-include_once($ROOT . './TP4/Utils/funcs.php');
+include_once($ROOT . 'TPLibs/utils/funcs.php');
 
+include_once($ROOT . './vendor/autoload.php');
 
 // Variable que define la pagina de autenticacion del proyecto
 $INICIO = "Location:http://" . $_SERVER['HTTP_HOST'] . "/$PROYECTO/vista/login/login.php";

@@ -4,7 +4,7 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Trabajos Prácticos - Grupo 17</title>
-    <link rel="stylesheet" href="Vista/css/style.css">
+    <link rel="stylesheet" href="Vista/css/style.css" ?>">
     <link
         href="https://fonts.googleapis.com/css2?family=Roboto:ital,wght@0,100;0,300;0,400;0,500;0,700;0,900;1,100;1,300;1,400;1,500;1,700;1,900&display=swap"
         rel="stylesheet">
@@ -14,7 +14,6 @@
 </head>
 
 <body style="font-family: 'Roboto'; overflow-y: scroll;" class="bg-white">
-
     <header class="bg-white text-center mb-5 shadow">
         <div class="container-fluid">
             <div class="row align-items-center justify-content-around">
@@ -36,7 +35,7 @@
                     <nav>
                         <ul class="nav justify-content-around list-unstyled">
                             <li class="nav-item"><a href="TP4/index.php" class="nav-link">TP 4</a></li>
-                            <li class="nav-item"><a href="tp5.html" class="nav-link">TP 5</a></li>
+                            <li class="nav-item"><a href="TPLibs/index.php" class="nav-link">LIBRERIAS</a></li>
                             <li class="nav-item"><a href="tp6.html" class="nav-link">FINAL</a></li>
                         </ul>
                     </nav>

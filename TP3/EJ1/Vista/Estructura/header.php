@@ -41,7 +41,7 @@ $baseURL = $protocolo . $host . $rutaProyecto;
                 <nav>
                     <ul class="nav justify-content-around list-unstyled">
                         <li class="nav-item"><a href="<?php echo $baseURL; ?>/TP4" class="nav-link">TP 4</a></li>
-                        <li class="nav-item"><a href="tp5.html" class="nav-link">TP 5</a></li>
+                        <li class="nav-item"><a href="<?php echo $baseURL; ?>/TPLibs" class="nav-link">LIBRERIAS</a></li>
                         <li class="nav-item"><a href="tp6.html" class="nav-link">FINAL</a></li>
                     </ul>
                 </nav>
