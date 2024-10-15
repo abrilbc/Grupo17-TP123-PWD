@@ -9,11 +9,11 @@ require_once '../model/Persona.php';
 require_once '../model/Carrera.php';
 require_once '../model/Rol.php';
 
-use controller\AbmPersona;
+// use controller\AbmPersona;
 use controller\AbmCarrera;
 use controller\AbmRol;
 
-$objAbmPersona = new AbmPersona();
+// $objAbmPersona = new AbmPersona();
 $objAbmCarrera = new AbmCarrera();
 $objAbmRol = new AbmRol();
 $msj = '';
@@ -30,10 +30,6 @@ $arrayRoles = $objAbmRol->listarRoles();
         <div class="card-body">
             <h3 class="card-title text-center mb-4">Agregar Persona</h3>
             <form onsubmit="return validar()" action="./action/actionAgregarPersona.php" method="POST">
-                <div class="mb-3">
-                    <label for="legajo" class="form-label">Legajo:</label>
-                    <input type="text" class="form-control" name="legajo" id="legajo" placeholder="FAI-5097">
-                </div>
                 <div class="mb-3">
                     <label for="nombre" class="form-label">Nombre y Apellido:</label>
                     <input type="text" class="form-control" name="nombre" id="nombre" placeholder="Rodrigo Villablanca">

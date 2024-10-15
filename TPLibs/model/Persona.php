@@ -4,6 +4,7 @@ namespace model;
 
 require_once 'Carrera.php';
 require_once 'Rol.php';
+require_once 'connector/BaseDatos.php';
 
 use model\Connector\BaseDatos;
 
@@ -14,6 +15,7 @@ class Persona
     private $objCarrera;
     private $objRol;
     private $database;
+    private $lastInsertId;
 
     public function __construct()
     {
@@ -27,42 +29,60 @@ class Persona
     {
         $this->legajo = $legajo;
     }
+
     public function setNombre($nombre)
     {
         $this->nombre = $nombre;
     }
+
     public function setObjCarrera($id_carrera)
     {
         $this->objCarrera = $id_carrera;
     }
+
     public function setObjRol($rol)
     {
         $this->objRol = $rol;
     }
+
     public function setDatabase($database)
     {
         $this->database = $database;
+    }
+
+    public function setLastInsertId($id)
+    {
+        $this->lastInsertId = $id;
     }
 
     public function getLegajo()
     {
         return $this->legajo;
     }
+
     public function getNombre()
     {
         return $this->nombre;
     }
+
     public function getObjCarrera()
     {
         return $this->objCarrera;
     }
+
     public function getObjRol()
     {
         return $this->objRol;
     }
+
     public function getDatabase()
     {
         return $this->database;
+    }
+
+    public function getLastInsertId()
+    {
+        return $this->lastInsertId;
     }
 
     // get() en Medoo es el buscar() en el ORM clásico
@@ -73,7 +93,7 @@ class Persona
         if ($personaDatos) {
             $carrera = new Carrera();
             $carrera->setId($personaDatos['id_carrera']);
-            
+
             $rol = new Rol();
             $rol->setId($personaDatos['rol']);
             $array = [
@@ -106,7 +126,7 @@ class Persona
                 $objCarrera = new Carrera();
                 $objCarrera->setId($fila['id_carrera']);
                 $datosCarrera = $objCarrera->buscar($fila['id_carrera']);
-                
+
                 $objRol = new Rol();
                 $objRol->setId($fila['rol']);
                 $datosRol = $objRol->buscar($fila['rol']);
@@ -126,30 +146,23 @@ class Persona
     }
 
     public function insertar($param)
-{
-    $resp = false;
+    {
+        $resp = false;
 
-    // Limpiar datos antes de la comparación
-    $param = $this->limpiarDatos($param);
-    
-    // Verifica si ya existe una persona con el mismo legajo
-    $colPersonas = $this->listar(['legajo' => $param['legajo']]);
-    if (empty($colPersonas)) {
-        // Si no existe duplicado, continuamos con la inserción
-        $idCarreraEncontrado = $this->getObjCarrera()->getId();
-        if ($idCarreraEncontrado !== null) {
-            $database = BaseDatos::getInstance();
-            $insertResultado = $database->insert('usuario', $param);
-            
-            if ($insertResultado) {
-                $resp = true;
-            }
+        // Limpiar datos antes de la comparación
+        $param = $this->limpiarDatos($param);
+
+        unset($param['legajo']); // legajo autoincremnetal no es necesario
+
+        $database = BaseDatos::getInstance();
+        $insertResultado = $database->insert('usuario', $param);
+
+        if ($insertResultado) {
+            $resp = true;
         }
-    }
 
-    // Retornar resultado
-    return $resp;
-}
+        return $resp;
+    }
 
 
     public function actualizar($param)
@@ -175,6 +188,45 @@ class Persona
             $resp = true;
         }
         return $resp;
+    }
+
+    public function buscarUltimaPersona()
+    {
+        $database = BaseDatos::getInstance();
+
+        $personaExistente = null;
+
+        // skhjsadkhjhdjskdahjskjhka sql tenemos que ingresar a la tabla de usuario y acceder al valor de la carrera y el rol
+        $datosPersona = $database->get('usuario', [
+            '[>]carrera' => ['id_carrera' => 'idcarrera'],
+            '[>]rol' => ['rol' => 'idrol']
+        ], [
+            'usuario.legajo',
+            'usuario.nombre',
+            'carrera.nomcarrera(carrera_nombre)',
+            'rol.nombre(rol_nombre)'
+        ], [
+            'ORDER' => ['usuario.legajo' => 'DESC'], // ordena por legajo de forma descendente
+            'LIMIT' => 1 // el limite
+        ]);
+
+        if ($datosPersona) {
+            $persona = new Persona();
+            $persona->setLegajo($datosPersona['legajo']);
+            $persona->setNombre($datosPersona['nombre']);
+
+            $carrera = new Carrera();
+            $carrera->setNombre($datosPersona['carrera_nombre']);
+            $persona->setObjCarrera($carrera);
+
+            $rol = new Rol();
+            $rol->setNombre($datosPersona['rol_nombre']);
+            $persona->setObjRol($rol);
+
+            $personaExistente = $persona;
+        }
+
+        return $personaExistente;
     }
 
     private function limpiarDatos($datos)

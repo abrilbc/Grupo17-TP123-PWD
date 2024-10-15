@@ -15,6 +15,7 @@ use model\Persona;
 use model\Carrera;
 use model\Rol;
 use Laminas\Hydrator\ClassMethodsHydrator;
+use model\connector\BaseDatos;
 // use PDOException;
 
 
@@ -40,7 +41,6 @@ class AbmPersona
             $rolObj = $personaModelo->getObjRol() ?? new Rol();
             $personaModelo->setObjCarrera($carreraObj); // Lo seteamos independientemente
             $personaModelo->setObjRol($rolObj);
-            
 
             // --- Manejo de Carrera ---
             if ($idCarrera = $carreraObj->getId()) {
@@ -67,15 +67,27 @@ class AbmPersona
         $mensaje = '';
         $personaModelo = $this->datosObjPersona();
         $datos = $this->hydrator->extract($personaModelo);
-        $resultado = $personaModelo->insertar($datos);
 
-        if ($resultado) {
-            $mensaje = 'Éxito';
+        // Verificamos si existe una persona con el mismo legajo
+        if (isset($datos['legajo']) && $this->buscarPersona($datos['legajo'])) {
+            $mensaje = 'Ya existe alguien con este legajo.';
         } else {
-            $mensaje = 'Error';
+            // Si el legajo es autoincremental, no enviamos el campo legajo
+            unset($datos['legajo']);
+
+            // Insertamos los datos y verificamos el resultado
+            $resultado = $personaModelo->insertar($datos);
+
+            if ($resultado) {
+                $mensaje = 'Éxito';
+            } else {
+                $mensaje = 'Error al insertar persona.';
+            }
         }
+
         return $mensaje;
     }
+
 
     public function modificarPersona()
     {
@@ -117,6 +129,13 @@ class AbmPersona
             $msj = $e->getMessage();
         }
         return $msj;
+    }
+
+    public function buscarUltimaPersona()
+    {
+        // Usar el modelo para obtener la última persona
+        $personaModelo = new Persona();
+        return $personaModelo->buscarUltimaPersona();
     }
 
     private function datosObjPersona()

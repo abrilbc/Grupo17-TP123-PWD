@@ -13,19 +13,16 @@ $personaAgregada = null;
 
 if ($_SERVER['REQUEST_METHOD'] === 'POST') {
     $datos = darDatosSubmitted();
-    
-
     $resp = $objAbmPersona->agregarPersona();
+
     if ($resp === 'Éxito') {
         $msj = 'Persona agregada con éxito.';
         $msjTipo = 'success';
-        $persona = new AbmPersona();
-        $datosPersona = $persona->buscarPersona($datos['legajo']);
-        $personaAgregada = $datosPersona; // Guardamos los datos de la persona 
-        $carrera = $personaAgregada->getObjCarrera();
-        $rol = $personaAgregada->getObjRol();
-    } elseif ($resp === 'Error') {
-        $msj = 'Ya existe alguien con este legajo.';
+
+        $personaAgregada = $objAbmPersona->buscarUltimaPersona();
+        // var_dump($personaAgregada);
+    } elseif ($resp === 'Ya existe alguien con este legajo.') {
+        $msj = $resp;
         $msjTipo = 'danger';
     } else {
         $msj = 'Error al agregar persona.';
@@ -51,8 +48,16 @@ include_once '../Estructura/header.php';
                 <h5 class="card-title">Datos de la Persona Agregada</h5>
                 <p><strong>Legajo:</strong> <?php echo htmlspecialchars($personaAgregada->getLegajo()); ?></p>
                 <p><strong>Nombre y Apellido:</strong> <?php echo htmlspecialchars($personaAgregada->getNombre()); ?></p>
-                <p><strong>Carrera:</strong> <?php echo htmlspecialchars($carrera->getNombre()); ?></p>
-                <p><strong>Rol:</strong> <?php echo htmlspecialchars($rol->getNombre()); ?></p>
+                <?php
+                $carrera = $personaAgregada->getObjCarrera();
+                $rol = $personaAgregada->getObjRol();
+                ?>
+                <p><strong>Carrera:</strong>
+                    <?php echo $carrera ? htmlspecialchars($carrera->getNombre()) : 'Sin carrera asignada'; ?>
+                </p>
+                <p><strong>Rol:</strong>
+                    <?php echo $rol ? htmlspecialchars($rol->getNombre()) : 'Sin rol asignado'; ?>
+                </p>
             </div>
         </div>
     <?php endif; ?>
