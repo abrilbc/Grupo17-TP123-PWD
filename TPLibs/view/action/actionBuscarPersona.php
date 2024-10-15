@@ -54,7 +54,7 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
             <div class="mb-4">
                 <label for="idcarrera" class="form-label fw-bold">Carrera:</label>
                 <select class="form-select" name="id_carrera" id="idcarrera">';
-        
+
         // Generar opciones dinámicas para carreras
         foreach ($carreras as $carrera) {
             $selected = ($carrera->getId() == $idCarreraActual) ? 'selected' : '';
@@ -67,7 +67,7 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
             <div class="mb-4">
                 <label for="rol" class="form-label fw-bold">Rol:</label>
                 <select class="form-select" name="rol" id="rol">';
-        
+
         // Generar opciones dinámicas para roles
         foreach ($roles as $rol) {
             $selected = ($rol->getId() == $idRolActual) ? 'selected' : '';

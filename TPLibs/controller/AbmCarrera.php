@@ -69,7 +69,6 @@ class AbmCarrera
 
         $objCarrera = new Carrera();
         $this->hydrator->hydrate($datos, $objCarrera); // hydrate pa
-        // var_dump($objPersona);
         return $objCarrera;
     }
 }
