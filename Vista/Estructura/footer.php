@@ -1,29 +1,16 @@
-<div class="footer bg-success w-100 d-flex justify-content-center align-items-center" style="padding: 10px 0;">
-    <div class="container text-white text-center">
-        <p class="fs-4 mb-4">Integrantes</p>
-        <div class="row justify-content-center">
-            <div class="col-12 col-sm-6 col-md-3 mb-3">
-                <p class="fw-bold">Celayes, Brisa Abril</p>
-                <p>FAI - 4923</p>
-                <p>brisa.celayes@est.fi.uncoma.edu.ar</p>
-            </div>
-            <div class="col-12 col-sm-6 col-md-3 mb-3">
-                <p class="fw-bold">De La Iglesia, Alberto Martin</p>
-                <p>FAI - 1234</p>
-                <p>alberto.iglesia@est.fi.uncoma.edu.ar</p>
-            </div>
-            <div class="col-12 col-sm-6 col-md-3 mb-3">
-                <p class="fw-bold">Velo, Carlos Rodrigo</p>
-                <p>FAI - 5678</p>
-                <p>carlos.velo@est.fi.uncoma.edu.ar</p>
-            </div>
-            <div class="col-12 col-sm-6 col-md-3 mb-3">
-                <p class="fw-bold">Villablanca, Rodrigo Alberto</p>
-                <p>FAI - 9101</p>
-                <p>rodrigo.villablanca@est.fi.uncoma.edu.ar</p>
-            </div>
+        <div class="w-100 mt-4" style="height: 65px;">
+
         </div>
-    </div>
-</div>
-</body>
+        <footer class="w-100 fixed-bottom border d-flex align-items-center shadow bg-white" style="height: 65px;">
+            <div class="fs-6">
+                <div class="ms-3 mt-3 card-text">&copy;Grupo 17 - Programación Dinámica</div>
+                <div class="d-flex justify-content-between">
+                    <div class="m-2 ms-3 card-text">Celayes, Brisa Abril</div>
+                    <div class="m-2 ms-3 card-text">De La Iglesia, Alberto Martin</div>
+                    <div class="m-2 ms-3 card-text">Velo, Carlos Rodrigo</div>
+                    <div class="m-2 ms-3 card-text">Villablanca, Rodrigo Alberto</div>
+                </div>
+            </div>
+        </footer>
+    </body>
 </html>

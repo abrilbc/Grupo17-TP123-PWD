@@ -44,6 +44,6 @@
         </div>
     </div>
 </div>
-
-<?php 
+<?php
+include_once '../../Vista/Estructura/footer.php';
 ?>

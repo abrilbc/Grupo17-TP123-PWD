@@ -1,3 +1,12 @@
+
+.card-body h6, .card-body a {
+    font-size: 0.8rem;
+}
+
+.card-text {
+    font-size: 0.8rem;
+}
+
 .border-line {
     border-bottom: 1px solid #5C5B63;
 }

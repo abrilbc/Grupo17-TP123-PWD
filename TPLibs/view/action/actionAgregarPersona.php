@@ -42,3 +42,6 @@ include_once '../Estructura/header.php';
         <a href="../agregarPersona.php" class="btn btn-secondary btn-lg mt-3">Volver</a>
     </div>
 </div>
+<?php
+include_once '../../../Vista/Estructura/footer.php';
+?>

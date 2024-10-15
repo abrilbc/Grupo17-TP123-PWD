@@ -6,7 +6,6 @@ include_once 'Estructura/header.php';
     <h2 class="text-center text-success mb-4">Buscar Persona</h2>
     
     <form onsubmit="return validar()" action="./action/actionBuscarPersona.php" method="POST" id="form">
-        <!-- Campo de búsqueda con etiqueta -->
         <div class="mb-3">
             <label for="legajo" class="form-label fw-bold">Número de Legajo</label>
             <input type="text" class="form-control form-control-lg rounded" placeholder="Ej. 452" id="legajo" name="legajo">
@@ -20,3 +19,6 @@ include_once 'Estructura/header.php';
         </div>
     </form>
 </div>
+<?php
+include_once '../../Vista/Estructura/footer.php';
+?>

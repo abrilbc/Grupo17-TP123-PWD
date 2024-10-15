@@ -33,5 +33,6 @@ include_once '../Estructura/header.php';
         <a href="../buscarPersona.php" class="btn btn-secondary btn-lg mt-3">Volver</a>
     </div>
 </div>
-
-</html>
+<?php
+include_once '../../../Vista/Estructura/footer.php';
+?>

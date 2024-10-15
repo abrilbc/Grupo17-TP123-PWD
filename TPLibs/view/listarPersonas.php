@@ -64,9 +64,9 @@ include_once 'Estructura/header.php';
         <?php endif; ?>
     </div>
     <div class="d-flex justify-content-center mt-4">
-        <a onclick="history.back()" class="btn btn-secondary fs-5">Volver</a>
+        <a onclick="history.back()" class="btn btn-secondary fs-5">Volver al Inicio</a>
     </div>
 </div>
-
-</body>
-</html>
+<?php
+include_once '../../Vista/Estructura/footer.php';
+?>

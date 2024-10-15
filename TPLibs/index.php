@@ -36,3 +36,6 @@ include_once './view/Estructura/header.php';
         <a href="../" class="btn btn-secondary fs-5">Volver</a>
     </div>
 </div>
+<?php
+include_once '../Vista/Estructura/footer.php';
+?>

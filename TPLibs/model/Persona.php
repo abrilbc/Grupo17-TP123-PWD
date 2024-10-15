@@ -80,7 +80,7 @@ class Persona
                 'legajo' => $personaDatos['legajo'],
                 'nombre' => $personaDatos['nombre'],
                 'objCarrera' => $carrera, // es un obj asi que pasa entero para hidratarse despues
-                'objRol' => $rol
+                'objRol' => $rol //lo mismo
             ];
         }
 

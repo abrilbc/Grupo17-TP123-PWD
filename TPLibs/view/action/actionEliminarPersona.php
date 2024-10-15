@@ -44,3 +44,6 @@ include_once '../Estructura/header.php';
 
 </body>
 </html>
+<?php
+include_once '../../../Vista/Estructura/footer.php';
+?>
