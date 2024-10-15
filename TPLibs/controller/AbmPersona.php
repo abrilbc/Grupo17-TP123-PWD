@@ -15,9 +15,6 @@ use model\Persona;
 use model\Carrera;
 use model\Rol;
 use Laminas\Hydrator\ClassMethodsHydrator;
-use model\connector\BaseDatos;
-// use PDOException;
-
 
 class AbmPersona
 {
@@ -58,7 +55,6 @@ class AbmPersona
 
             $personaExistente = $personaModelo;
         }
-
         return $personaExistente;
     }
 
@@ -67,15 +63,11 @@ class AbmPersona
         $mensaje = '';
         $personaModelo = $this->datosObjPersona();
         $datos = $this->hydrator->extract($personaModelo);
-
-        // Verificamos si existe una persona con el mismo legajo
         if (isset($datos['legajo']) && $this->buscarPersona($datos['legajo'])) {
             $mensaje = 'Ya existe alguien con este legajo.';
         } else {
-            // Si el legajo es autoincremental, no enviamos el campo legajo
             unset($datos['legajo']);
 
-            // Insertamos los datos y verificamos el resultado
             $resultado = $personaModelo->insertar($datos);
 
             if ($resultado) {
@@ -84,10 +76,8 @@ class AbmPersona
                 $mensaje = 'Error al insertar persona.';
             }
         }
-
         return $mensaje;
     }
-
 
     public function modificarPersona()
     {
@@ -131,9 +121,11 @@ class AbmPersona
         return $msj;
     }
 
+    /**
+     * parece recursiva pero no
+     */
     public function buscarUltimaPersona()
     {
-        // Usar el modelo para obtener la última persona
         $personaModelo = new Persona();
         return $personaModelo->buscarUltimaPersona();
     }

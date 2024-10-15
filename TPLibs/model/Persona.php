@@ -15,7 +15,6 @@ class Persona
     private $objCarrera;
     private $objRol;
     private $database;
-    private $lastInsertId;
 
     public function __construct()
     {
@@ -50,11 +49,6 @@ class Persona
         $this->database = $database;
     }
 
-    public function setLastInsertId($id)
-    {
-        $this->lastInsertId = $id;
-    }
-
     public function getLegajo()
     {
         return $this->legajo;
@@ -78,11 +72,6 @@ class Persona
     public function getDatabase()
     {
         return $this->database;
-    }
-
-    public function getLastInsertId()
-    {
-        return $this->lastInsertId;
     }
 
     // get() en Medoo es el buscar() en el ORM clásico
@@ -197,6 +186,7 @@ class Persona
         $personaExistente = null;
 
         // skhjsadkhjhdjskdahjskjhka sql tenemos que ingresar a la tabla de usuario y acceder al valor de la carrera y el rol
+        // https://medoo.in/api/get
         $datosPersona = $database->get('usuario', [
             '[>]carrera' => ['id_carrera' => 'idcarrera'],
             '[>]rol' => ['rol' => 'idrol']
