@@ -48,10 +48,14 @@ class AbmRol
         return $mensaje;
     }
 
-    public function listarRoles()
-    {
+    public function listarRoles($condicion = null)
+    {   
         $RolModelo = $this->datosObjRol();
-        $resultado = $RolModelo->listar();
+        if ($condicion) {
+            $resultado = $RolModelo->listar($condicion);
+        } else {
+            $resultado = $RolModelo->listar();
+        }
         return $resultado;
     }
 

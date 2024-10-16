@@ -1,69 +1,54 @@
 <?php
 
 require_once '../../configuracion.php';
+require_once '../controller/AbmPersona.php';
+require_once '../controller/AbmCarrera.php';
+require_once '../model/Persona.php';
+require_once '../model/Carrera.php';
 
 use controller\AbmPersona;
 
-$objAbmPersona = new AbmPersona();
-$colPersonas = $objAbmPersona->listarPersonas();
-$msj = '';
-
-if (count($colPersonas) > 0) {
-
-    $msj = <<<HTML
-    <table class="table table-striped table-bordered">
-        <thead class="table-success">
-            <tr>
-                <th>Legajo</th>
-                <th>Nombre</th>
-                <th>Carrera</th>
-                <th>Rol</th>
-            </tr>
-        </thead>
-        <tbody>
-    HTML;
-
-    foreach ($colPersonas as $persona) {
-
-        $nombreCarreras = $persona->getObjCarrera()->getNombre();
-        $nombreRol = $persona->getObjRol()->getNombre();
-        var_dump($nombreRol);
-        $msj .= <<<FILA
-        <tr>
-            <td>FAI-{$persona->getLegajo()}</td>
-            <td>{$persona->getNombre()}</td>
-            <td>{$nombreCarreras}</td>
-            <td>{$nombreRol}</td>
-        </tr>
-        FILA;
-    }
-
-    $msj .= <<<HTML
-        </tbody>
-    </table>
-    HTML;
-} else {
-    $msj = <<<HTML
-    <div class="alert alert-warning" role="alert">
-        No hay personas cargadas.
-    </div>
-    HTML;
-}
+$objAbmRol = new AbmRol();
+$colRoles = $objAbmRol->listarRoles();
 
 include_once 'Estructura/header.php';
 ?>
 
 <div class="container mt-5">
-    <h1 class="text-center">Listar Personas</h1>
-    <div class="mt-4">
-        <?php if ($msj): ?>
-            <?php echo $msj; ?>
-        <?php endif; ?>
-    </div>
-    <div class="d-flex justify-content-center mt-4">
-        <a onclick="history.back()" class="btn btn-secondary fs-5">Volver al Inicio</a>
+    <div class="row justify-content-center">
+        <div class="col-md-6">
+            <div class="card shadow">
+                <div class="card-header text-center bg-success text-white">
+                    <h1 class="h4 mt-2">Seleccionar Rol</h1>
+                    <h6>Se mostrarán todos los usuarios con tal rol</h6>
+                </div>
+                <div class="card-body">
+                    <form action="./action/actionListarPorRol.php" method="get">
+                        <div class="mb-3">
+                            <label for="rol" class="form-label">Selecciona un Rol:</label>
+                            <select id="rol" name="rol" class="form-select" required>
+                                <option value="">-- Elige un Rol --</option>
+                                <?php
+                                // Llenar el select con los roles obtenidos
+                                foreach ($colRoles as $rol) {
+                                    echo "<option value=\"{$rol->getId()}\">{$rol->getNombre()}</option>";
+                                }
+                                ?>
+                            </select>
+                        </div>
+                        <div class="d-flex justify-content-center">
+                            <div class="d-flex flex-column w-50 align-items-center">
+                                <button type="submit" class="btn btn-success fs-6 w-100">Filtrar</button>
+                                <a href="../index.php" class="btn btn-secondary fs-6 w-100 mt-2">Volver</a>
+                            </div>
+                        </div>
+                    </form>
+                </div>
+            </div>
+        </div>
     </div>
 </div>
+
 <?php
 include_once '../../Vista/Estructura/footer.php';
 ?>

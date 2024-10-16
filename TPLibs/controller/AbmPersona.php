@@ -93,10 +93,14 @@ class AbmPersona
         return $msj;
     }
 
-    public function listarPersonas()
+    public function listarPersonas($condicion = null)
     {
         $personaModelo = $this->datosObjPersona();
-        $resultado = $personaModelo->listar();
+        if ($condicion !== null) {
+            $resultado = $personaModelo->listar($condicion);
+        } else {
+            $resultado = $personaModelo->listar();
+        }
         return $resultado;
     }
 
