@@ -42,7 +42,7 @@ class AbmRol
         $rolModelo = $this->datosObjRol();
         $datos = $this->hydrator->extract($rolModelo);
 
-        if (isset($datos['dato']) && $this->buscarRol($datos['dato'])) {
+        if (isset($datos['nombre']) && $this->buscarRol($datos['nombre'])) {
             $mensaje = 'Error';
         } else {
             $resultado = $rolModelo->insertar($datos);
@@ -73,3 +73,4 @@ class AbmRol
         return $objRol;
     }
 }
+echo ":)";
