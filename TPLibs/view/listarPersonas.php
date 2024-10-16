@@ -31,6 +31,7 @@ if (count($colPersonas) > 0) {
 
         $nombreCarreras = $persona->getObjCarrera()->getNombre();
         $nombreRol = $persona->getObjRol()->getNombre();
+        var_dump($nombreRol);
         $msj .= <<<FILA
         <tr>
             <td>FAI-{$persona->getLegajo()}</td>

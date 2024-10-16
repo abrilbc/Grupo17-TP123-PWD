@@ -22,11 +22,11 @@ class AbmRol
         $this->hydrator = new ClassMethodsHydrator();
     }
 
-    public function buscarRol($id)
+    public function buscarRol($nombre)
     {
         $RolModelo = new Rol();
         $RolExistente = null;
-        $resultado = $RolModelo->buscar($id);
+        $resultado = $RolModelo->buscar($nombre);
         if ($resultado) {
             $this->hydrator->hydrate($resultado, $RolModelo);
             $RolExistente = $RolModelo;
@@ -35,6 +35,27 @@ class AbmRol
         return $RolExistente;
     }
 
+
+    public function agregarRol()
+    {
+        $mensaje = '';
+        $rolModelo = $this->datosObjRol();
+        $datos = $this->hydrator->extract($rolModelo);
+
+        if (isset($datos['nombre']) && $this->buscarRol($datos['nombre'])) {
+            $mensaje = 'Error';
+        } else {
+            $resultado = $rolModelo->insertar($datos);
+            if ($resultado) {
+                $mensaje = 'Éxito';
+            } else {
+
+                $mensaje = 'Error';
+            }
+        }
+        var_dump($datos);
+        return $mensaje;
+    }
 
     public function listarRoles()
     {

@@ -1,8 +1,11 @@
 <?php
+
 namespace model;
+
 use model\connector\BaseDatos;
 
-class Rol{
+class Rol
+{
     private $id;
     private $nombre;
 
@@ -29,10 +32,10 @@ class Rol{
         $this->nombre = $nombre;
     }
 
-    public function buscar($id)
+    public function buscar($nombre)
     {
         $array = [];
-        $rolDatos = BaseDatos::getInstance()->get('rol', ['idrol', 'nombre'], ['idrol' => $id]);
+        $rolDatos = BaseDatos::getInstance()->get('rol', ['idrol', 'nombre'], ['nombre' => $nombre]);
         if ($rolDatos) {
             $array = [
                 'id' => $rolDatos['idrol'],
@@ -59,4 +62,41 @@ class Rol{
         return $arrObjs;
     }
 
+    public function insertar($param)
+    {
+        $resp = false;
+
+        $datos = $this->limpiarDatos($param);
+        unset($datos['idrol']);
+
+        $database = BaseDatos::getInstance();
+        $insertResultado = $database->insert('rol', $datos);
+        if ($insertResultado) {
+            $resp = true;
+        }
+        return $resp;
+    }
+
+    private function limpiarDatos($datos)
+    {
+        $columnasValidas = ['nombre'];
+        $mapeoClaves = [
+            'nombre' => 'nombre'
+        ];
+
+        foreach ($datos as $k => $v) {
+            if (isset($mapeo[$k])) {
+                $datos[$mapeoClaves[$k]] = $v;
+                unset($datos[$k]);
+            }
+
+            if (!in_array($k, $columnasValidas) && !isset($mapeoClaves[$k])) {
+                unset($datos[$k]);
+            }
+        }
+        if (!isset($datos['idrol'])) {
+            $datos['idrol'] = null;
+        }
+        return $datos;
+    }
 }

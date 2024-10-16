@@ -73,7 +73,7 @@ class AbmPersona
             if ($resultado) {
                 $mensaje = 'Éxito';
             } else {
-                $mensaje = 'Error al insertar persona.';
+                $mensaje = 'Error';
             }
         }
         return $mensaje;
