@@ -53,7 +53,7 @@ class AbmRol
                 $mensaje = 'Error';
             }
         }
-        var_dump($datos);
+        // var_dump($datos);
         return $mensaje;
     }
 

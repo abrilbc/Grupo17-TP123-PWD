@@ -30,7 +30,8 @@ if (count($colPersonas) > 0) {
     foreach ($colPersonas as $persona) {
 
         $nombreCarreras = $persona->getObjCarrera()->getNombre();
-        $nombreRol = $persona->getObjRol()->getNombre();
+        // $nombreRol = $persona->getObjRol()->getNombre();
+        $nombreRol = $persona->getObjRol()->getId();
         var_dump($nombreRol);
         $msj .= <<<FILA
         <tr>
