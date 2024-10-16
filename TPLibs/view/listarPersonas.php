@@ -67,6 +67,7 @@ include_once 'Estructura/header.php';
     <div class="d-flex justify-content-center mt-4">
         <a onclick="history.back()" class="btn btn-secondary fs-5">Volver al Inicio</a>
     </div>
+    <p>dsasdas</p>
 </div>
 <?php
 include_once '../../Vista/Estructura/footer.php';

@@ -100,6 +100,7 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
     <?php endif; ?>
     <a href="../buscarPersona.php" class="btn btn-secondary mt-3 fs-5">Volver</a>
 </div>
+<p>dsasdas</p>
 <?php
 include_once '../../../Vista/Estructura/footer.php';
 ?>

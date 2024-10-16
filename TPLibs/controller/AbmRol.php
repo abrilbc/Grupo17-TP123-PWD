@@ -22,11 +22,11 @@ class AbmRol
         $this->hydrator = new ClassMethodsHydrator();
     }
 
-    public function buscarRol($dato)
+    public function buscarRol($nombre)
     {
         $RolModelo = new Rol();
         $RolExistente = null;
-        $resultado = $RolModelo->buscar($dato);
+        $resultado = $RolModelo->buscar($nombre);
         if ($resultado) {
             $this->hydrator->hydrate($resultado, $RolModelo);
             $RolExistente = $RolModelo;
@@ -34,18 +34,7 @@ class AbmRol
 
         return $RolExistente;
     }
-    public function darNombreRol($id)
-    {
-        $RolModelo = new Rol();
-        $RolExistente = null;
-        $resultado = $RolModelo->darNombre($id);
-        if ($resultado) {
-            $this->hydrator->hydrate($resultado, $RolModelo);
-            $RolExistente = $RolModelo;
-        }
 
-        return $RolExistente;
-    }
 
     public function agregarRol()
     {
@@ -64,19 +53,14 @@ class AbmRol
                 $mensaje = 'Error';
             }
         }
+        var_dump($datos);
         return $mensaje;
     }
 
     public function listarRoles()
     {
         $RolModelo = $this->datosObjRol();
-        $roles = $RolModelo->listar();
-        foreach ($roles as $rol) {
-            $rolObj = new Rol();
-            $datosRol = $rol;
-            $this->hydrator->hydrate($datosRol, $rolObj);
-            $resultado[] = $rolObj;
-        }
+        $resultado = $RolModelo->listar();
         return $resultado;
     }
 
@@ -89,3 +73,4 @@ class AbmRol
         return $objRol;
     }
 }
+echo ":)";

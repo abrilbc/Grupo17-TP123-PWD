@@ -33,7 +33,7 @@ INSERT INTO `carrera` (`idcarrera`, `nomcarrera`, `descripcion`) VALUES
 CREATE TABLE `rol` (
   `idrol` bigint(20) NOT NULL AUTO_INCREMENT,
   `nombre` varchar(50) NOT NULL,
-  PRIMARY KEY (`nombre`)
+  PRIMARY KEY (`idrol`)
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
 
 INSERT INTO `rol` (`idrol`, `nombre`) VALUES
@@ -46,8 +46,16 @@ CREATE TABLE `usuario` (
   `id_carrera` bigint(20) NOT NULL,
   `rol` bigint(20) NOT NULL,  -- Cambiado de varchar(10) a bigint para referenciar correctamente la tabla `rol`
   PRIMARY KEY (`legajo`),
-  FOREIGN KEY (`id_carrera`) REFERENCES `carrera` (`idcarrera`) ON UPDATE CASCADE ON DELETE RESTRICT,
-  FOREIGN KEY (`rol`) REFERENCES `rol` (`nombre`) ON UPDATE CASCADE ON DELETE RESTRICT
+  FOREIGN KEY (`id_carrera`) REFERENCES `carrera` (`idcarrera`) ON UPDATE CASCADE ON DELETE CASCADE,
+  FOREIGN KEY (`rol`) REFERENCES `rol` (`idrol`) ON UPDATE CASCADE ON DELETE CASCADE
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
+
+CREATE TABLE `usuariorol` (
+  `idusuario` bigint(20) NOT NULL,
+  `idrol` bigint(20) NOT NULL,
+  PRIMARY KEY (`idusuario`, `idrol`),
+  FOREIGN KEY (`idusuario`) REFERENCES `usuario` (`legajo`) ON UPDATE CASCADE ON DELETE CASCADE,
+  FOREIGN KEY (`idrol`) REFERENCES `rol` (`idrol`) ON UPDATE CASCADE ON DELETE CASCADE
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
 
 COMMIT;
