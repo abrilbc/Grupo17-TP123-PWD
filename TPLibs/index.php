@@ -41,7 +41,7 @@ include_once './view/Estructura/header.php';
                 </div>
             </div>
         </div>
-
+        <p>hola</p>
     </div>
     <div class="d-flex justify-content-center mt-4">
         <a href="../" class="btn btn-secondary fs-6">Volver al Inicio</a>
