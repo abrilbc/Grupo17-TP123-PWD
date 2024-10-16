@@ -40,12 +40,7 @@ include_once '../Estructura/header.php';
     <div class="d-flex justify-content-center mt-4">
         <a href="../../" class="btn btn-secondary btn-lg">Volver al Inicio</a>
     </div>
-    <p>dsasdas</p>
 </div>
-
-</body>
-
-</html>
 <?php
 include_once '../../../Vista/Estructura/footer.php';
 ?>

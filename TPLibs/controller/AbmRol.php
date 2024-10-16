@@ -2,8 +2,10 @@
 
 namespace controller;
 
+
 use model\Rol;
 use Laminas\Hydrator\ClassMethodsHydrator;
+use Exception;
 
 class AbmRol
 {
@@ -44,8 +46,28 @@ class AbmRol
                 $mensaje = 'Error';
             }
         }
-        var_dump($datos);
         return $mensaje;
+    }
+
+    public function eliminarRol()
+    {
+        try {
+            $rolModelo = $this->datosObjRol();
+            $datos = $this->hydrator->extract($rolModelo);
+            $idrol = $datos['id'];
+
+            if ($idrol !== null) {
+                $resultado = $rolModelo->eliminar($idrol);
+                if ($resultado) {
+                    $msj = 'Éxito';
+                } else {
+                    $msj = 'Error';
+                }
+            }
+        } catch (Exception $e) {
+            $msj = $e->getMessage();
+        }
+        return $msj;
     }
 
     public function listarRoles($condicion = null)
@@ -62,9 +84,8 @@ class AbmRol
     private function datosObjRol()
     {
         $datos = darDatosSubmitted();
-
         $objRol = new Rol();
-        $this->hydrator->hydrate($datos, $objRol); // hydrate pa
+        $this->hydrator->hydrate($datos, $objRol);
         return $objRol;
     }
 }

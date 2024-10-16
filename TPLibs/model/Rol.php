@@ -85,6 +85,16 @@ class Rol
         return $resp;
     }
 
+    public function eliminar($id)
+    {
+        $resp = false;
+        $idEncontrado = BaseDatos::getInstance()->delete('rol', ['idrol' => $id]);
+        if ($idEncontrado->rowCount() > 0) {
+            $resp = true;
+        }
+        return $resp;
+    }
+
     private function limpiarDatos($datos)
     {
         $columnasValidas = ['nombre'];
