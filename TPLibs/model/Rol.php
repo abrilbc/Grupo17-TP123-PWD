@@ -14,10 +14,12 @@ class Rol
         $this->id = $id;
         $this->nombre = $nombre;
     }
+
     public function getId()
     {
         return $this->id;
     }
+
     public function setId($id)
     {
         $this->id = $id;
@@ -27,10 +29,12 @@ class Rol
     {
         return $this->nombre;
     }
+
     public function setNombre($nombre)
     {
         $this->nombre = $nombre;
     }
+
     public function buscar($dato)
     {
         $rolExistente = [];
@@ -48,7 +52,6 @@ class Rol
         }
         return $rolExistente;
     }
-
 
     public function listar($condicion = "")
     {

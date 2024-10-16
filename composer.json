@@ -5,8 +5,8 @@
     },
     "autoload": {
         "psr-4": {
-            "model\\": "hydrator/model/",
-            "controller\\": "hydrator/controller/"
+            "model\\": "TPLibs/model/",
+            "controller\\": "TPLibs/controller/"
         }
     }
 }

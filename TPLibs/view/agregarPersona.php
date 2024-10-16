@@ -1,12 +1,6 @@
 <?php
 include_once '../../configuracion.php';
 include_once 'Estructura/header.php';
-require_once '../controller/AbmPersona.php';
-require_once '../controller/AbmCarrera.php';
-require_once '../controller/AbmRol.php';
-require_once '../model/Persona.php';
-require_once '../model/Carrera.php';
-require_once '../model/Rol.php';
 
 // use controller\AbmPersona;
 use controller\AbmCarrera;

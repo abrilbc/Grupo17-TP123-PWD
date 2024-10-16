@@ -2,14 +2,6 @@
 
 namespace controller;
 
-require_once __DIR__ . '/../../configuracion.php';
-
-require_once __DIR__ . '/../model/connector/BaseDatos.php';
-
-require_once __DIR__ . '/../model/Rol.php';
-
-use Exception;
-use model\connector\BaseDatos;
 use model\Rol;
 use Laminas\Hydrator\ClassMethodsHydrator;
 
@@ -34,7 +26,6 @@ class AbmRol
 
         return $RolExistente;
     }
-
 
     public function agregarRol()
     {
@@ -73,4 +64,3 @@ class AbmRol
         return $objRol;
     }
 }
-echo ":)";

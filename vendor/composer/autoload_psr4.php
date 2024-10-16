@@ -6,8 +6,8 @@ $vendorDir = dirname(__DIR__);
 $baseDir = dirname($vendorDir);
 
 return array(
-    'model\\' => array($baseDir . '/hydrator/model'),
-    'controller\\' => array($baseDir . '/hydrator/controller'),
+    'model\\' => array($baseDir . '/TPLibs/model'),
+    'controller\\' => array($baseDir . '/TPLibs/controller'),
     'Webmozart\\Assert\\' => array($vendorDir . '/webmozart/assert/src'),
     'Medoo\\' => array($vendorDir . '/catfan/medoo/src'),
     'Laminas\\Stdlib\\' => array($vendorDir . '/laminas/laminas-stdlib/src'),

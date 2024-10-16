@@ -1,10 +1,6 @@
 <?php
 
 require_once '../../configuracion.php';
-require_once '../controller/AbmPersona.php';
-require_once '../controller/AbmCarrera.php';
-require_once '../model/Persona.php';
-require_once '../model/Carrera.php';
 
 use controller\AbmPersona;
 

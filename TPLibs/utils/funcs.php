@@ -1,25 +1,30 @@
 <?php
 
-function darDatosSubmitted()
+namespace utils;
+
+class Funcs
 {
-    $datos = [];
-    foreach ($_GET as $key => $value) {
-        $datos[$key] = $value;
+    public static function darDatosSubmitted()
+    {
+        $datos = [];
+        foreach ($_GET as $key => $value) {
+            $datos[$key] = $value;
+        }
+        foreach ($_POST as $key => $value) {
+            $datos[$key] = $value;
+        }
+        return $datos;
     }
-    foreach ($_POST as $key => $value) {
-        $datos[$key] = $value;
+
+    public static function verEstructura($e)
+    {
+        echo "<pre>";
+        print_r($e);
+        echo "</pre>";
     }
-    return $datos;
 }
 
-function verEstructura($e)
-{
-    echo "<pre>";
-    print_r($e);
-    echo "</pre>";
-}
-
-spl_autoload_register(function ($class_name) {
+/*spl_autoload_register(function ($class_name) {
     $directorys = array(
         $_SESSION['ROOT'] . 'model/',
         $_SESSION['ROOT'] . 'model/connector/',
@@ -32,4 +37,4 @@ spl_autoload_register(function ($class_name) {
             return;
         }
     }
-});
+});*/

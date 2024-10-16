@@ -33,11 +33,11 @@ class ComposerStaticInit95c25302c5c5f280185ff1f9c3e9e108
     public static $prefixDirsPsr4 = array (
         'model\\' => 
         array (
-            0 => __DIR__ . '/../..' . '/hydrator/model',
+            0 => __DIR__ . '/../..' . '/TPLibs/model',
         ),
         'controller\\' => 
         array (
-            0 => __DIR__ . '/../..' . '/hydrator/controller',
+            0 => __DIR__ . '/../..' . '/TPLibs/controller',
         ),
         'Webmozart\\Assert\\' => 
         array (
