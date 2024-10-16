@@ -24,8 +24,7 @@ include_once './view/Estructura/header.php';
                     <h5 class="card-title">Gestión de Roles</h5>
                     <p class="card-text">Administra los roles disponibles en el sistema</p>
                     <a href="./view/agregarRol.php" class="btn btn-success mb-2 w-100">Agregar Rol</a>
-                    <a href="./view/listarRoles.php" class="btn btn-white mb-2 w-100 border border-2">Listar Roles</a>
-                    <a href="./view/buscarRol.php" class="btn btn-success w-100">Buscar Rol</a>
+                    <a href="./view/buscarRol.php" class="btn btn-success w-100">Listar por Roles</a>
                 </div>
             </div>
         </div>

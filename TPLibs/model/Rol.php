@@ -32,34 +32,41 @@ class Rol
         $this->nombre = $nombre;
     }
 
-    public function buscar($nombre)
+    public function buscar($dato)
     {
-        $array = [];
-        $rolDatos = BaseDatos::getInstance()->get('rol', ['idrol', 'nombre'], ['nombre' => $nombre]);
+        $rolExistente = [];
+        if (is_numeric($dato)) {
+            $rolDatos = BaseDatos::getInstance()->get('rol', ['idrol', 'nombre'], ['idrol' => $dato]);
+        } else {
+            // Si el dato no es numérico, buscamos por nombre
+            $rolDatos = BaseDatos::getInstance()->get('rol', ['idrol', 'nombre'], ['nombre' => $dato]);
+        }
         if ($rolDatos) {
-            $array = [
+            $rolExistente = [
                 'id' => $rolDatos['idrol'],
                 'nombre' => $rolDatos['nombre']
             ];
         }
-        return $array;
+        return $rolExistente;
     }
 
-    public function listar($condicion = "")
+    public function listar()
     {
-        $where = [];
-        $arrObjs = [];
-        if ($condicion !== "") {
-            $where = ["AND" => $condicion];
-        }
-        $resultados = BaseDatos::getInstance()->select('rol', '*', $where);
-        if ($resultados) {
-            foreach ($resultados as $fila) {
-                $objRol = new Rol($fila['idrol'], $fila['nombre']);
-                $arrObjs[] = $objRol;
+        $roles = [];
+        $resultado = BaseDatos::getInstance()->select('rol', ['idrol', 'nombre']);
+        if ($resultado) {
+            $i = 0;
+            $total = count($resultado);
+            while ($i < $total) {
+                $fila = $resultado[$i];
+                $roles[] = [
+                    'idrol' => $fila['idrol'],
+                    'nombre' => $fila['nombre']
+                ];
+                $i++;
             }
         }
-        return $arrObjs;
+        return $roles;
     }
 
     public function insertar($param)
@@ -98,5 +105,18 @@ class Rol
             $datos['idrol'] = null;
         }
         return $datos;
+    }
+
+    public function darNombre($id)
+    {
+        $array = [];
+        $rolDatos = BaseDatos::getInstance()->get('rol', ['idrol', 'nombre'], ['idrol' => $id]);
+        if ($rolDatos) {
+            $array = [
+                'id' => $rolDatos['idrol'],
+                'nombre' => $rolDatos['nombre']
+            ];
+        }
+        return $array;
     }
 }
