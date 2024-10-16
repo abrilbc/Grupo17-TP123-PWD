@@ -28,7 +28,7 @@ include_once '../Estructura/header.php';
 
 <div class="container mt-5">
     <h1 class="mb-4 text-center">Eliminar Persona</h1>
-    
+
     <!-- Mostrar mensaje de éxito o error -->
     <?php if ($msj): ?>
         <div class="alert alert-<?php echo htmlspecialchars($msjTipo); ?> text-center" role="alert">
@@ -40,9 +40,11 @@ include_once '../Estructura/header.php';
     <div class="d-flex justify-content-center mt-4">
         <a href="../../" class="btn btn-secondary btn-lg">Volver al Inicio</a>
     </div>
+    <p>dsasdas</p>
 </div>
 
 </body>
+
 </html>
 <?php
 include_once '../../../Vista/Estructura/footer.php';

@@ -73,3 +73,4 @@ class AbmRol
         return $objRol;
     }
 }
+echo ":)";
