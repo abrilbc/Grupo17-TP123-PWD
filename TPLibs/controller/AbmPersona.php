@@ -150,4 +150,3 @@ class AbmPersona
         return $objPersona;
     }
 }
-echo ":)";

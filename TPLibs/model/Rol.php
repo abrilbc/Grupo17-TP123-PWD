@@ -31,19 +31,24 @@ class Rol
     {
         $this->nombre = $nombre;
     }
-
-    public function buscar($nombre)
+    public function buscar($dato)
     {
-        $array = [];
-        $rolDatos = BaseDatos::getInstance()->get('rol', ['idrol', 'nombre'], ['nombre' => $nombre]);
+        $rolExistente = [];
+        if (is_numeric($dato)) {
+            $rolDatos = BaseDatos::getInstance()->get('rol', ['idrol', 'nombre'], ['idrol' => $dato]);
+        } else {
+            // Si el dato no es numérico, buscamos por nombre
+            $rolDatos = BaseDatos::getInstance()->get('rol', ['idrol', 'nombre'], ['nombre' => $dato]);
+        }
         if ($rolDatos) {
-            $array = [
+            $rolExistente = [
                 'id' => $rolDatos['idrol'],
                 'nombre' => $rolDatos['nombre']
             ];
         }
-        return $array;
+        return $rolExistente;
     }
+
 
     public function listar($condicion = "")
     {

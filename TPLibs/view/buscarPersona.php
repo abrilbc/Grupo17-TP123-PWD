@@ -18,7 +18,6 @@ include_once 'Estructura/header.php';
             <a href="../index.php" class="btn btn-secondary w-50 fs-5">Volver</a>
         </div>
     </form>
-    <p>dsasdas</p>
 </div>
 <?php
 include_once '../../Vista/Estructura/footer.php';

@@ -32,7 +32,6 @@ include_once '../Estructura/header.php';
     <div class="d-flex justify-content-center">
         <a href="../buscarPersona.php" class="btn btn-secondary btn-lg mt-3">Volver</a>
     </div>
-    <p>dsasdas</p>
 </div>
 <?php
 include_once '../../../Vista/Estructura/footer.php';

@@ -72,4 +72,3 @@ class AbmCarrera
         return $objCarrera;
     }
 }
-echo ":)";
