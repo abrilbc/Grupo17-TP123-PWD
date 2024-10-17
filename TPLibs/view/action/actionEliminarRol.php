@@ -20,9 +20,12 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST' && isset($datos['id'])) {
         if ($resp === 'Éxito') {
             $msj = 'Rol eliminado con éxito.';
             $msjTipo = 'success';
-        } else {
-            $msj = 'Hubo un error eliminando el Rol seleccionado.';
+        } elseif ($resp === "Error") {
+            $msj = "Hubo un error al eliminar el rol";
             $msjTipo = 'danger';
+        } else {
+            $msj = $resp;
+            $msjTipo = 'warning';
         }
     } else {
         $msj = 'No se encontró el rol a eliminar.';

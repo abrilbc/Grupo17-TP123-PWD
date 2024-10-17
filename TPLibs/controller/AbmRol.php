@@ -4,6 +4,7 @@ namespace controller;
 
 
 use model\Rol;
+use controller\AbmPersona;
 use Laminas\Hydrator\ClassMethodsHydrator;
 use Exception;
 
@@ -42,7 +43,6 @@ class AbmRol
             if ($resultado) {
                 $mensaje = 'Éxito';
             } else {
-
                 $mensaje = 'Error';
             }
         }
@@ -51,11 +51,11 @@ class AbmRol
 
     public function eliminarRol()
     {
+        $msj = "";
         try {
             $rolModelo = $this->datosObjRol();
             $datos = $this->hydrator->extract($rolModelo);
             $idrol = $datos['id'];
-
             if ($idrol !== null) {
                 $resultado = $rolModelo->eliminar($idrol);
                 if ($resultado) {
@@ -63,6 +63,12 @@ class AbmRol
                 } else {
                     $msj = 'Error';
                 }
+            }
+        } catch (\PDOException $e) {
+            if ($e->getCode() == '23000') {  // Este es el código específico de MySQL para violación de clave foránea
+                $msj = 'No se puede eliminar el rol porque está asignado a uno o más usuarios.';
+            } else {
+                $msj = 'Error: ' . $e->getMessage();
             }
         } catch (Exception $e) {
             $msj = $e->getMessage();
