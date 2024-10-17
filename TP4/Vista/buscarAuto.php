@@ -1,6 +1,5 @@
 <?php
 include_once 'Estructura/header.php';
-include_once 'Estructura/menu/menu.php';
 ?>
 <main class="container">
     <div class="text-white">

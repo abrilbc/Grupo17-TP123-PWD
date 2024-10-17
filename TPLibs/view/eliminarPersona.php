@@ -1,5 +1,5 @@
 <?php
-require_once '../../configuracion.php';
+require_once '../../../configLib.php';
 include_once 'Estructura/header.php';
 ?>
 <div class="container border rounded p-5 shadow">

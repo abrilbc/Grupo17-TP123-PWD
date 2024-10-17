@@ -1,8 +1,8 @@
 <?php
 
 include_once '../../../Vista/Estructura/header.php';
-require_once '../../../configuracion.php';
-require_once '../../controller/AbmPersona.php';
+require_once '../../../configLib.php';
+
 
 use controller\AbmPersona;
 

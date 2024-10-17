@@ -1,5 +1,5 @@
 <?php
-include_once '../../configuracion.php';
+require_once '../../../configLib.php';
 include_once 'Estructura/header.php';
 ?>
 <div class="container mt-5 p-4" style="max-width: 600px; background-color: #f9f9f9; border-radius: 10px; box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);">

@@ -2,14 +2,14 @@
 include_once '../../configLib.php';
 include_once 'Estructura/header.php';
 
-use controller\AbmRol;
+use controller\AbmCarrera;
 
 
-$objAbmRol = new AbmRol();
+$objAbmRol = new AbmCarrera();
 $msj = '';
 $msjTipo = ''; // Variable para definir el tipo de mensaje (éxito o error)
 
-$arrayRoles = $objAbmRol->listarRoles();
+$arrayRoles = $objAbmRol->listarCarreras();
 
 
 ?>

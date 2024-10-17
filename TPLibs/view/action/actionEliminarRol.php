@@ -1,7 +1,7 @@
 <?php 
 
 include_once '../../../Vista/Estructura/header.php';
-include_once '../../../configuracion.php';
+require_once '../../../configLib.php';
 
 use controller\AbmRol;
 

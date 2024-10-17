@@ -1,8 +1,6 @@
 <?php
 
-require_once '../../../configuracion.php';
-require_once '../../controller/AbmRol.php';
-require_once '../../model/Rol.php';
+require_once '../../../configLib.php';
 
 use controller\AbmRol;
 

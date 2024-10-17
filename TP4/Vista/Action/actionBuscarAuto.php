@@ -1,7 +1,6 @@
 <?php
 require_once('../../../configuracion.php');
     include_once('../Estructura/header.php');
-    include_once('../Estructura/menu/menuAction.php');
     ?>
 
 <main class="container">

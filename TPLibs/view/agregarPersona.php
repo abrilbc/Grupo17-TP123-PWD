@@ -1,5 +1,5 @@
 <?php
-include_once '../../configuracion.php';
+require_once '../../../configLib.php';
 include_once 'Estructura/header.php';
 
 // use controller\AbmPersona;

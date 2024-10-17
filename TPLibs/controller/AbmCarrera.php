@@ -2,16 +2,8 @@
 
 namespace controller;
 
-require_once __DIR__ . '/../../configuracion.php';
+require_once '../../configLib.php';
 
-require_once __DIR__ . '/../model/connector/BaseDatos.php';
-
-// require_once __DIR__ . '/../model/Persona.php';
-
-require_once __DIR__ . '/../model/Carrera.php';
-
-use Exception;
-use model\connector\BaseDatos;
 use model\Carrera;
 use Laminas\Hydrator\ClassMethodsHydrator;
 
@@ -39,14 +31,18 @@ class AbmCarrera
     }
 
 
-    public function listarCarreras()
+    public function listarCarreras($condicion = null)
     {
         $carreraModelo = $this->datosObjCarrera();
-        $resultado = $carreraModelo->listar();
+        if($condicion) {
+            $resultado = $carreraModelo->listar($condicion);
+        } else {
+            $resultado = $carreraModelo->listar();
+        }
         return $resultado;
     }
 
-    /*public function agregarCarrera()
+    public function agregarCarrera()
     {
         $mensaje = '';
         $carreraModelo = $this->datosObjCarrera();
@@ -60,12 +56,11 @@ class AbmCarrera
             $mensaje = 'Error';
         }
         return $mensaje;
-    }*/
+    }
 
     private function datosObjCarrera()
     {
         $datos = darDatosSubmitted();
-        // var_dump($datos);
 
         $objCarrera = new Carrera();
         $this->hydrator->hydrate($datos, $objCarrera); // hydrate pa
