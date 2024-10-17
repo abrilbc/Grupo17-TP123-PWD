@@ -2,15 +2,7 @@
 
 namespace controller;
 
-// __DIR__ es como el _toString() porque te reotrna 'algo' (la ruta) del archivo actual (como pwd en linux)
-require_once __DIR__ . '/../../configuracion.php';
-
-require_once __DIR__ . '/../model/connector/BaseDatos.php';
-
-require_once __DIR__ . '/../model/Persona.php';
-require_once __DIR__ . '/../model/Rol.php';
-
-use Exception;
+use PDOException;
 use model\Persona;
 use model\Carrera;
 use model\Rol;
@@ -43,14 +35,14 @@ class AbmPersona
             if ($idCarrera = $carreraObj->getId()) {
                 $carrera = new Carrera();
                 $datosCarrera = $carrera->buscar($idCarrera);
-                $this->hydrator->hydrate($datosCarrera ?? [], $carreraObj); // Si no hay datos, usamos []
+                $this->hydrator->hydrate($datosCarrera ?? [], $carreraObj);
             }
 
             // --- Manejo de Rol ---
             if ($idRol = $rolObj->getId()) {
                 $rol = new Rol();
                 $datosRol = $rol->buscar($idRol);
-                $this->hydrator->hydrate($datosRol ?? [], $rolObj); // Si no hay datos, usamos []
+                $this->hydrator->hydrate($datosRol ?? [], $rolObj);
             }
 
             $personaExistente = $personaModelo;
@@ -63,19 +55,27 @@ class AbmPersona
         $mensaje = '';
         $personaModelo = $this->datosObjPersona();
         $datos = $this->hydrator->extract($personaModelo);
-        if (isset($datos['legajo']) && $this->buscarPersona($datos['legajo'])) {
-            $mensaje = 'Ya existe alguien con este legajo.';
-        } else {
-            unset($datos['legajo']);
 
-            $resultado = $personaModelo->insertar($datos);
+        unset($datos['legajo']);
 
-            if ($resultado) {
-                $mensaje = 'Éxito';
-            } else {
-                $mensaje = 'Error';
-            }
+        if (isset($datos['obj_carrera'])) {
+            $datos['id_carrera'] = $datos['obj_carrera']->getId();
+            unset($datos['obj_carrera']);
         }
+
+        if (isset($datos['obj_rol'])) {
+            $datos['rol'] = $datos['obj_rol']->getId();
+            unset($datos['obj_rol']);
+        }
+
+        $resultado = $personaModelo->insertar($datos);
+
+        if ($resultado) {
+            $mensaje = 'Éxito';
+        } else {
+            $mensaje = 'Error al insertar la persona.';
+        }
+
         return $mensaje;
     }
 
@@ -84,14 +84,29 @@ class AbmPersona
         $msj = '';
         $personaModelo = $this->datosObjPersona();
         $datos = $this->hydrator->extract($personaModelo);
-        if ($datos['legajo'] !== null) {
-            $personaModelo->actualizar($datos);
-            $msj = 'Éxito';
+
+        if (isset($datos['legajo']) && is_numeric($datos['legajo'])) {
+            if (isset($datos['obj_carrera'])) {
+                $datos['id_carrera'] = $datos['obj_carrera']->getId();
+                unset($datos['obj_carrera']);
+            }
+
+            if (isset($datos['obj_rol'])) {
+                $datos['rol'] = $datos['obj_rol']->getId();
+                unset($datos['obj_rol']);
+            }
+            if ($personaModelo->actualizar($datos)) {
+                $msj = 'Éxito';
+            } else {
+                $msj = 'Error';
+            }
         } else {
             $msj = 'Error';
         }
+
         return $msj;
     }
+
 
     public function listarPersonas($condicion = null)
     {
@@ -119,19 +134,10 @@ class AbmPersona
                     $msj = 'Error';
                 }
             }
-        } catch (Exception $e) {
+        } catch (PDOException $e) {
             $msj = $e->getMessage();
         }
         return $msj;
-    }
-
-    /**
-     * parece recursiva pero no
-     */
-    public function buscarUltimaPersona()
-    {
-        $personaModelo = new Persona();
-        return $personaModelo->buscarUltimaPersona();
     }
 
     private function datosObjPersona()

@@ -1,5 +1,5 @@
 <?php
-require_once '../../../configuracion.php';
+require_once '../../../configLib.php';
 
 use controller\AbmPersona;
 use controller\AbmCarrera;

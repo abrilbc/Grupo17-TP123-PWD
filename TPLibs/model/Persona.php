@@ -14,7 +14,6 @@ class Persona
     private $nombre;
     private $objCarrera;
     private $objRol;
-    private $database;
 
     public function __construct()
     {
@@ -44,11 +43,6 @@ class Persona
         $this->objRol = $rol;
     }
 
-    public function setDatabase($database)
-    {
-        $this->database = $database;
-    }
-
     public function getLegajo()
     {
         return $this->legajo;
@@ -67,11 +61,6 @@ class Persona
     public function getObjRol()
     {
         return $this->objRol;
-    }
-
-    public function getDatabase()
-    {
-        return $this->database;
     }
 
     // get() en Medoo es el buscar() en el ORM clásico
@@ -138,11 +127,6 @@ class Persona
     {
         $resp = false;
 
-        // Limpiar datos antes de la comparación
-        $param = $this->limpiarDatos($param);
-
-        unset($param['legajo']); // legajo autoincremnetal no es necesario
-
         $database = BaseDatos::getInstance();
         $insertResultado = $database->insert('usuario', $param);
 
@@ -157,15 +141,14 @@ class Persona
     public function actualizar($param)
     {
         $resp = false;
-        $claves = $this->limpiarDatos($param);
-        if (isset($claves['legajo']) && is_numeric($claves['legajo'])) {
-            $database = BaseDatos::getInstance();
-            $resultado = $database->update('usuario', $claves, ['legajo' => $claves['legajo']]);
+        $database = BaseDatos::getInstance();
+        if ($database->has('usuario', ['legajo' => $param['legajo']]))
+            $resultado = $database->update('usuario', $param, ['legajo' => $param['legajo']]);
 
-            if ($resultado->rowCount() > 0) {
-                $resp = true;
-            }
+        if ($resultado->rowCount() > 0) {
+            $resp = true;
         }
+
         return $resp;
     }
 
@@ -177,83 +160,5 @@ class Persona
             $resp = true;
         }
         return $resp;
-    }
-
-    public function buscarUltimaPersona()
-    {
-        $database = BaseDatos::getInstance();
-
-        $personaExistente = null;
-
-        // skhjsadkhjhdjskdahjskjhka sql tenemos que ingresar a la tabla de usuario y acceder al valor de la carrera y el rol
-        // https://medoo.in/api/get
-        $datosPersona = $database->get('usuario', [
-            '[>]carrera' => ['id_carrera' => 'idcarrera'],
-            '[>]rol' => ['rol' => 'idrol']
-        ], [
-            'usuario.legajo',
-            'usuario.nombre',
-            'carrera.nomcarrera(carrera_nombre)',
-            'rol.nombre(rol_nombre)'
-        ], [
-            'ORDER' => ['usuario.legajo' => 'DESC'], // ordena por legajo de forma descendente
-            'LIMIT' => 1 // el limite
-        ]);
-
-        if ($datosPersona) {
-            $persona = new Persona();
-            $persona->setLegajo($datosPersona['legajo']);
-            $persona->setNombre($datosPersona['nombre']);
-
-            $carrera = new Carrera();
-            $carrera->setNombre($datosPersona['carrera_nombre']);
-            $persona->setObjCarrera($carrera);
-
-            $rol = new Rol();
-            $rol->setNombre($datosPersona['rol_nombre']);
-            $persona->setObjRol($rol);
-
-            $personaExistente = $persona;
-        }
-
-        return $personaExistente;
-    }
-
-    private function limpiarDatos($datos)
-    {
-        $columnasValidas = ['legajo', 'nombre', 'id_carrera', 'rol'];
-        $mapeoClaves = [
-            'obj_id_carrera' => 'id_carrera',
-            'obj_rol' => 'rol'
-        ];
-
-        foreach ($datos as $key => $value) {
-            if (isset($mapeoClaves[$key])) {
-                $datos[$mapeoClaves[$key]] = $value;
-                unset($datos[$key]);
-            }
-
-            // se limpia la clave del obj aca porque es una instancia de carrera que se instancia en persona (por construct)
-            if ($key === 'obj_carrera' && $value instanceof Carrera) {
-                $idCarrera = $value->getId();
-                $datos['id_carrera'] = $idCarrera;
-                unset($datos[$key]);
-            }
-
-            if ($key === 'obj_rol' && $value instanceof Rol) {
-                $idRol = $value->getId();
-                $datos['rol'] = $idRol;
-                unset($datos[$key]);
-            }
-
-            if (!in_array($key, $columnasValidas) && !isset($mapeoClaves[$key])) {
-                unset($datos[$key]); // destruye claves
-            }
-        }
-        if (!isset($datos['id_carrera'])) {
-            $datos['id_carrera'] = null;
-        }
-
-        return $datos;
     }
 }

@@ -2,8 +2,6 @@
 
 namespace controller;
 
-require_once '../../configLib.php';
-
 use model\Carrera;
 use Laminas\Hydrator\ClassMethodsHydrator;
 
@@ -34,7 +32,7 @@ class AbmCarrera
     public function listarCarreras($condicion = null)
     {
         $carreraModelo = $this->datosObjCarrera();
-        if($condicion) {
+        if ($condicion) {
             $resultado = $carreraModelo->listar($condicion);
         } else {
             $resultado = $carreraModelo->listar();

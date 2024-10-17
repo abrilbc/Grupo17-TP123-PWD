@@ -4,7 +4,6 @@ namespace controller;
 
 
 use model\Rol;
-use controller\AbmPersona;
 use Laminas\Hydrator\ClassMethodsHydrator;
 use Exception;
 
@@ -77,7 +76,7 @@ class AbmRol
     }
 
     public function listarRoles($condicion = null)
-    {   
+    {
         $RolModelo = $this->datosObjRol();
         if ($condicion) {
             $resultado = $RolModelo->listar($condicion);

@@ -17,8 +17,6 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
     if ($resp === 'Éxito') {
         $msj = 'Persona agregada con éxito.';
         $msjTipo = 'success';
-
-        $personaAgregada = $objAbmPersona->buscarUltimaPersona();
         // var_dump($personaAgregada);
     } elseif ($resp === 'Ya existe alguien con este legajo.') {
         $msj = $resp;
