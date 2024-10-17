@@ -1,6 +1,6 @@
 <?php
 
-require_once '../../../configLib.php';
+require_once '../../configLib.php';
 
 use controller\AbmPersona;
 

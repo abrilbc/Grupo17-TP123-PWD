@@ -1,6 +1,6 @@
 <?php 
 include_once '../../Vista/Estructura/header.php';
-require_once '../../../configLib.php';
+require_once '../../configLib.php';
 
 use controller\AbmRol;
 $objAbmRol = new AbmRol();

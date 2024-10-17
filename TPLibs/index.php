@@ -1,5 +1,5 @@
 <?php
-require_once '../../../configLib.php';
+require_once '../configLib.php';
 include_once './view/Estructura/header.php';
 ?>
 <div class="container mt-4">
