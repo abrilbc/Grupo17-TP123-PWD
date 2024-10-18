@@ -18,6 +18,7 @@ class AbmPersona
 
     public function buscarPersona($legajo)
     {
+        $rta = null;
         $personaModelo = new Persona();
         $resultado = $personaModelo->buscar($legajo);
 
@@ -38,9 +39,9 @@ class AbmPersona
                 }
             }
 
-            return $personaModelo;
+            $rta = $personaModelo;
         }
-        return null;
+        return $rta;
     }
 
     public function agregarPersona()

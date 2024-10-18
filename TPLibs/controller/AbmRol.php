@@ -34,19 +34,25 @@ class AbmRol
     $mensaje = '';
     $rolModelo = $this->datosObjRol();
     $datos = $this->hydrator->extract($rolModelo);
-    if (isset($datos['nombre']) && $this->buscarRol($datos['nombre'])) {
-        $mensaje = 'Error: El rol con ese nombre ya existe.';
-    } else {
-        $resultado = $rolModelo->insertar($datos);
-        if ($resultado) {
-            $mensaje = 'Éxito: Rol insertado correctamente.';
+    print_r($datos);
+    // Verificamos si ya existe un rol con ese nombre antes de insertarlo
+    if (isset($datos['nombre'])) {
+        $rolExistente = $this->buscarRol($datos['nombre']);
+        if ($rolExistente) {
+            $mensaje = 'Error: El rol ya existe en la base de datos.';
         } else {
-            $mensaje = 'Error: No se pudo insertar el rol.';
+            $resultado = $rolModelo->insertar($datos);
+            if ($resultado) {
+                $mensaje = 'Éxito';
+            } else {
+                $mensaje = 'Error: No se pudo agregar el rol.';
+            }
         }
     }
 
     return $mensaje;
 }
+
 
 
     public function eliminarRol()

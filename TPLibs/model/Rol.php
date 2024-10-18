@@ -39,19 +39,25 @@ class Rol
     }
 
     public function buscar($dato)
-    {
-        $rolDatos = [];
-        if (is_numeric($dato)) {
-            $rolDatos = BaseDatos::getInstance()->get('rol','*' , ['id' => $dato]);
-        } else {
-            $rolDatos = BaseDatos::getInstance()->get('rol', '*', ['nombre' => $dato]);
-        }
-        if ($rolDatos) {
-            $this->hydrator->hydrate($rolDatos, $this);
-        }
-
-        return $this->hydrator->extract($this);
+{
+    $rolDatos = [];
+    if (is_numeric($dato)) {
+        $rolDatos = BaseDatos::getInstance()->get('rol','*' , ['id' => $dato]);
+    } else {
+        $rolDatos = BaseDatos::getInstance()->get('rol', '*', ['nombre' => $dato]);
     }
+    
+    if ($rolDatos) {
+        // Hidratamos los datos en el objeto Rol
+        $this->hydrator->hydrate($rolDatos, $this);
+        $rta =  $this->hydrator->extract($this);
+    } else {
+        $rta = null;
+    }
+
+    return $rta;
+}
+
 
     public function listar($condicion = "")
     {
@@ -75,11 +81,8 @@ class Rol
     public function insertar($param)
     {
         $resp = false;
-        $datos = $this->limpiarDatos($param);
-
-        unset($datos['id']);
         $database = BaseDatos::getInstance();
-        $insertResultado = $database->insert('rol', $datos);
+        $insertResultado = $database->insert('rol', $param);
 
         if ($insertResultado) {
             $resp = true;

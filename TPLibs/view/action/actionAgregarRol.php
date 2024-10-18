@@ -11,7 +11,7 @@ $rolAgregado = null;
 
 if ($_SERVER['REQUEST_METHOD'] === 'POST') {
     $resp = $objAbmRol->agregarRol();
-
+    print_r($resp);
     if ($resp === 'Éxito') {
         $msj = 'Rol agregado con éxito.';
         $msjTipo = 'success';

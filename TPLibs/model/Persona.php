@@ -57,11 +57,12 @@ class Persona
 
     public function buscar($legajo)
     {
+        $rta = false;
         $personaDatos = BaseDatos::getInstance()->get('usuario', '*', ['legajo' => $legajo]);
         if ($personaDatos) {
-            $this->hydrator->hydrate($personaDatos, $this);
+            $rta = $this->hydrator->hydrate($personaDatos, $this);
         }
-        return $this;
+        return $rta;
     }
 
     public function listar($condicion = "")
