@@ -17,10 +17,10 @@ SET NAMES utf8mb4;
 CREATE TABLE `rol` (
   `id` bigint(20) NOT NULL AUTO_INCREMENT,
   `nombre` varchar(50) NOT NULL,
-  PRIMARY KEY (`idrol`)
+  PRIMARY KEY (`id`)
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
 
-INSERT INTO `rol` (`idrol`, `nombre`) VALUES
+INSERT INTO `rol` (`id`, `nombre`) VALUES
 (1, 'Profesor'),
 (2, 'Alumno');
 
