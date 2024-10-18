@@ -2,7 +2,6 @@
 
 namespace controller;
 
-
 use model\Rol;
 use Laminas\Hydrator\ClassMethodsHydrator;
 use Exception;
@@ -18,35 +17,38 @@ class AbmRol
 
     public function buscarRol($dato)
     {
-        $RolModelo = new Rol();
-        $RolExistente = null;
-        $resultado = $RolModelo->buscar($dato);
+        $rolModelo = new Rol();
+        $rolExistente = null;
+        $resultado = $rolModelo->buscar($dato);
+        
         if ($resultado) {
-            $this->hydrator->hydrate($resultado, $RolModelo);
-            $RolExistente = $RolModelo;
+            // Hidratamos el modelo con los datos obtenidos
+            $this->hydrator->hydrate($resultado, $rolModelo);
+            $rolExistente = $rolModelo;
         }
-
-        return $RolExistente;
+        return $rolExistente;
     }
 
     public function agregarRol()
-    {
-        $mensaje = '';
-        $rolModelo = $this->datosObjRol();
-        $datos = $this->hydrator->extract($rolModelo);
-
-        if (isset($datos['nombre']) && $this->buscarRol($datos['nombre'])) {
-            $mensaje = 'Error';
+{
+    $mensaje = '';
+    $rolModelo = $this->datosObjRol();
+    $datos = $this->hydrator->extract($rolModelo);
+    print_r($datos);
+    if (isset($datos['nombre']) && $this->buscarRol($datos['nombre'])) {
+        $mensaje = 'Error: El rol con ese nombre ya existe.';
+    } else {
+        $resultado = $rolModelo->insertar($datos);
+        if ($resultado) {
+            $mensaje = 'Éxito: Rol insertado correctamente.';
         } else {
-            $resultado = $rolModelo->insertar($datos);
-            if ($resultado) {
-                $mensaje = 'Éxito';
-            } else {
-                $mensaje = 'Error';
-            }
+            $mensaje = 'Error: No se pudo insertar el rol.';
         }
-        return $mensaje;
     }
+
+    return $mensaje;
+}
+
 
     public function eliminarRol()
     {
@@ -54,35 +56,30 @@ class AbmRol
         try {
             $rolModelo = $this->datosObjRol();
             $datos = $this->hydrator->extract($rolModelo);
-            $idrol = $datos['id'];
-            if ($idrol !== null) {
-                $resultado = $rolModelo->eliminar($idrol);
-                if ($resultado) {
-                    $msj = 'Éxito';
-                } else {
-                    $msj = 'Error';
-                }
+            $id = $datos['id'] ?? null;
+
+            if ($id !== null) {
+                $resultado = $rolModelo->eliminar($id);
+                $msj = $resultado ? 'Éxito: Rol eliminado correctamente.' : 'Error al eliminar el rol.';
+            } else {
+                $msj = 'Error: ID no válido.';
             }
         } catch (\PDOException $e) {
-            if ($e->getCode() == '23000') {  // Este es el código específico de MySQL para violación de clave foránea
+            if ($e->getCode() == '23000') {
                 $msj = 'No se puede eliminar el rol porque está asignado a uno o más usuarios.';
             } else {
                 $msj = 'Error: ' . $e->getMessage();
             }
         } catch (Exception $e) {
-            $msj = $e->getMessage();
+            $msj = 'Error: ' . $e->getMessage();
         }
         return $msj;
     }
 
     public function listarRoles($condicion = null)
     {
-        $RolModelo = $this->datosObjRol();
-        if ($condicion) {
-            $resultado = $RolModelo->listar($condicion);
-        } else {
-            $resultado = $RolModelo->listar();
-        }
+        $rolModelo = $this->datosObjRol();
+        $resultado = $condicion ? $rolModelo->listar($condicion) : $rolModelo->listar();
         return $resultado;
     }
 

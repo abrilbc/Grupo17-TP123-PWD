@@ -6,7 +6,7 @@ include_once './view/Estructura/header.php';
     <h1 class="text-center mt-5">Gestión de Datos</h1>
     <div class="row mt-4">
 
-        <div class="col-md-4">
+        <div class="col-md-6">
             <div class="card shadow">
                 <div class="card-body">
                     <h5 class="card-title">Gestión de Personas</h5>
@@ -18,7 +18,7 @@ include_once './view/Estructura/header.php';
             </div>
         </div>
 
-        <div class="col-md-4">
+        <div class="col-md-6">
             <div class="card shadow">
                 <div class="card-body">
                     <h5 class="card-title">Gestión de Roles</h5>
@@ -26,18 +26,6 @@ include_once './view/Estructura/header.php';
                     <a href="./view/agregarRol.php" class="btn btn-success mb-2 w-100">Agregar Rol</a>
                     <a href="./view/listarPersonasRol.php" class="btn btn-white mb-2 w-100 border border-2">Listar Personas por Rol</a>
                     <a href="./view/eliminarRol.php" class="btn btn-success w-100">Eliminar Rol</a>
-                </div>
-            </div>
-        </div>
-
-        <div class="col-md-4">
-            <div class="card shadow">
-                <div class="card-body">
-                    <h5 class="card-title">Gestión de Carreras</h5>
-                    <p class="card-text">Administra las carreras registradas en el sistema</p>
-                    <a href="./view/agregarCarrera.php" class="btn btn-success mb-2 w-100">Agregar Carrera</a>
-                    <a href="./view/listarCarreras.php" class="btn btn-white mb-2 w-100 border border-2">Listar Carreras</a>
-                    <a href="./view/buscarCarrera.php" class="btn btn-success w-100">Buscar Carrera</a>
                 </div>
             </div>
         </div>

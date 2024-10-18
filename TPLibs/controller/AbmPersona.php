@@ -4,7 +4,6 @@ namespace controller;
 
 use PDOException;
 use model\Persona;
-use model\Carrera;
 use model\Rol;
 use Laminas\Hydrator\ClassMethodsHydrator;
 
@@ -21,22 +20,10 @@ class AbmPersona
     {
         $personaModelo = new Persona();
         $resultado = $personaModelo->buscar($legajo);
-        $personaExistente = null;
 
         if ($resultado) {
-            // Hidratamos los datos de la persona
-            $this->hydrator->hydrate($resultado, $personaModelo);
-            $carreraObj = $personaModelo->getObjCarrera() ?? new Carrera();
             $rolObj = $personaModelo->getObjRol() ?? new Rol();
-            $personaModelo->setObjCarrera($carreraObj); // Lo seteamos independientemente
             $personaModelo->setObjRol($rolObj);
-
-            // --- Manejo de Carrera ---
-            if ($idCarrera = $carreraObj->getId()) {
-                $carrera = new Carrera();
-                $datosCarrera = $carrera->buscar($idCarrera);
-                $this->hydrator->hydrate($datosCarrera ?? [], $carreraObj);
-            }
 
             // --- Manejo de Rol ---
             if ($idRol = $rolObj->getId()) {
@@ -45,9 +32,9 @@ class AbmPersona
                 $this->hydrator->hydrate($datosRol ?? [], $rolObj);
             }
 
-            $personaExistente = $personaModelo;
+            return $personaModelo;
         }
-        return $personaExistente;
+        return null;
     }
 
     public function agregarPersona()
@@ -58,11 +45,6 @@ class AbmPersona
 
         unset($datos['legajo']);
 
-        if (isset($datos['obj_carrera'])) {
-            $datos['id_carrera'] = $datos['obj_carrera']->getId();
-            unset($datos['obj_carrera']);
-        }
-
         if (isset($datos['obj_rol'])) {
             $datos['rol'] = $datos['obj_rol']->getId();
             unset($datos['obj_rol']);
@@ -70,12 +52,7 @@ class AbmPersona
 
         $resultado = $personaModelo->insertar($datos);
 
-        if ($resultado) {
-            $mensaje = 'Éxito';
-        } else {
-            $mensaje = 'Error al insertar la persona.';
-        }
-
+        $mensaje = $resultado ? 'Éxito' : 'Error al insertar la persona.';
         return $mensaje;
     }
 
@@ -86,20 +63,11 @@ class AbmPersona
         $datos = $this->hydrator->extract($personaModelo);
 
         if (isset($datos['legajo']) && is_numeric($datos['legajo'])) {
-            if (isset($datos['obj_carrera'])) {
-                $datos['id_carrera'] = $datos['obj_carrera']->getId();
-                unset($datos['obj_carrera']);
-            }
-
             if (isset($datos['obj_rol'])) {
                 $datos['rol'] = $datos['obj_rol']->getId();
                 unset($datos['obj_rol']);
             }
-            if ($personaModelo->actualizar($datos)) {
-                $msj = 'Éxito';
-            } else {
-                $msj = 'Error';
-            }
+            $msj = $personaModelo->actualizar($datos) ? 'Éxito' : 'Error';
         } else {
             $msj = 'Error';
         }
@@ -107,15 +75,10 @@ class AbmPersona
         return $msj;
     }
 
-
     public function listarPersonas($condicion = null)
     {
-        $personaModelo = $this->datosObjPersona();
-        if ($condicion !== null) {
-            $resultado = $personaModelo->listar($condicion);
-        } else {
-            $resultado = $personaModelo->listar();
-        }
+        $personaModelo = new Persona();
+        $resultado = $condicion !== null ? $personaModelo->listar($condicion) : $personaModelo->listar();
         return $resultado;
     }
 
@@ -128,26 +91,17 @@ class AbmPersona
 
             if ($legajo !== null) {
                 $resultado = $personaModelo->eliminar($legajo);
-                if ($resultado) {
-                    $msj = 'Éxito';
-                } else {
-                    $msj = 'Error';
-                }
+                return $resultado ? 'Éxito' : 'Error';
             }
         } catch (PDOException $e) {
-            $msj = $e->getMessage();
+            return $e->getMessage();
         }
-        return $msj;
+        return 'Error';
     }
 
     private function datosObjPersona()
     {
         $datos = darDatosSubmitted();
-        // Manejo de Carrera
-        if (isset($datos['id_carrera'])) {
-            $carrera = new Carrera($datos['id_carrera']);
-            $datos['obj_carrera'] = $carrera;
-        }
 
         // Manejo de Rol
         if (isset($datos['rol'])) {

@@ -14,24 +14,8 @@ START TRANSACTION;
 SET time_zone = "+00:00";
 SET NAMES utf8mb4;
 
-CREATE TABLE `carrera` (
-  `idcarrera` bigint(20) NOT NULL AUTO_INCREMENT,
-  `nomcarrera` varchar(50) NOT NULL,
-  `descripcion` varchar(100) NOT NULL,
-  PRIMARY KEY (`idcarrera`)
-) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
-
-INSERT INTO `carrera` (`idcarrera`, `nomcarrera`, `descripcion`) VALUES
-(1, 'Tec. Desarrollo Web', ''),
-(2, 'Tec. Software Libre y Adm. en Sistemas', ''),
-(3, 'Licenciatura en Ciencias de la Computación', ''),
-(4, 'Licenciatura en Sistemas de Información', ''),
-(5, 'Profesorado de Informática', ''),
-(6, 'Maestría en Ciencias de la Computación', ''),
-(7, 'Maestría en Enseñanza en Escenarios Digitales', '');
-
 CREATE TABLE `rol` (
-  `idrol` bigint(20) NOT NULL AUTO_INCREMENT,
+  `id` bigint(20) NOT NULL AUTO_INCREMENT,
   `nombre` varchar(50) NOT NULL,
   PRIMARY KEY (`idrol`)
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
@@ -43,11 +27,9 @@ INSERT INTO `rol` (`idrol`, `nombre`) VALUES
 CREATE TABLE `usuario` (
   `legajo` bigint(20) NOT NULL AUTO_INCREMENT,
   `nombre` varchar(50) NOT NULL,
-  `id_carrera` bigint(20) NOT NULL,
   `rol` bigint(20) NOT NULL,  -- Cambiado de varchar(10) a bigint para referenciar correctamente la tabla `rol`
   PRIMARY KEY (`legajo`),
-  FOREIGN KEY (`id_carrera`) REFERENCES `carrera` (`idcarrera`) ON UPDATE CASCADE ON DELETE RESTRICT,
-  FOREIGN KEY (`rol`) REFERENCES `rol` (`idrol`) ON UPDATE CASCADE ON DELETE RESTRICT
+  FOREIGN KEY (`rol`) REFERENCES `rol` (`id`) ON UPDATE CASCADE ON DELETE RESTRICT
 ) AUTO_INCREMENT=4001 ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
 
 COMMIT;

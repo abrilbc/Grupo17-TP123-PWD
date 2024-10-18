@@ -3,17 +3,14 @@ require_once '../../configLib.php';
 include_once 'Estructura/header.php';
 
 // use controller\AbmPersona;
-use controller\AbmCarrera;
 use controller\AbmRol;
 
 // $objAbmPersona = new AbmPersona();
-$objAbmCarrera = new AbmCarrera();
 $objAbmRol = new AbmRol();
 $msj = '';
 $msjTipo = ''; // Variable para definir el tipo de mensaje (éxito o error)
 
 
-$arrayCarreras = $objAbmCarrera->listarCarreras();
 $arrayRoles = $objAbmRol->listarRoles();
 
 
@@ -26,17 +23,6 @@ $arrayRoles = $objAbmRol->listarRoles();
                 <div class="mb-3">
                     <label for="nombre" class="form-label">Nombre y Apellido:</label>
                     <input type="text" class="form-control" name="nombre" id="nombre" placeholder="Rodrigo Villablanca">
-                </div>
-                <div class="mb-3">
-                    <label for="idcarrera" class="form-label">Carrera:</label>
-                    <select class="form-control" name="id_carrera" id="idcarrera">
-                        <option value="">Selecciona una carrera</option>
-                        <?php foreach ($arrayCarreras as $carrera): ?>
-                            <option value="<?php echo htmlspecialchars($carrera->getId()); ?>">
-                                <?php echo htmlspecialchars($carrera->getNombre()); ?>
-                            </option>
-                        <?php endforeach; ?>
-                    </select>
                 </div>
                 <div class="mb-4">
                     <label for="rol" class="form-label">Rol:</label>

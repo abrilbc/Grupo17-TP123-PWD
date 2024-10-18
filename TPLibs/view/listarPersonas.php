@@ -16,7 +16,6 @@ if (count($colPersonas) > 0) {
             <tr>
                 <th>Legajo</th>
                 <th>Nombre</th>
-                <th>Carrera</th>
                 <th>Rol</th>
             </tr>
         </thead>
@@ -24,14 +23,11 @@ if (count($colPersonas) > 0) {
     HTML;
 
     foreach ($colPersonas as $persona) {
-
-        $nombreCarreras = $persona->getObjCarrera()->getNombre();
         $nombreRol = $persona->getObjRol()->getNombre();
         $msj .= <<<FILA
         <tr>
             <td>FAI-{$persona->getLegajo()}</td>
             <td>{$persona->getNombre()}</td>
-            <td>{$nombreCarreras}</td>
             <td>{$nombreRol}</td>
         </tr>
         FILA;

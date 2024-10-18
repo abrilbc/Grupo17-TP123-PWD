@@ -3,16 +3,19 @@
 namespace model;
 
 use model\connector\BaseDatos;
+use Laminas\Hydrator\ClassMethodsHydrator;
 
 class Rol
 {
     private $id;
     private $nombre;
+    private $hydrator;
 
     public function __construct($id = null, $nombre = null)
     {
         $this->id = $id;
         $this->nombre = $nombre;
+        $this->hydrator = new ClassMethodsHydrator();
     }
 
     public function getId()
@@ -37,20 +40,20 @@ class Rol
 
     public function buscar($dato)
     {
-        $rolExistente = [];
+        $rolDatos = [];
         if (is_numeric($dato)) {
-            $rolDatos = BaseDatos::getInstance()->get('rol', ['idrol', 'nombre'], ['idrol' => $dato]);
+            $rolDatos = BaseDatos::getInstance()->get('rol','*' , ['id' => $dato]);
         } else {
-            // Si el dato no es numérico, buscamos por nombre
-            $rolDatos = BaseDatos::getInstance()->get('rol', ['idrol', 'nombre'], ['nombre' => $dato]);
+            echo $dato;
+            $rolDatos = BaseDatos::getInstance()->get('rol', '*', ['nombre' => $dato]);
+            var_dump($rolDatos);
         }
         if ($rolDatos) {
-            $rolExistente = [
-                'id' => $rolDatos['idrol'],
-                'nombre' => $rolDatos['nombre']
-            ];
+            // Hidratamos los datos en el objeto Rol
+            $this->hydrator->hydrate($rolDatos, $this);
         }
-        return $rolExistente;
+
+        return $this->hydrator->extract($this);
     }
 
     public function listar($condicion = "")
@@ -61,9 +64,11 @@ class Rol
             $where = ["AND" => $condicion];
         }
         $resultados = BaseDatos::getInstance()->select('rol', '*', $where);
+
         if ($resultados) {
             foreach ($resultados as $fila) {
-                $objRol = new Rol($fila['idrol'], $fila['nombre']);
+                $objRol = new Rol();
+                $this->hydrator->hydrate($fila, $objRol);
                 $arrObjs[] = $objRol;
             }
         }
@@ -73,12 +78,12 @@ class Rol
     public function insertar($param)
     {
         $resp = false;
-
         $datos = $this->limpiarDatos($param);
-        unset($datos['idrol']);
 
+        unset($datos['id']);
         $database = BaseDatos::getInstance();
         $insertResultado = $database->insert('rol', $datos);
+
         if ($insertResultado) {
             $resp = true;
         }
@@ -88,7 +93,7 @@ class Rol
     public function eliminar($id)
     {
         $resp = false;
-        $idEncontrado = BaseDatos::getInstance()->delete('rol', ['idrol' => $id]);
+        $idEncontrado = BaseDatos::getInstance()->delete('rol', ['id' => $id]);
         if ($idEncontrado->rowCount() > 0) {
             $resp = true;
         }
@@ -103,7 +108,7 @@ class Rol
         ];
 
         foreach ($datos as $k => $v) {
-            if (isset($mapeo[$k])) {
+            if (isset($mapeoClaves[$k])) {
                 $datos[$mapeoClaves[$k]] = $v;
                 unset($datos[$k]);
             }
@@ -112,9 +117,7 @@ class Rol
                 unset($datos[$k]);
             }
         }
-        if (!isset($datos['idrol'])) {
-            $datos['idrol'] = null;
-        }
+
         return $datos;
     }
 }

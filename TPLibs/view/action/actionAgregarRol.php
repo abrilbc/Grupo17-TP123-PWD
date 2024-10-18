@@ -10,11 +10,10 @@ $msjTipo = '';
 $rolAgregado = null;
 
 if ($_SERVER['REQUEST_METHOD'] === 'POST') {
-    $datos = darDatosSubmitted();
     $resp = $objAbmRol->agregarRol();
 
     if ($resp === 'Éxito') {
-        $msj = 'Rol agrego con éxito.';
+        $msj = 'Rol agregado con éxito.';
         $msjTipo = 'success';
     } else {
         $msj = 'Error al agregar el rol';

@@ -2,14 +2,13 @@
 require_once '../../../configLib.php';
 
 use controller\AbmPersona;
-use controller\AbmCarrera;
 use controller\AbmRol;
 
 $objAbmPersona = new AbmPersona();
-$objAbmCarrera = new AbmCarrera();
 $objAbmRol = new AbmRol();
 $msj = '';
 $msjTipo = ''; // Variable para definir el tipo de mensaje (éxito o error)
+$i = 0;
 
 include_once '../Estructura/header.php';
 
@@ -21,11 +20,6 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
     if ($resp) {
         // Datos de la persona
         $nombre = $resp->getNombre();
-
-        // Carrera actual
-        $carreraActual = $resp->getObjCarrera();
-        $idCarreraActual = $carreraActual ? $carreraActual->getId() : null;
-        $carreras = $objAbmCarrera->listarCarreras(); // Lista de carreras dinámicas
 
         // Rol actual
         $rolActual = $resp->getObjRol();
@@ -46,24 +40,12 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
             </div>
 
             <div class="mb-4">
-                <label for="idcarrera" class="form-label fw-bold">Carrera:</label>
-                <select class="form-select" name="id_carrera" id="idcarrera">';
-
-        // Generar opciones dinámicas para carreras
-        foreach ($carreras as $carrera) {
-            $selected = ($carrera->getId() == $idCarreraActual) ? 'selected' : '';
-            $msj .= '<option value="' . $carrera->getId() . '" ' . $selected . '>' . htmlspecialchars($carrera->getNombre()) . '</option>';
-        }
-
-        $msj .= '</select>
-            </div>
-
-            <div class="mb-4">
                 <label for="rol" class="form-label fw-bold">Rol:</label>
                 <select class="form-select" name="rol" id="rol">';
 
         // Generar opciones dinámicas para roles
         foreach ($roles as $rol) {
+            echo $i + 1;
             $selected = ($rol->getId() == $idRolActual) ? 'selected' : '';
             $msj .= '<option value="' . $rol->getId() . '" ' . $selected . '>' . htmlspecialchars($rol->getNombre()) . '</option>';
         }

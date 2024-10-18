@@ -7,7 +7,7 @@ use controller\AbmRol;
 
 $objAbmRol = new AbmRol();
 $msj = '';
-$msjTipo = ''; // Variable para definir el tipo de mensaje (éxito o error)
+$msjTipo = ''; 
 
 $arrayRoles = $objAbmRol->listarRoles();
 
@@ -39,7 +39,7 @@ $arrayRoles = $objAbmRol->listarRoles();
                 <div class="d-grid gap-2">
                     <button type="submit" class="btn btn-success">Agregar</button>
                     <a href="../" class="btn btn-secondary">
-                        << Volver>>
+                        <<Volver>>
                     </a>
                 </div>
             </form>
