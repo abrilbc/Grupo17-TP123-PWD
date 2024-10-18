@@ -34,7 +34,6 @@ class AbmRol
     $mensaje = '';
     $rolModelo = $this->datosObjRol();
     $datos = $this->hydrator->extract($rolModelo);
-    print_r($datos);
     if (isset($datos['nombre']) && $this->buscarRol($datos['nombre'])) {
         $mensaje = 'Error: El rol con ese nombre ya existe.';
     } else {

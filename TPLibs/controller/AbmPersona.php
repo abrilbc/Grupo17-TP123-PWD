@@ -22,14 +22,20 @@ class AbmPersona
         $resultado = $personaModelo->buscar($legajo);
 
         if ($resultado) {
-            $rolObj = $personaModelo->getObjRol() ?? new Rol();
-            $personaModelo->setObjRol($rolObj);
+            $rolObj = $personaModelo->getObjRol();
+            if (!$rolObj) {
+                $rolObj = new Rol();
+                $personaModelo->setObjRol($rolObj);
+            }
 
             // --- Manejo de Rol ---
-            if ($idRol = $rolObj->getId()) {
+            $idRol = $rolObj->getId();
+            if ($idRol) {
                 $rol = new Rol();
                 $datosRol = $rol->buscar($idRol);
-                $this->hydrator->hydrate($datosRol ?? [], $rolObj);
+                if ($datosRol) {
+                    $this->hydrator->hydrate($datosRol, $rolObj);
+                }
             }
 
             return $personaModelo;
@@ -43,16 +49,26 @@ class AbmPersona
         $personaModelo = $this->datosObjPersona();
         $datos = $this->hydrator->extract($personaModelo);
 
-        unset($datos['legajo']);
+        if (isset($datos['legajo'])) {
+            unset($datos['legajo']);
+        }
 
         if (isset($datos['obj_rol'])) {
-            $datos['rol'] = $datos['obj_rol']->getId();
+            $rol = $datos['obj_rol'];
+            if ($rol instanceof Rol && $rol->getId()) {
+                $datos['rol'] = $rol->getId();
+            }
             unset($datos['obj_rol']);
         }
 
         $resultado = $personaModelo->insertar($datos);
 
-        $mensaje = $resultado ? 'Éxito' : 'Error al insertar la persona.';
+        if ($resultado) {
+            $mensaje = 'Éxito';
+        } else {
+            $mensaje = 'Error al insertar la persona.';
+        }
+
         return $mensaje;
     }
 
@@ -64,10 +80,17 @@ class AbmPersona
 
         if (isset($datos['legajo']) && is_numeric($datos['legajo'])) {
             if (isset($datos['obj_rol'])) {
-                $datos['rol'] = $datos['obj_rol']->getId();
+                $rol = $datos['obj_rol'];
+                if ($rol instanceof Rol && $rol->getId()) {
+                    $datos['rol'] = $rol->getId();
+                }
                 unset($datos['obj_rol']);
             }
-            $msj = $personaModelo->actualizar($datos) ? 'Éxito' : 'Error';
+            if ($personaModelo->actualizar($datos)) {
+                $msj = 'Éxito';
+            } else {
+                $msj = 'Error';
+            }
         } else {
             $msj = 'Error';
         }
@@ -78,7 +101,12 @@ class AbmPersona
     public function listarPersonas($condicion = null)
     {
         $personaModelo = new Persona();
-        $resultado = $condicion !== null ? $personaModelo->listar($condicion) : $personaModelo->listar();
+        $resultado = [];
+        if ($condicion !== null) {
+            $resultado = $personaModelo->listar($condicion);
+        } else {
+            $resultado = $personaModelo->listar();
+        }
         return $resultado;
     }
 
@@ -91,11 +119,16 @@ class AbmPersona
 
             if ($legajo !== null) {
                 $resultado = $personaModelo->eliminar($legajo);
-                return $resultado ? 'Éxito' : 'Error';
+                if ($resultado) {
+                    return 'Éxito';
+                } else {
+                    return 'Error';
+                }
             }
         } catch (PDOException $e) {
             return $e->getMessage();
         }
+
         return 'Error';
     }
 

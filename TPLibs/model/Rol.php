@@ -44,12 +44,9 @@ class Rol
         if (is_numeric($dato)) {
             $rolDatos = BaseDatos::getInstance()->get('rol','*' , ['id' => $dato]);
         } else {
-            echo $dato;
             $rolDatos = BaseDatos::getInstance()->get('rol', '*', ['nombre' => $dato]);
-            var_dump($rolDatos);
         }
         if ($rolDatos) {
-            // Hidratamos los datos en el objeto Rol
             $this->hydrator->hydrate($rolDatos, $this);
         }
 
