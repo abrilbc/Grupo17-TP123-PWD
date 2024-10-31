@@ -30,8 +30,6 @@ include_once('./Estructura/header.php');
         </div>
     </div>
 </div>
-
-    <script>
-    </script>
-</body>
-</html>
+<?php
+    include_once '../../Vista/Estructura/footer.php';
+?>

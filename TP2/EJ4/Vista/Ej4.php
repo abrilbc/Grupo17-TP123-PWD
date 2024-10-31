@@ -1,8 +1,8 @@
 <?php
 include_once './Estructura/header.php';
 ?>
-    <div name="box" class="d-flex justify-content-center align-items-center p-3" style="height: 555px">
-        <div class="all-form-box w-75 shadow mb-2 bg-white rounded">
+    <div name="box" class="d-flex justify-content-center align-items-center p-3" style="height: 555px; margin-top: 20px;">
+        <div class="all-form-box w-75 shadow mb-2 bg-white rounded mb-5" style="margin-top: 10em;">
             <div name="title-box" class="w-100 bg-light bg-gradient px-2">
             <svg width="12" height="12" viewBox="0 0 24.00 24.00" fill="none" xmlns="http://www.w3.org/2000/svg" stroke="#00eeff">
                 <g id="SVGRepo_bgCarrier" stroke-width="0"></g>
@@ -87,5 +87,8 @@ include_once './Estructura/header.php';
             </div>
         </div>
     </div>
+    <?php
+    include_once '../../../Vista/Estructura/footer.php'; 
+    ?>
 </body>
 </html>

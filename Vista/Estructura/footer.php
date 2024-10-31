@@ -1,4 +1,4 @@
-        <div class="w-100 mt-4" style="height: 65px;">
+        <div class="w-100 mt-4 fixed" style="height: 65px;">
 
         </div>
         <footer class="w-100 fixed-bottom border d-flex align-items-center shadow bg-white" style="height: 65px;">

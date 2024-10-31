@@ -32,5 +32,6 @@ include_once('./Estructura/header.php');
         </form>
     </div>
 </div>
-</body>
-</html>
+<?php
+    include_once '../../Vista/Estructura/footer.php';
+?>

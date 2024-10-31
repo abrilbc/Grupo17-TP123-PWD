@@ -43,3 +43,6 @@ deberá guardar la imagen y luego mostrarla junto con la información cargada en
     
 </body>
 </html>
+<?php
+    include_once '../Vista/Estructura/footer.php';
+?>

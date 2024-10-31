@@ -1,15 +1,12 @@
 <?php
 $protocolo = (!empty($_SERVER['HTTPS']) && $_SERVER['HTTPS'] !== 'off' || $_SERVER['SERVER_PORT'] == 443) ? "https://" : "http://";
-
 $host = $_SERVER['HTTP_HOST'];
 $rutaProyecto = "/Grupo17-TP123-PWD";
-
 $baseURL = $protocolo . $host . $rutaProyecto;
 ?>
 
 <!DOCTYPE html>
 <html lang="es">
-
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -26,30 +23,24 @@ $baseURL = $protocolo . $host . $rutaProyecto;
 <body style="font-family: 'Roboto'" class="bg-white">
     <header class="bg-white text-center shadow mb-4">
         <div class="container-fluid">
-            <div class="row align-items-center justify-content-around">
-                <div class="col-3">
-                    <nav>
-                        <ul class="nav justify-content-around list-unstyled">
-                            <li class="nav-item"><a href="<?php echo $baseURL; ?>/TP1" class="nav-link">TP 1</a></li>
-                            <li class="nav-item"><a href="<?php echo $baseURL; ?>/TP2" class="nav-link">TP 2</a></li>
-                            <li class="nav-item"><a href="<?php echo $baseURL; ?>/TP3" class="nav-link">TP 3</a></li>
-                        </ul>
-                    </nav>
-                </div>
-                <div class="col-5">
-                    <a href="<?php echo $baseURL; ?>">
-                        <div class="header" style="background: url('<?php echo $baseURL; ?>/Vista/assets/img/banner_tps_white.png') no-repeat center center; background-size: contain; height: 90px;"></div>
-                    </a>
-                </div>
-                <div class="col-3">
-                    <nav>
-                        <ul class="nav justify-content-around list-unstyled">
-                            <li class="nav-item"><a href="<?php echo $baseURL; ?>/TP4" class="nav-link">TP 4</a></li>
-                            <li class="nav-item"><a href="<?php echo $baseURL; ?>/TPLibs" class="nav-link">LIBRER&Iacute;AS</a></li>
-                            <li class="nav-item"><a href="<?php echo $baseURL; ?>/TPFINAL" class="nav-link">FINAL</a></li>
-                        </ul>
-                    </nav>
-                </div>
+            <div class="d-flex align-items-center justify-content-between">
+                
+                <!-- Logo -->
+                <a href="<?php echo $baseURL; ?>" class="me-4">
+                    <div class="header" style="background: url('<?php echo $baseURL; ?>/Vista/assets/img/logo_new.png') no-repeat center center; background-size: contain; height: 90px; width: 320px;"></div>
+                </a>
+
+                <!-- Navigation Menus with space between -->
+                <nav class="flex-grow-1">
+                    <ul class="nav justify-content-around list-unstyled">
+                        <li class="nav-item"><a href="<?php echo $baseURL; ?>/TP1" class="nav-link fs-6">PRÁCTICO 1</a></li>
+                        <li class="nav-item"><a href="<?php echo $baseURL; ?>/TP2" class="nav-link fs-6">PRÁCTICO 2</a></li>
+                        <li class="nav-item"><a href="<?php echo $baseURL; ?>/TP3" class="nav-link fs-6">PRÁCTICO 3</a></li>
+                        <li class="nav-item"><a href="<?php echo $baseURL; ?>/TP4" class="nav-link fs-6">PRÁCTICO 4</a></li>
+                        <li class="nav-item"><a href="https://github.com/shodrig0/TP-Librerias-ClasesUtiles" class="nav-link fs-6">LIBRERÍAS</a></li>
+                        <li class="nav-item"><a href="<?php echo $baseURL; ?>/TP5" class="nav-link fs-6">PRÁCTICO 5</a></li>
+                    </ul>
+                </nav>
             </div>
         </div>
     </header>
